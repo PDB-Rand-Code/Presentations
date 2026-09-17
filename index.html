@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heating Season 2026: Previous Year Comparison - Rand Associates</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --rand-navy: #1B365D;
+            --rand-blue: #1B75BC;
+            --rand-green: #78BE20;
+            --rand-light-bg: #F4F7FA;
+            --rand-card-border: #E2E8F0;
+            --rand-text-dark: #0F172A;
+            --rand-text-muted: #475569;
+        }
+
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0B132B;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 11.5pt; /* Increased base font size for visibility */
+        }
+
+        .slide-container {
+            align-items: flex-start;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+            display: flex;
+            flex-direction: column;
+            height: 210mm;
+            width: 297mm;
+            justify-content: space-between;
+            overflow: hidden;
+            padding: 18mm 22mm;
+            position: relative;
+            page-break-after: always;
+        }
+
+        .slide-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--rand-navy) 0%, var(--rand-blue) 60%, var(--rand-green) 100%);
+            z-index: 10;
+        }
+
+        .slide-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding-bottom: 3.5mm;
+            border-bottom: 2px solid #F1F5F9;
+        }
+
+        .logo-small {
+            height: 11mm;
+            object-fit: contain;
+        }
+
+        .slide-title {
+            font-size: 24pt; /* Increased title size */
+            font-weight: 800;
+            color: var(--rand-navy);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .slide-title::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 20pt;
+            background-color: var(--rand-green);
+            border-radius: 3px;
+        }
+
+        .content-area {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .slide-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            font-size: 10pt; /* Increased footer font size */
+            color: var(--rand-text-muted);
+            border-top: 1px solid #E2E8F0;
+            padding-top: 2.5mm;
+        }
+
+        /* Tables */
+        .table-layout {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--rand-card-border);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+            margin-bottom: 3.5mm;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 11pt; /* Increased table text size */
+        }
+
+        th {
+            background-color: var(--rand-navy);
+            color: #ffffff;
+            font-weight: 700;
+            padding: 3mm 3.5mm;
+            text-align: left;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        td {
+            background-color: #ffffff;
+            border-bottom: 1px solid #F1F5F9;
+            padding: 3mm 3.5mm;
+            color: var(--rand-text-dark);
+        }
+
+        tr:nth-child(even) td {
+            background-color: #F8FAFC;
+        }
+
+        .highlight-tag {
+            background-color: #FEF2F2;
+            color: #DC2626;
+            font-weight: 700;
+            font-size: 10pt;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .green-tag {
+            background-color: #F0FDF4;
+            color: #16A34A;
+            font-weight: 700;
+            font-size: 10pt;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .summary-banner {
+            background-color: #EFF6FF;
+            border-left: 5px solid var(--rand-blue);
+            padding: 3.5mm 4.5mm;
+            border-radius: 0 6px 6px 0;
+            width: 100%;
+            color: var(--rand-navy);
+            font-size: 11pt; /* Increased for distance visibility */
+            line-height: 1.45;
+        }
+
+        /* Title Slide Layout */
+        .title-layout {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1B365D 0%, #0F172A 100%);
+            color: #ffffff;
+            border-radius: 12px;
+            margin: -18mm -22mm;
+            padding: 20mm;
+            height: calc(210mm);
+            width: calc(297mm);
+        }
+
+        .title-logo {
+            max-width: 80mm;
+            margin-bottom: 8mm;
+            background: #ffffff;
+            padding: 5mm;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        /* Cards & Grids */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 7mm;
+            width: 100%;
+            align-items: center;
+        }
+
+        .three-card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5mm;
+            width: 100%;
+        }
+
+        .card-box {
+            background-color: var(--rand-light-bg);
+            border-radius: 8px;
+            border: 1px solid var(--rand-card-border);
+            padding: 5mm;
+            text-align: left;
+        }
+
+        .card-box.highlight-blue { border-top: 4px solid var(--rand-blue); }
+        .card-box.highlight-green { border-top: 4px solid var(--rand-green); }
+        .card-box.highlight-navy { border-top: 4px solid var(--rand-navy); }
+
+        /* Column Charts */
+        .column-chart-container {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 10px;
+            width: 100%;
+            height: 54mm;
+            padding-top: 3mm;
+        }
+
+        .column-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            height: 100%;
+            justify-content: flex-end;
+        }
+
+        .column-value {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 11pt;
+            color: var(--rand-navy);
+            margin-bottom: 2px;
+        }
+
+        .column-subvalue {
+            font-size: 8pt;
+            font-weight: 700;
+            color: #2563EB;
+            background: #EFF6FF;
+            padding: 2px 4px;
+            border-radius: 4px;
+            margin-bottom: 2px;
+        }
+
+        .column-annual-sub {
+            font-size: 7.5pt;
+            font-weight: 600;
+            color: var(--rand-text-muted);
+            margin-bottom: 3px;
+        }
+
+        .column-track {
+            background-color: #E2E8F0;
+            border-radius: 6px 6px 0 0;
+            width: 100%;
+            max-width: 22mm;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .column-fill {
+            width: 100%;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .column-label {
+            color: var(--rand-navy);
+            font-weight: 700;
+            font-size: 10pt;
+            margin-top: 6px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SLIDE 1: Title Slide -->
+    <div class="slide-container">
+        <div class="title-layout">
+            <img src="rand-main-logo.png" alt="Rand Associates Logo" class="title-logo" onerror="this.style.display='none'">
+            <h1 style="font-size: 34pt; margin-bottom: 5mm; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;">Heating Season 2026: Previous Year Comparison</h1>
+            <h2 style="font-size: 17pt; font-weight: 500; color: #94A3B8; margin-bottom: 8mm;">UK Residential Heating Gas and Oil Trends</h2>
+            <div style="font-size: 13pt; color: #78BE20; font-weight: 700; letter-spacing: 0.5px;">Rand Associates</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: October Price Cap Details - Reordered Table Layout -->
+    <div class="slide-container">
+        <div class="slide-header">
+            <div class="slide-title">October Price Cap Details: Gas Cost Breakdown</div>
+            <img src="rand-logo.png" alt="Rand" class="logo-small" onerror="this.style.display='none'">
+        </div>
+        <div class="content-area">
+            <div class="table-layout">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>October Effective Period</th>
+                            <th>Gas Unit Rate (p/kWh)</th>
+                            <th>Annual Gas Cost (Excl. Standing Charge)*</th>
+                            <th>Year-on-Year Gas Unit Increase</th>
+                            <th>Gas Standing Charge (Per Year)</th>
+                            <th>Combined Total Annual Gas Cost*</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>October 2023</strong></td>
+                            <td>6.89p</td>
+                            <td>£792.35</td>
+                            <td><span class="green-tag">Baseline</span></td>
+                            <td>£108.04</td>
+                            <td><strong>£900.39</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>October 2024</strong></td>
+                            <td>6.24p</td>
+                            <td>£717.60</td>
+                            <td><span class="green-tag">-9.4%</span></td>
+                            <td>£114.72</td>
+                            <td><strong>£832.32</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>October 2025</strong></td>
+                            <td>5.93p</td>
+                            <td>£681.95</td>
+                            <td><span class="green-tag">-5.0%</span></td>
+                            <td>£114.65</td>
+                            <td><strong>£796.60</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>October 2026</strong></td>
+                            <td><strong>7.97p</strong></td>
+                            <td><strong>£916.55</strong></td>
+                            <td><span class="highlight-tag">+34.4% Increase</span></td>
+                            <td>£108.33</td>
+                            <td><strong style="color: #DC2626;">£1,024.88</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="summary-banner">
+                Focused strictly on <em>gas utility metrics</em>, October 2026 introduces a sharp upward correction to 7.97p/kWh. *Calculations assume national average standard annual gas consumption of 11,500 kWh.
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>Rand Associates | Heating Season 2026 Report</span>
+            <span>Slide 2</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: Gas Unit Rate Trend & Monthly/Annual Property Impact -->
+    <div class="slide-container">
+        <div class="slide-header">
+            <div class="slide-title">Gas Unit Rate Trend & Property Impact</div>
+            <img src="rand-logo.png" alt="Rand" class="logo-small" onerror="this.style.display='none'">
+        </div>
+        <div class="content-area">
+            <div class="two-column" style="grid-template-columns: 1.1fr 0.9fr; gap: 6mm;">
+                <div>
+                    <div style="font-size: 11pt; font-weight: 700; color: var(--rand-navy); margin-bottom: 2mm;">October Gas Unit Rates & Average Bill Progression</div>
+                    <div class="column-chart-container">
+                        <div class="column-group">
+                            <div class="column-value">6.89p</div>
+                            <div class="column-subvalue">~£74.70/mo</div>
+                            <div class="column-annual-sub">~£896/yr</div>
+                            <div class="column-track"><div class="column-fill" style="height: 86%; background: var(--rand-blue);"></div></div>
+                            <div class="column-label">Oct 2023</div>
+                        </div>
+                        <div class="column-group">
+                            <div class="column-value">6.24p</div>
+                            <div class="column-subvalue">~£69.20/mo</div>
+                            <div class="column-annual-sub">~£830/yr</div>
+                            <div class="column-track"><div class="column-fill" style="height: 78%; background: #64748B;"></div></div>
+                            <div class="column-label">Oct 2024</div>
+                        </div>
+                        <div class="column-group">
+                            <div class="column-value">5.93p</div>
+                            <div class="column-subvalue">~£66.30/mo</div>
+                            <div class="column-annual-sub">~£796/yr</div>
+                            <div class="column-track"><div class="column-fill" style="height: 74%; background: #16A34A;"></div></div>
+                            <div class="column-label">Oct 2025</div>
+                        </div>
+                        <div class="column-group">
+                            <div class="column-value" style="color: #DC2626;">7.97p</div>
+                            <div class="column-subvalue" style="color: #DC2626; background: #FEF2F2;">~£85.80/mo</div>
+                            <div class="column-annual-sub" style="color: #DC2626; font-weight: 700;">~£1,025/yr</div>
+                            <div class="column-track"><div class="column-fill" style="height: 100%; background: #DC2626;"></div></div>
+                            <div class="column-label" style="font-weight: 800;">Oct 2026</div>
+                        </div>
+                    </div>
+                    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 2.5mm 4mm; border-radius: 6px; margin-top: 2mm; font-size: 9pt; color: var(--rand-text-muted);">
+                        <strong>National Benchmark:</strong> Two-bedroom property with a consumption usage of 11,500 kWh per year (including standing charges).
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 4mm;">
+                    <div style="background: linear-gradient(135deg, #1B365D 0%, #1B75BC 100%); color: #ffffff; border-radius: 8px; padding: 4.5mm 5mm; text-align: center;">
+                        <div style="font-size: 9pt; text-transform: uppercase; color: #94A3B8; font-weight: 700; letter-spacing: 0.5px;">Monthly Cost Increase vs Oct 2025</div>
+                        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 24pt; font-weight: 800; color: #78BE20; margin: 2px 0;">+£19.50 / mo</div>
+                        <div style="font-size: 9pt; color: #E2E8F0;">Monthly bill rises from ~£66.30 to ~£85.80</div>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, #1B365D 0%, #0F172A 100%); color: #ffffff; border-radius: 8px; padding: 4.5mm 5mm; text-align: center;">
+                        <div style="font-size: 9pt; text-transform: uppercase; color: #94A3B8; font-weight: 700; letter-spacing: 0.5px;">Annual Cost Increase vs Oct 2025</div>
+                        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 24pt; font-weight: 800; color: #78BE20; margin: 2px 0;">+£228.00 / yr</div>
+                        <div style="font-size: 9pt; color: #E2E8F0;">Annual expenditure shifts from ~£796 to ~£1,025</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>Rand Associates | Heating Season 2026 Report</span>
+            <span>Slide 3</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: January 2027 Forecast & Fixed Tariffs -->
+    <div class="slide-container">
+        <div class="slide-header">
+            <div class="slide-title">January 2027 Forecast & Fixed Rate Analysis</div>
+            <img src="rand-logo.png" alt="Rand" class="logo-small" onerror="this.style.display='none'">
+        </div>
+        <div class="content-area">
+            <div class="two-column">
+                <div class="card-box highlight-blue">
+                    <h3 style="font-size: 12pt; color: var(--rand-navy); margin-bottom: 6px;">Cornwall Insight Jan 2027 Outlook</h3>
+                    <p style="font-size: 10pt; color: var(--rand-text-dark); line-height: 1.45; margin-bottom: 8px;">
+                        Industry forecasters project an additional ~8.8% rise in the Ofgem Price Cap heading into January 2027.
+                    </p>
+                    <div style="background: #EFF6FF; padding: 7mm; border-radius: 6px; font-size: 9.5pt; color: var(--rand-navy); line-height: 1.4;">
+                        • Q1 Projected Gas Unit Rate: ~8.65p / kWh<br>
+                        • Projected 2-Bed Monthly Bill: ~£92.30 / mo<br>
+                        • Projected 2-Bed Annual Total: ~£1,107 / yr
+                    </div>
+                </div>
+                <div class="card-box highlight-green">
+                    <h3 style="font-size: 12pt; color: var(--rand-navy); margin-bottom: 6px;">Octopus Energy Fix (Quote: 17/09/2026)</h3>
+                    <p style="font-size: 10pt; color: var(--rand-text-dark); line-height: 1.45; margin-bottom: 8px;">
+                        Active market fixed tariff quoted at <strong>9.08p per kWh</strong> for gas (12-month lock).
+                    </p>
+                    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 7mm; border-radius: 6px; font-size: 9.5pt; line-height: 1.4;">
+                        • Fixed Gas Rate: <strong>9.08p / kWh</strong><br>
+                        • Estimated Monthly Bill: <strong>~£96.70 / mo</strong><br>
+                        • Estimated Annual Bill: <strong>~£1,160 / yr</strong><br>
+                        <span style="color: #DC2626; font-weight: 700; display: inline-block; margin-top: 4px;">Difference vs Oct 2026 Cap: +£10.90/mo (+£135/yr)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>Rand Associates | Heating Season 2026 Report</span>
+            <span>Slide 4</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: Rural Heating Oil Surge -->
+    <div class="slide-container">
+        <div class="slide-header">
+            <div class="slide-title">Rural Heating Oil (Kerosene) Cost Surge</div>
+            <img src="rand-logo.png" alt="Rand" class="logo-small" onerror="this.style.display='none'">
+        </div>
+        <div class="content-area">
+            <div class="two-column" style="grid-template-columns: 1.1fr 0.9fr;">
+                <div>
+                    <h3 style="font-size: 13pt; color: var(--rand-navy); margin-bottom: 6px;">Off-Grid Rural Household Impact</h3>
+                    <p style="font-size: 10pt; color: var(--rand-text-dark); line-height: 1.45; margin-bottom: 10px;">
+                        Over 1.5 million UK rural homes rely on heating oil tanks. Unregulated by Ofgem, prices react immediately to global crude benchmarks.
+                    </p>
+                    <div class="table-layout">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>1,000L Tank Fill Comparison</th>
+                                    <th>Benchmark Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Previous October (24/25 Avg):</td>
+                                    <td><strong>~62.5p / L (£625.00)</strong></td>
+                                </tr>
+                                <tr>
+                                    <td style="color: #DC2626;">Current October 2026 Price:</td>
+                                    <td><strong style="color: #DC2626;">~86.6p / L (£866.00)</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div style="background: linear-gradient(135deg, #1B365D 0%, #0F172A 100%); color: #ffffff; border-radius: 10px; border-left: 5px solid var(--rand-green); padding: 6mm; text-align: left;">
+                    <i class="fa-solid fa-oil-well" style="font-size: 26pt; color: var(--rand-green); margin-bottom: 6px;"></i>
+                    <div style="font-size: 8.5pt; text-transform: uppercase; color: #94A3B8; font-weight: 700;">1,000L Tank Difference</div>
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 28pt; font-weight: 800; color: #78BE20; margin: 2px 0;">+£241.00</div>
+                    <p style="font-size: 9.5pt; color: #CBD5E1; line-height: 1.4; margin-top: 4px;">
+                        Rural properties face an immediate cash flow hurdle of over £240 extra per standard tank delivery going into winter.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>Rand Associates | Heating Season 2026 Report</span>
+            <span>Slide 5</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: Tax Shift Factors -->
+    <div class="slide-container">
+        <div class="slide-header">
+            <div class="slide-title">Absorption of the April Tax Shift Savings</div>
+            <img src="rand-logo.png" alt="Rand" class="logo-small" onerror="this.style.display='none'">
+        </div>
+        <div class="content-area">
+            <p style="font-size: 11pt; color: var(--rand-text-muted); margin-bottom: 4mm; width: 100%;">
+                In April 2026, policy levies were shifted to general taxation (~2.5p–3.0p/kWh savings on paper), but were completely offset by three factors:
+            </p>
+            <div class="three-card-grid">
+                <div class="card-box highlight-blue">
+                    <h3 style="font-size: 11pt; color: var(--rand-navy); margin-bottom: 4px;">1. Wholesale Surge</h3>
+                    <p style="font-size: 9.5pt; color: var(--rand-text-dark); line-height: 1.4;">Gas and electricity wholesale pricing pressures wiped out tax relief by October 2026.</p>
+                </div>
+                <div class="card-box highlight-green">
+                    <h3 style="font-size: 11pt; color: var(--rand-navy); margin-bottom: 4px;">2. Grid Upgrades</h3>
+                    <p style="font-size: 9.5pt; color: var(--rand-text-dark); line-height: 1.4;">Ofgem RIIO-3 capital expenditure allowances raised high-voltage transmission charges.</p>
+                </div>
+                <div class="card-box highlight-navy">
+                    <h3 style="font-size: 11pt; color: var(--rand-navy); margin-bottom: 4px;">3. WHD Restructuring</h3>
+                    <p style="font-size: 9.5pt; color: var(--rand-text-dark); line-height: 1.4;">Warm Home Discount funding moved away from standing charges into per-kWh unit rates.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>Rand Associates | Heating Season 2026 Report</span>
+            <span>Slide 6</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: Support Resources -->
+    <div class="slide-container" style="background: linear-gradient(135deg, #1B365D 0%, #0F172A 100%); color: #ffffff;">
+        <div class="slide-header" style="border-bottom-color: rgba(255,255,255,0.15);">
+            <div class="slide-title" style="color: #ffffff;">Energy Support & Consumer Advice</div>
+            <img src="rand-logo.png" alt="Rand" class="logo-small" style="filter: brightness(0) invert(1);" onerror="this.style.display='none'">
+        </div>
+        <div class="content-area">
+            <p style="font-size: 11.5pt; color: #CBD5E1; font-weight: 500; margin-bottom: 5mm; width: 100%; text-align: center;">
+                If residents need independent energy advice, hardship grants, or efficiency support, please reach out to:
+            </p>
+            <div class="three-card-grid">
+                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 5mm; text-align: center;">
+                    <h3 style="font-size: 11pt; color: #ffffff; margin-bottom: 4px;">National Energy Action</h3>
+                    <p style="font-size: 9pt; color: #94A3B8; margin-bottom: 6px;">Working to end fuel poverty and support vulnerable households.</p>
+                    <a href="https://www.nea.org.uk" target="_blank" style="color: #78BE20; font-size: 9.5pt; text-decoration: none; font-weight: 600;">nea.org.uk</a>
+                </div>
+                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 5mm; text-align: center;">
+                    <h3 style="font-size: 11pt; color: #ffffff; margin-bottom: 4px;">Centre for Sustainable Energy</h3>
+                    <p style="font-size: 9pt; color: #94A3B8; margin-bottom: 6px;">Practical home energy guidance and efficiency grants.</p>
+                    <a href="https://www.cse.org.uk" target="_blank" style="color: #78BE20; font-size: 9.5pt; text-decoration: none; font-weight: 600;">cse.org.uk</a>
+                </div>
+                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 5mm; text-align: center;">
+                    <h3 style="font-size: 11pt; color: #ffffff; margin-bottom: 4px;">LEAP Energy Advice</h3>
+                    <p style="font-size: 9pt; color: #94A3B8; margin-bottom: 6px;">Free advisory service delivering eco-measures and tariff checks.</p>
+                    <a href="https://applyforleap.org.uk" target="_blank" style="color: #78BE20; font-size: 9.5pt; text-decoration: none; font-weight: 600;">applyforleap.org.uk</a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 3.5mm; width: 100%;">
+            <p style="font-size: 10pt; color: #ffffff; margin-bottom: 2px; font-weight: 600;">
+                Rand Associates — A multi-discipline practice specialising in the management of social housing throughout the UK.
+            </p>
+            <a href="https://rand-associates.co.uk/" target="_blank" style="font-size: 9.5pt; color: #78BE20; text-decoration: none;">https://rand-associates.co.uk/</a>
+        </div>
+        <div class="slide-footer" style="border-top-color: rgba(255,255,255,0.15); color: #94A3B8;">
+            <span>Rand Associates | Heating Season 2026 Report</span>
+            <span>Slide 7</span>
+        </div>
+    </div>
+
+</body>
+</html>
