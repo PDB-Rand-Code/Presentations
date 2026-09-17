@@ -39,7 +39,7 @@
             min-height: 100vh;
             padding: 40px 0;
             font-family: 'Inter', sans-serif;
-            font-size: 11.5pt; /* Increased base font size for visibility */
+            font-size: 11.5pt;
         }
 
         .slide-container {
@@ -84,7 +84,7 @@
         }
 
         .slide-title {
-            font-size: 24pt; /* Increased title size */
+            font-size: 24pt;
             font-weight: 800;
             color: var(--rand-navy);
             display: flex;
@@ -116,7 +116,7 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            font-size: 10pt; /* Increased footer font size */
+            font-size: 9pt;
             color: var(--rand-text-muted);
             border-top: 1px solid #E2E8F0;
             padding-top: 2.5mm;
@@ -135,7 +135,7 @@
         table {
             border-collapse: collapse;
             width: 100%;
-            font-size: 11pt; /* Increased table text size */
+            font-size: 11pt;
         }
 
         th {
@@ -183,7 +183,7 @@
             border-radius: 0 6px 6px 0;
             width: 100%;
             color: var(--rand-navy);
-            font-size: 11pt; /* Increased for distance visibility */
+            font-size: 11pt;
             line-height: 1.45;
         }
 
@@ -204,27 +204,27 @@
         }
 
         .title-logo {
-            max-width: 80mm;
-            margin-bottom: 8mm;
+            max-width: 85mm;
+            margin-bottom: 10mm;
             background: #ffffff;
-            padding: 5mm;
-            border-radius: 8px;
+            padding: 6mm;
+            border-radius: 10px;
             object-fit: contain;
         }
 
         /* Cards & Grids */
         .two-column {
             display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-            gap: 7mm;
+            grid-template-columns: 1fr 1fr;
+            gap: 8mm;
             width: 100%;
-            align-items: center;
+            align-items: stretch;
         }
 
         .three-card-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 5mm;
+            gap: 6mm;
             width: 100%;
         }
 
@@ -232,8 +232,11 @@
             background-color: var(--rand-light-bg);
             border-radius: 8px;
             border: 1px solid var(--rand-card-border);
-            padding: 5mm;
+            padding: 6mm;
             text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card-box.highlight-blue { border-top: 4px solid var(--rand-blue); }
@@ -316,11 +319,11 @@
         <div class="title-layout">
             <img src="rand-main-logo.png" alt="Rand Associates Logo" class="title-logo" onerror="this.style.display='none'">
             <h1 style="font-size: 34pt; margin-bottom: 5mm; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;">Heating Season 2026: Previous Year Comparison</h1>
-            <h2 style="font-size: 17pt; font-weight: 500; color: #94A3B8; margin-bottom: 8mm;">UK Residential Heating Gas and Oil Trends</h2>
+            <h2 style="font-size: 17pt; font-weight: 500; color: #94A3B8;">UK Residential Heating Gas and Oil Trends</h2>
         </div>
     </div>
 
-    <!-- SLIDE 2: October Price Cap Details - Reordered Table Layout -->
+    <!-- SLIDE 2: October Price Cap Details -->
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">October Price Cap Details: Gas Cost Breakdown</div>
@@ -380,7 +383,7 @@
             </div>
         </div>
         <div class="slide-footer">
-            <span>Rand Associates | Heating Season 2026 Report</span>
+            <span>Information gathered and accurate as of 17/09/2026</span>
             <span>Slide 2</span>
         </div>
     </div>
@@ -446,7 +449,7 @@
             </div>
         </div>
         <div class="slide-footer">
-            <span>Rand Associates | Heating Season 2026 Report</span>
+            <span>Information gathered and accurate as of 17/09/2026</span>
             <span>Slide 3</span>
         </div>
     </div>
@@ -459,23 +462,27 @@
         </div>
         <div class="content-area">
             <div class="two-column">
-                <div class="card-box highlight-blue">
-                    <h3 style="font-size: 12pt; color: var(--rand-navy); margin-bottom: 6px;">Cornwall Insight Jan 2027 Outlook</h3>
-                    <p style="font-size: 10pt; color: var(--rand-text-dark); line-height: 1.45; margin-bottom: 8px;">
-                        Industry forecasters project an additional ~8.8% rise in the Ofgem Price Cap heading into January 2027.
-                    </p>
-                    <div style="background: #EFF6FF; padding: 7mm; border-radius: 6px; font-size: 9.5pt; color: var(--rand-navy); line-height: 1.4;">
+                <div class="card-box highlight-blue" style="height: 100%;">
+                    <div>
+                        <h3 style="font-size: 13pt; color: var(--rand-navy); margin-bottom: 8px;">Cornwall Insight Jan 2027 Outlook</h3>
+                        <p style="font-size: 10.5pt; color: var(--rand-text-dark); line-height: 1.5; margin-bottom: 12px;">
+                            Industry forecasters project an additional ~8.8% rise in the Ofgem Price Cap heading into January 2027.
+                        </p>
+                    </div>
+                    <div style="background: #EFF6FF; padding: 5mm; border-radius: 6px; font-size: 10pt; color: var(--rand-navy); line-height: 1.5;">
                         • Q1 Projected Gas Unit Rate: ~8.65p / kWh<br>
                         • Projected 2-Bed Monthly Bill: ~£92.30 / mo<br>
                         • Projected 2-Bed Annual Total: ~£1,107 / yr
                     </div>
                 </div>
-                <div class="card-box highlight-green">
-                    <h3 style="font-size: 12pt; color: var(--rand-navy); margin-bottom: 6px;">Octopus Energy Fix (Quote: 17/09/2026)</h3>
-                    <p style="font-size: 10pt; color: var(--rand-text-dark); line-height: 1.45; margin-bottom: 8px;">
-                        Active market fixed tariff quoted at <strong>9.08p per kWh</strong> for gas (12-month lock).
-                    </p>
-                    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 7mm; border-radius: 6px; font-size: 9.5pt; line-height: 1.4;">
+                <div class="card-box highlight-green" style="height: 100%;">
+                    <div>
+                        <h3 style="font-size: 13pt; color: var(--rand-navy); margin-bottom: 8px;">Octopus Energy Fix (Quote: 17/09/2026)</h3>
+                        <p style="font-size: 10.5pt; color: var(--rand-text-dark); line-height: 1.5; margin-bottom: 12px;">
+                            Active market fixed tariff quoted at <strong>9.08p per kWh</strong> for gas (12-month lock).
+                        </p>
+                    </div>
+                    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 5mm; border-radius: 6px; font-size: 10pt; line-height: 1.5;">
                         • Fixed Gas Rate: <strong>9.08p / kWh</strong><br>
                         • Estimated Monthly Bill: <strong>~£96.70 / mo</strong><br>
                         • Estimated Annual Bill: <strong>~£1,160 / yr</strong><br>
@@ -485,7 +492,7 @@
             </div>
         </div>
         <div class="slide-footer">
-            <span>Rand Associates | Heating Season 2026 Report</span>
+            <span>Information gathered and accurate as of 17/09/2026</span>
             <span>Slide 4</span>
         </div>
     </div>
@@ -535,7 +542,7 @@
             </div>
         </div>
         <div class="slide-footer">
-            <span>Rand Associates | Heating Season 2026 Report</span>
+            <span>Information gathered and accurate as of 17/09/2026</span>
             <span>Slide 5</span>
         </div>
     </div>
@@ -547,66 +554,81 @@
             <img src="rand-logo.png" alt="Rand" class="logo-small" onerror="this.style.display='none'">
         </div>
         <div class="content-area">
-            <p style="font-size: 11pt; color: var(--rand-text-muted); margin-bottom: 4mm; width: 100%;">
-                In April 2026, policy levies were shifted to general taxation (~2.5p–3.0p/kWh savings on paper), but were completely offset by three factors:
+            <p style="font-size: 12pt; color: var(--rand-text-muted); margin-bottom: 5mm; width: 100%; font-weight: 500;">
+                In April 2026, policy levies were shifted to general taxation (~2.5p–3.0p/kWh savings on paper), but were completely offset by three core factors:
             </p>
             <div class="three-card-grid">
-                <div class="card-box highlight-blue">
-                    <h3 style="font-size: 11pt; color: var(--rand-navy); margin-bottom: 4px;">1. Wholesale Surge</h3>
-                    <p style="font-size: 9.5pt; color: var(--rand-text-dark); line-height: 1.4;">Gas and electricity wholesale pricing pressures wiped out tax relief by October 2026.</p>
+                <div class="card-box highlight-blue" style="padding: 7mm; min-height: 180px;">
+                    <h3 style="font-size: 13pt; color: var(--rand-navy); margin-bottom: 8px;">1. Wholesale Surge</h3>
+                    <p style="font-size: 10.5pt; color: var(--rand-text-dark); line-height: 1.55;">Gas and electricity wholesale pricing pressures wiped out tax relief by October 2026.</p>
                 </div>
-                <div class="card-box highlight-green">
-                    <h3 style="font-size: 11pt; color: var(--rand-navy); margin-bottom: 4px;">2. Grid Upgrades</h3>
-                    <p style="font-size: 9.5pt; color: var(--rand-text-dark); line-height: 1.4;">Ofgem RIIO-3 capital expenditure allowances raised high-voltage transmission charges.</p>
+                <div class="card-box highlight-green" style="padding: 7mm; min-height: 180px;">
+                    <h3 style="font-size: 13pt; color: var(--rand-navy); margin-bottom: 8px;">2. Grid Upgrades</h3>
+                    <p style="font-size: 10.5pt; color: var(--rand-text-dark); line-height: 1.55;">Ofgem RIIO-3 capital expenditure allowances raised high-voltage transmission charges.</p>
                 </div>
-                <div class="card-box highlight-navy">
-                    <h3 style="font-size: 11pt; color: var(--rand-navy); margin-bottom: 4px;">3. WHD Restructuring</h3>
-                    <p style="font-size: 9.5pt; color: var(--rand-text-dark); line-height: 1.4;">Warm Home Discount funding moved away from standing charges into per-kWh unit rates.</p>
+                <div class="card-box highlight-navy" style="padding: 7mm; min-height: 180px;">
+                    <h3 style="font-size: 13pt; color: var(--rand-navy); margin-bottom: 8px;">3. WHD Restructuring</h3>
+                    <p style="font-size: 10.5pt; color: var(--rand-text-dark); line-height: 1.55;">Warm Home Discount funding moved away from standing charges into per-kWh unit rates.</p>
                 </div>
             </div>
         </div>
         <div class="slide-footer">
-            <span>Rand Associates | Heating Season 2026 Report</span>
+            <span>Information gathered and accurate as of 17/09/2026</span>
             <span>Slide 6</span>
         </div>
     </div>
 
-    <!-- SLIDE 7: Support Resources -->
+    <!-- SLIDE 7: Support Resources & Vertically Centered Card Content -->
     <div class="slide-container" style="background: linear-gradient(135deg, #1B365D 0%, #0F172A 100%); color: #ffffff;">
         <div class="slide-header" style="border-bottom-color: rgba(255,255,255,0.15);">
             <div class="slide-title" style="color: #ffffff;">Energy Support & Consumer Advice</div>
             <img src="rand-logo.png" alt="Rand" class="logo-small" style="filter: brightness(0) invert(1);" onerror="this.style.display='none'">
         </div>
-        <div class="content-area">
-            <p style="font-size: 11.5pt; color: #CBD5E1; font-weight: 500; margin-bottom: 5mm; width: 100%; text-align: center;">
-                If residents need independent energy advice, hardship grants, or efficiency support, please reach out to:
-            </p>
-            <div class="three-card-grid">
-                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 5mm; text-align: center;">
-                    <h3 style="font-size: 11pt; color: #ffffff; margin-bottom: 4px;">National Energy Action</h3>
-                    <p style="font-size: 9pt; color: #94A3B8; margin-bottom: 6px;">Working to end fuel poverty and support vulnerable households.</p>
-                    <a href="https://www.nea.org.uk" target="_blank" style="color: #78BE20; font-size: 9.5pt; text-decoration: none; font-weight: 600;">nea.org.uk</a>
-                </div>
-                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 5mm; text-align: center;">
-                    <h3 style="font-size: 11pt; color: #ffffff; margin-bottom: 4px;">Centre for Sustainable Energy</h3>
-                    <p style="font-size: 9pt; color: #94A3B8; margin-bottom: 6px;">Practical home energy guidance and efficiency grants.</p>
-                    <a href="https://www.cse.org.uk" target="_blank" style="color: #78BE20; font-size: 9.5pt; text-decoration: none; font-weight: 600;">cse.org.uk</a>
-                </div>
-                <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 5mm; text-align: center;">
-                    <h3 style="font-size: 11pt; color: #ffffff; margin-bottom: 4px;">LEAP Energy Advice</h3>
-                    <p style="font-size: 9pt; color: #94A3B8; margin-bottom: 6px;">Free advisory service delivering eco-measures and tariff checks.</p>
-                    <a href="https://applyforleap.org.uk" target="_blank" style="color: #78BE20; font-size: 9.5pt; text-decoration: none; font-weight: 600;">applyforleap.org.uk</a>
+        
+        <div class="content-area" style="justify-content: space-around; padding: 2mm 0; height: 100%;">
+            
+            <!-- Top Half Section -->
+            <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+                <p style="font-size: 11pt; color: #CBD5E1; font-weight: 500; width: 100%; text-align: center; margin-bottom: 4mm;">
+                    If residents need independent energy advice, hardship grants, or efficiency support, please reach out to:
+                </p>
+                <div class="three-card-grid" style="width: 100%;">
+                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-blue); border-radius: 8px; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 42mm;">
+                        <h3 style="font-size: 11pt; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">National Energy Action</h3>
+                        <p style="font-size: 8.5pt; color: #94A3B8; line-height: 1.45; display: flex; align-items: center; justify-content: center; flex-grow: 1;">Working to end fuel poverty and support vulnerable households.</p>
+                        <a href="https://www.nea.org.uk" target="_blank" style="color: #78BE20; font-size: 9pt; text-decoration: none; font-weight: 600;">nea.org.uk</a>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid #38BDF8; border-radius: 8px; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 42mm;">
+                        <h3 style="font-size: 11pt; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">Centre for Sustainable Energy</h3>
+                        <p style="font-size: 8.5pt; color: #94A3B8; line-height: 1.45; display: flex; align-items: center; justify-content: center; flex-grow: 1;">Practical home energy guidance and efficiency grants.</p>
+                        <a href="https://www.cse.org.uk" target="_blank" style="color: #78BE20; font-size: 9pt; text-decoration: none; font-weight: 600;">cse.org.uk</a>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-green); border-radius: 8px; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 42mm;">
+                        <h3 style="font-size: 11pt; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">Local Energy Advice Partnership</h3>
+                        <p style="font-size: 8.5pt; color: #94A3B8; line-height: 1.45; display: flex; align-items: center; justify-content: center; flex-grow: 1;">Free advisory service delivering eco-measures and tariff checks.</p>
+                        <a href="https://applyforleap.org.uk" target="_blank" style="color: #78BE20; font-size: 9pt; text-decoration: none; font-weight: 600;">applyforleap.org.uk</a>
+                    </div>
                 </div>
             </div>
+
+            <!-- True Center Horizontal Divider Line -->
+            <div style="width: 100%; height: 1px; background: rgba(255, 255, 255, 0.2); margin: 2mm 0;"></div>
+
+            <!-- Bottom Half Section -->
+            <div style="width: 100%; display: flex; justify-content: center;">
+                <div style="width: 32.5%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-green); border-radius: 8px; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 42mm;">
+                    <h3 style="font-size: 11pt; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">Rand Associates</h3>
+                    <p style="font-size: 8.5pt; color: #94A3B8; line-height: 1.45; display: flex; align-items: center; justify-content: center; flex-grow: 1;">A multi-discipline practice specialising in the management of social housing throughout the UK.</p>
+                    <a href="https://rand-associates.co.uk/" target="_blank" style="color: #78BE20; font-size: 9pt; text-decoration: none; font-weight: 600;">rand-associates.co.uk</a>
+                </div>
+            </div>
+
         </div>
-        <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 3.5mm; width: 100%;">
-            <p style="font-size: 10pt; color: #ffffff; margin-bottom: 2px; font-weight: 600;">
-                Rand Associates — A multi-discipline practice specialising in the management of social housing throughout the UK.
-            </p>
-            <a href="https://rand-associates.co.uk/" target="_blank" style="font-size: 9.5pt; color: #78BE20; text-decoration: none;">https://rand-associates.co.uk/</a>
-        </div>
+
         <div class="slide-footer" style="border-top-color: rgba(255,255,255,0.15); color: #94A3B8;">
-            <span>Rand Associates | Heating Season 2026 Report</span>
+            <span>Information gathered and accurate as of 17/09/2026</span>
             <span>Slide 7</span>
         </div>
     </div>
