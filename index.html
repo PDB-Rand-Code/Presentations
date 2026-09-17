@@ -36,10 +36,10 @@
             background-color: #0B132B;
             display: flex;
             flex-direction: column;
-            gap: 0;
+            gap: 32px;
             align-items: center;
             margin: 0;
-            padding: 0;
+            padding: 40px 0;
             font-family: 'Inter', sans-serif;
             font-size: 11.5pt;
         }
@@ -47,6 +47,8 @@
         .slide-container {
             align-items: flex-start;
             background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
             display: flex;
             flex-direction: column;
             height: 210mm;
@@ -55,7 +57,7 @@
             min-height: 210mm;
             justify-content: space-between;
             overflow: hidden;
-            padding: 16mm 22mm;
+            padding: 18mm 22mm;
             position: relative;
             page-break-after: always;
             page-break-inside: avoid;
@@ -78,17 +80,17 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            padding-bottom: 3mm;
+            padding-bottom: 3.5mm;
             border-bottom: 2px solid #F1F5F9;
         }
 
         .logo-small {
-            height: 10mm;
+            height: 11mm;
             object-fit: contain;
         }
 
         .slide-title {
-            font-size: 22pt;
+            font-size: 24pt;
             font-weight: 800;
             color: var(--rand-navy);
             display: flex;
@@ -101,7 +103,7 @@
             content: '';
             display: inline-block;
             width: 6px;
-            height: 18pt;
+            height: 20pt;
             background-color: var(--rand-green);
             border-radius: 3px;
         }
@@ -133,20 +135,20 @@
             overflow: hidden;
             border: 1px solid var(--rand-card-border);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
-            margin-bottom: 3mm;
+            margin-bottom: 3.5mm;
         }
 
         table {
             border-collapse: collapse;
             width: 100%;
-            font-size: 10.5pt;
+            font-size: 11pt;
         }
 
         th {
             background-color: var(--rand-navy);
             color: #ffffff;
             font-weight: 700;
-            padding: 2.5mm 3.5mm;
+            padding: 3mm 3.5mm;
             text-align: left;
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
@@ -154,7 +156,7 @@
         td {
             background-color: #ffffff;
             border-bottom: 1px solid #F1F5F9;
-            padding: 2.5mm 3.5mm;
+            padding: 3mm 3.5mm;
             color: var(--rand-text-dark);
         }
 
@@ -166,7 +168,7 @@
             background-color: #FEF2F2;
             color: #DC2626;
             font-weight: 700;
-            font-size: 9.5pt;
+            font-size: 10pt;
             padding: 2px 6px;
             border-radius: 4px;
         }
@@ -175,7 +177,7 @@
             background-color: #F0FDF4;
             color: #16A34A;
             font-weight: 700;
-            font-size: 9.5pt;
+            font-size: 10pt;
             padding: 2px 6px;
             border-radius: 4px;
         }
@@ -183,12 +185,12 @@
         .summary-banner {
             background-color: #EFF6FF;
             border-left: 5px solid var(--rand-blue);
-            padding: 3mm 4.5mm;
+            padding: 3.5mm 4.5mm;
             border-radius: 0 6px 6px 0;
             width: 100%;
             color: var(--rand-navy);
-            font-size: 10.5pt;
-            line-height: 1.4;
+            font-size: 11pt;
+            line-height: 1.45;
         }
 
         /* Title Slide Layout */
@@ -200,11 +202,11 @@
             text-align: center;
             background: linear-gradient(135deg, #1B365D 0%, #0F172A 100%);
             color: #ffffff;
-            border-radius: 0;
-            margin: -16mm -22mm;
+            border-radius: 12px;
+            margin: -18mm -22mm;
             padding: 20mm;
-            height: 210mm;
-            width: 297mm;
+            height: calc(210mm);
+            width: calc(297mm);
         }
 
         .title-logo {
@@ -254,8 +256,8 @@
             justify-content: space-between;
             gap: 10px;
             width: 100%;
-            height: 50mm;
-            padding-top: 2mm;
+            height: 54mm;
+            padding-top: 3mm;
         }
 
         .column-group {
@@ -315,14 +317,62 @@
             text-align: center;
         }
 
+        /* Mobile Responsiveness for Phones & Tablets */
+        @media screen and (max-width: 1024px) {
+            body {
+                padding: 15px;
+                background-color: #eef2f5;
+            }
+            .slide-container {
+                width: 100% !important;
+                min-width: 100% !important;
+                height: auto !important;
+                min-height: auto !important;
+                aspect-ratio: unset !important;
+                margin-bottom: 20px;
+                padding: 20px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            }
+            .title-layout {
+                width: 100% !important;
+                height: 100% !important;
+                margin: -20px !important;
+                padding: 40px 20px !important;
+            }
+            .two-column, .three-card-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+            .table-layout {
+                overflow-x: auto;
+            }
+            table {
+                font-size: 9.5pt;
+                min-width: 550px;
+            }
+            .column-chart-container {
+                height: 45mm;
+            }
+        }
+
         @media print {
             body {
                 background-color: #ffffff;
+                padding: 0;
             }
             .slide-container {
                 box-shadow: none;
                 margin: 0;
                 border-radius: 0;
+                width: 297mm !important;
+                height: 210mm !important;
+                min-width: 297mm !important;
+                min-height: 210mm !important;
+            }
+            .title-layout {
+                width: 297mm !important;
+                height: 210mm !important;
+                margin: -18mm -22mm !important;
             }
         }
     </style>
@@ -333,8 +383,8 @@
     <div class="slide-container">
         <div class="title-layout">
             <img src="rand-main-logo.png" alt="Rand Associates Logo" class="title-logo" onerror="this.style.display='none'">
-            <h1 style="font-size: 32pt; margin-bottom: 4mm; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;">Heating Season 2026: Previous Year Comparison</h1>
-            <h2 style="font-size: 16pt; font-weight: 500; color: #94A3B8;">UK Residential Heating Gas and Oil Trends</h2>
+            <h1 style="font-size: 34pt; margin-bottom: 5mm; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;">Heating Season 2026: Previous Year Comparison</h1>
+            <h2 style="font-size: 17pt; font-weight: 500; color: #94A3B8;">UK Residential Heating Gas and Oil Trends</h2>
         </div>
     </div>
 
@@ -443,22 +493,22 @@
                             <div class="column-label" style="font-weight: 800;">Oct 2026</div>
                         </div>
                     </div>
-                    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 2mm 4mm; border-radius: 6px; margin-top: 2mm; font-size: 9pt; color: var(--rand-text-muted);">
+                    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 2.5mm 4mm; border-radius: 6px; margin-top: 2mm; font-size: 9pt; color: var(--rand-text-muted);">
                         <strong>National Benchmark:</strong> Two-bedroom property with a consumption usage of 11,500 kWh per year (including standing charges).
                     </div>
                 </div>
 
                 <div style="display: flex; flex-direction: column; gap: 4mm;">
-                    <div style="background: linear-gradient(135deg, #1B365D 0%, #1B75BC 100%); color: #ffffff; border-radius: 8px; padding: 4mm 5mm; text-align: center;">
-                        <div style="font-size: 8.5pt; text-transform: uppercase; color: #94A3B8; font-weight: 700; letter-spacing: 0.5px;">Monthly Cost Increase vs Oct 2025</div>
-                        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22pt; font-weight: 800; color: #78BE20; margin: 2px 0;">+£19.50 / mo</div>
-                        <div style="font-size: 8.5pt; color: #E2E8F0;">Monthly bill rises from ~£66.30 to ~£85.80</div>
+                    <div style="background: linear-gradient(135deg, #1B365D 0%, #1B75BC 100%); color: #ffffff; border-radius: 8px; padding: 4.5mm 5mm; text-align: center;">
+                        <div style="font-size: 9pt; text-transform: uppercase; color: #94A3B8; font-weight: 700; letter-spacing: 0.5px;">Monthly Cost Increase vs Oct 2025</div>
+                        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 24pt; font-weight: 800; color: #78BE20; margin: 2px 0;">+£19.50 / mo</div>
+                        <div style="font-size: 9pt; color: #E2E8F0;">Monthly bill rises from ~£66.30 to ~£85.80</div>
                     </div>
 
-                    <div style="background: linear-gradient(135deg, #1B365D 0%, #0F172A 100%); color: #ffffff; border-radius: 8px; padding: 4mm 5mm; text-align: center;">
-                        <div style="font-size: 8.5pt; text-transform: uppercase; color: #94A3B8; font-weight: 700; letter-spacing: 0.5px;">Annual Cost Increase vs Oct 2025</div>
-                        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22pt; font-weight: 800; color: #78BE20; margin: 2px 0;">+£228.00 / yr</div>
-                        <div style="font-size: 8.5pt; color: #E2E8F0;">Annual expenditure shifts from ~£796 to ~£1,025</div>
+                    <div style="background: linear-gradient(135deg, #1B365D 0%, #0F172A 100%); color: #ffffff; border-radius: 8px; padding: 4.5mm 5mm; text-align: center;">
+                        <div style="font-size: 9pt; text-transform: uppercase; color: #94A3B8; font-weight: 700; letter-spacing: 0.5px;">Annual Cost Increase vs Oct 2025</div>
+                        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 24pt; font-weight: 800; color: #78BE20; margin: 2px 0;">+£228.00 / yr</div>
+                        <div style="font-size: 9pt; color: #E2E8F0;">Annual expenditure shifts from ~£796 to ~£1,025</div>
                     </div>
                 </div>
             </div>
@@ -479,12 +529,12 @@
             <div class="two-column">
                 <div class="card-box highlight-blue" style="height: 100%;">
                     <div>
-                        <h3 style="font-size: 12pt; color: var(--rand-navy); margin-bottom: 6px;">Cornwall Insight Jan 2027 Outlook</h3>
-                        <p style="font-size: 10pt; color: var(--rand-text-dark); line-height: 1.45; margin-bottom: 10px;">
+                        <h3 style="font-size: 13pt; color: var(--rand-navy); margin-bottom: 8px;">Cornwall Insight Jan 2027 Outlook</h3>
+                        <p style="font-size: 10.5pt; color: var(--rand-text-dark); line-height: 1.5; margin-bottom: 12px;">
                             Industry forecasters project an additional ~8.8% rise in the Ofgem Price Cap heading into January 2027.
                         </p>
                     </div>
-                    <div style="background: #EFF6FF; padding: 4mm; border-radius: 6px; font-size: 9.5pt; color: var(--rand-navy); line-height: 1.4;">
+                    <div style="background: #EFF6FF; padding: 5mm; border-radius: 6px; font-size: 10pt; color: var(--rand-navy); line-height: 1.5;">
                         • Q1 Projected Gas Unit Rate: ~8.65p / kWh<br>
                         • Projected 2-Bed Monthly Bill: ~£92.30 / mo<br>
                         • Projected 2-Bed Annual Total: ~£1,107 / yr
@@ -492,16 +542,16 @@
                 </div>
                 <div class="card-box highlight-green" style="height: 100%;">
                     <div>
-                        <h3 style="font-size: 12pt; color: var(--rand-navy); margin-bottom: 6px;">Octopus Energy Fix (Quote: 17/09/2026)</h3>
-                        <p style="font-size: 10pt; color: var(--rand-text-dark); line-height: 1.45; margin-bottom: 10px;">
+                        <h3 style="font-size: 13pt; color: var(--rand-navy); margin-bottom: 8px;">Octopus Energy Fix (Quote: 17/09/2026)</h3>
+                        <p style="font-size: 10.5pt; color: var(--rand-text-dark); line-height: 1.5; margin-bottom: 12px;">
                             Active market fixed tariff quoted at <strong>9.08p per kWh</strong> for gas (12-month lock).
                         </p>
                     </div>
-                    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 4mm; border-radius: 6px; font-size: 9.5pt; line-height: 1.4;">
+                    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 5mm; border-radius: 6px; font-size: 10pt; line-height: 1.5;">
                         • Fixed Gas Rate: <strong>9.08p / kWh</strong><br>
                         • Estimated Monthly Bill: <strong>~£96.70 / mo</strong><br>
                         • Estimated Annual Bill: <strong>~£1,160 / yr</strong><br>
-                        <span style="color: #DC2626; font-weight: 700; display: inline-block; margin-top: 3px;">Difference vs Oct 2026 Cap: +£10.90/mo (+£135/yr)</span>
+                        <span style="color: #DC2626; font-weight: 700; display: inline-block; margin-top: 4px;">Difference vs Oct 2026 Cap: +£10.90/mo (+£135/yr)</span>
                     </div>
                 </div>
             </div>
@@ -521,8 +571,8 @@
         <div class="content-area">
             <div class="two-column" style="grid-template-columns: 1.1fr 0.9fr;">
                 <div>
-                    <h3 style="font-size: 12pt; color: var(--rand-navy); margin-bottom: 6px;">Off-Grid Rural Household Impact</h3>
-                    <p style="font-size: 10pt; color: var(--rand-text-dark); line-height: 1.4; margin-bottom: 8px;">
+                    <h3 style="font-size: 13pt; color: var(--rand-navy); margin-bottom: 6px;">Off-Grid Rural Household Impact</h3>
+                    <p style="font-size: 10pt; color: var(--rand-text-dark); line-height: 1.45; margin-bottom: 10px;">
                         Over 1.5 million UK rural homes rely on heating oil tanks. Unregulated by Ofgem, prices react immediately to global crude benchmarks.
                     </p>
                     <div class="table-layout">
@@ -546,11 +596,11 @@
                         </table>
                     </div>
                 </div>
-                <div style="background: linear-gradient(135deg, #1B365D 0%, #0F172A 100%); color: #ffffff; border-radius: 10px; border-left: 5px solid var(--rand-green); padding: 5mm; text-align: left;">
-                    <i class="fa-solid fa-oil-well" style="font-size: 22pt; color: var(--rand-green); margin-bottom: 4mm;"></i>
-                    <div style="font-size: 8pt; text-transform: uppercase; color: #94A3B8; font-weight: 700;">1,000L Tank Difference</div>
-                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 24pt; font-weight: 800; color: #78BE20; margin: 2px 0;">+£241.00</div>
-                    <p style="font-size: 9pt; color: #CBD5E1; line-height: 1.4; margin-top: 3px;">
+                <div style="background: linear-gradient(135deg, #1B365D 0%, #0F172A 100%); color: #ffffff; border-radius: 10px; border-left: 5px solid var(--rand-green); padding: 6mm; text-align: left;">
+                    <i class="fa-solid fa-oil-well" style="font-size: 26pt; color: var(--rand-green); margin-bottom: 6mm;"></i>
+                    <div style="font-size: 8.5pt; text-transform: uppercase; color: #94A3B8; font-weight: 700;">1,000L Tank Difference</div>
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 28pt; font-weight: 800; color: #78BE20; margin: 2px 0;">+£241.00</div>
+                    <p style="font-size: 9.5pt; color: #CBD5E1; line-height: 1.4; margin-top: 4px;">
                         Rural properties face an immediate cash flow hurdle of over £240 extra per standard tank delivery going into winter.
                     </p>
                 </div>
@@ -569,21 +619,21 @@
             <img src="rand-logo.png" alt="Rand" class="logo-small" onerror="this.style.display='none'">
         </div>
         <div class="content-area">
-            <p style="font-size: 11pt; color: var(--rand-text-muted); margin-bottom: 4mm; width: 100%; font-weight: 500;">
+            <p style="font-size: 12pt; color: var(--rand-text-muted); margin-bottom: 5mm; width: 100%; font-weight: 500;">
                 In April 2026, policy levies were shifted to general taxation (~2.5p–3.0p/kWh savings on paper), but were completely offset by three core factors:
             </p>
             <div class="three-card-grid">
-                <div class="card-box highlight-blue" style="padding: 5mm; min-height: 150px;">
-                    <h3 style="font-size: 12pt; color: var(--rand-navy); margin-bottom: 6px;">1. Wholesale Surge</h3>
-                    <p style="font-size: 10pt; color: var(--rand-text-dark); line-height: 1.45;">Gas and electricity wholesale pricing pressures wiped out tax relief by October 2026.</p>
+                <div class="card-box highlight-blue" style="padding: 7mm; min-height: 180px;">
+                    <h3 style="font-size: 13pt; color: var(--rand-navy); margin-bottom: 8px;">1. Wholesale Surge</h3>
+                    <p style="font-size: 10.5pt; color: var(--rand-text-dark); line-height: 1.55;">Gas and electricity wholesale pricing pressures wiped out tax relief by October 2026.</p>
                 </div>
-                <div class="card-box highlight-green" style="padding: 5mm; min-height: 150px;">
-                    <h3 style="font-size: 12pt; color: var(--rand-navy); margin-bottom: 6px;">2. Grid Upgrades</h3>
-                    <p style="font-size: 10pt; color: var(--rand-text-dark); line-height: 1.45;">Ofgem RIIO-3 capital expenditure allowances raised high-voltage transmission charges.</p>
+                <div class="card-box highlight-green" style="padding: 7mm; min-height: 180px;">
+                    <h3 style="font-size: 13pt; color: var(--rand-navy); margin-bottom: 8px;">2. Grid Upgrades</h3>
+                    <p style="font-size: 10.5pt; color: var(--rand-text-dark); line-height: 1.55;">Ofgem RIIO-3 capital expenditure allowances raised high-voltage transmission charges.</p>
                 </div>
-                <div class="card-box highlight-navy" style="padding: 5mm; min-height: 150px;">
-                    <h3 style="font-size: 12pt; color: var(--rand-navy); margin-bottom: 6px;">3. WHD Restructuring</h3>
-                    <p style="font-size: 10pt; color: var(--rand-text-dark); line-height: 1.45;">Warm Home Discount funding moved away from standing charges into per-kWh unit rates.</p>
+                <div class="card-box highlight-navy" style="padding: 7mm; min-height: 180px;">
+                    <h3 style="font-size: 13pt; color: var(--rand-navy); margin-bottom: 8px;">3. WHD Restructuring</h3>
+                    <p style="font-size: 10.5pt; color: var(--rand-text-dark); line-height: 1.55;">Warm Home Discount funding moved away from standing charges into per-kWh unit rates.</p>
                 </div>
             </div>
         </div>
@@ -593,7 +643,7 @@
         </div>
     </div>
 
-    <!-- SLIDE 7: Support Resources & Symmetrical 3-Column Lower Row -->
+    <!-- SLIDE 7: Support Resources & Symmetrical 3-Column Lower Row (No Box on Logo) -->
     <div class="slide-container" style="background: linear-gradient(135deg, #1B365D 0%, #0F172A 100%); color: #ffffff;">
         <div class="slide-header" style="border-bottom-color: rgba(255,255,255,0.15);">
             <div class="slide-title" style="color: #ffffff;">Energy Support & Consumer Advice</div>
@@ -604,26 +654,26 @@
             
             <!-- Top Half Section (3 Agencies) -->
             <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-                <p style="font-size: 10.5pt; color: #CBD5E1; font-weight: 500; width: 100%; text-align: center; margin-bottom: 3mm;">
+                <p style="font-size: 11pt; color: #CBD5E1; font-weight: 500; width: 100%; text-align: center; margin-bottom: 4mm;">
                     If residents need independent energy advice, hardship grants, or efficiency support, please reach out to:
                 </p>
                 <div class="three-card-grid" style="width: 100%;">
-                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-blue); border-radius: 8px; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 38mm;">
-                        <h3 style="font-size: 10.5pt; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">National Energy Action</h3>
-                        <p style="font-size: 8pt; color: #94A3B8; line-height: 1.4; display: flex; align-items: center; justify-content: center; flex-grow: 1;">Working to end fuel poverty and support vulnerable households.</p>
-                        <a href="https://www.nea.org.uk" target="_blank" style="color: #78BE20; font-size: 8.5pt; text-decoration: none; font-weight: 600;">nea.org.uk</a>
+                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-blue); border-radius: 8px; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 42mm;">
+                        <h3 style="font-size: 11pt; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">National Energy Action</h3>
+                        <p style="font-size: 8.5pt; color: #94A3B8; line-height: 1.45; display: flex; align-items: center; justify-content: center; flex-grow: 1;">Working to end fuel poverty and support vulnerable households.</p>
+                        <a href="https://www.nea.org.uk" target="_blank" style="color: #78BE20; font-size: 9pt; text-decoration: none; font-weight: 600;">nea.org.uk</a>
                     </div>
 
-                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid #38BDF8; border-radius: 8px; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 38mm;">
-                        <h3 style="font-size: 10.5pt; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">Centre for Sustainable Energy</h3>
-                        <p style="font-size: 8pt; color: #94A3B8; line-height: 1.4; display: flex; align-items: center; justify-content: center; flex-grow: 1;">Practical home energy guidance and efficiency grants.</p>
-                        <a href="https://www.cse.org.uk" target="_blank" style="color: #78BE20; font-size: 8.5pt; text-decoration: none; font-weight: 600;">cse.org.uk</a>
+                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid #38BDF8; border-radius: 8px; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 42mm;">
+                        <h3 style="font-size: 11pt; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">Centre for Sustainable Energy</h3>
+                        <p style="font-size: 8.5pt; color: #94A3B8; line-height: 1.45; display: flex; align-items: center; justify-content: center; flex-grow: 1;">Practical home energy guidance and efficiency grants.</p>
+                        <a href="https://www.cse.org.uk" target="_blank" style="color: #78BE20; font-size: 9pt; text-decoration: none; font-weight: 600;">cse.org.uk</a>
                     </div>
 
-                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-green); border-radius: 8px; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 38mm;">
-                        <h3 style="font-size: 10.5pt; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">Local Energy Advice Partnership</h3>
-                        <p style="font-size: 8pt; color: #94A3B8; line-height: 1.4; display: flex; align-items: center; justify-content: center; flex-grow: 1;">Free advisory service delivering eco-measures and tariff checks.</p>
-                        <a href="https://applyforleap.org.uk" target="_blank" style="color: #78BE20; font-size: 8.5pt; text-decoration: none; font-weight: 600;">applyforleap.org.uk</a>
+                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-green); border-radius: 8px; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 42mm;">
+                        <h3 style="font-size: 11pt; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">Local Energy Advice Partnership</h3>
+                        <p style="font-size: 8.5pt; color: #94A3B8; line-height: 1.45; display: flex; align-items: center; justify-content: center; flex-grow: 1;">Free advisory service delivering eco-measures and tariff checks.</p>
+                        <a href="https://applyforleap.org.uk" target="_blank" style="color: #78BE20; font-size: 9pt; text-decoration: none; font-weight: 600;">applyforleap.org.uk</a>
                     </div>
                 </div>
             </div>
@@ -635,23 +685,23 @@
             <div style="width: 100%;">
                 <div class="three-card-grid" style="width: 100%;">
                     
-                    <!-- Slot 1: Standalone Scaled Logo -->
-                    <div style="display: flex; align-items: center; justify-content: center; height: 38mm; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-top: 4px solid var(--rand-green); border-radius: 8px; padding: 4mm 5mm;">
-                        <img src="rand-main-logo.png" alt="Rand Associates" style="max-height: 22mm; max-width: 90%; object-fit: contain; background: #ffffff; padding: 2.5mm; border-radius: 6px;" onerror="this.style.display='none'">
+                    <!-- Slot 1: Standalone Scaled Logo (No Background Box) -->
+                    <div style="display: flex; align-items: center; justify-content: center; height: 42mm; padding: 4mm 5mm;">
+                        <img src="rand-main-logo.png" alt="Rand Associates" style="max-height: 28mm; max-width: 100%; object-fit: contain; background: #ffffff; padding: 3mm; border-radius: 6px;" onerror="this.style.display='none'">
                     </div>
 
                     <!-- Slot 2: Rand Details Box -->
-                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-green); border-radius: 8px; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 38mm;">
-                        <h3 style="font-size: 10.5pt; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">Rand Associates</h3>
-                        <p style="font-size: 8pt; color: #94A3B8; line-height: 1.4; display: flex; align-items: center; justify-content: center; flex-grow: 1;">A multi-discipline practice specialising in the management of social housing throughout the UK.</p>
-                        <a href="https://rand-associates.co.uk/" target="_blank" style="color: #78BE20; font-size: 8.5pt; text-decoration: none; font-weight: 600;">rand-associates.co.uk</a>
+                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-green); border-radius: 8px; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 42mm;">
+                        <h3 style="font-size: 11pt; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">Rand Associates</h3>
+                        <p style="font-size: 8.5pt; color: #94A3B8; line-height: 1.45; display: flex; align-items: center; justify-content: center; flex-grow: 1;">A multi-discipline practice specialising in the management of social housing throughout the UK.</p>
+                        <a href="https://rand-associates.co.uk/" target="_blank" style="color: #78BE20; font-size: 9pt; text-decoration: none; font-weight: 600;">rand-associates.co.uk</a>
                     </div>
 
                     <!-- Slot 3: Address Box -->
-                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-green); border-radius: 8px; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 38mm;">
-                        <h3 style="font-size: 10.5pt; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">Head Office</h3>
-                        <p style="font-size: 8pt; color: #94A3B8; line-height: 1.4; display: flex; align-items: center; justify-content: center; flex-grow: 1;">Bancroft Place, 10 Bancroft Road, Reigate, Surrey, RH2 7RP</p>
-                        <span style="font-size: 8.5pt; color: transparent; user-select: none;">Contact</span>
+                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-green); border-radius: 8px; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 42mm;">
+                        <h3 style="font-size: 11pt; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">Head Office</h3>
+                        <p style="font-size: 8.5pt; color: #94A3B8; line-height: 1.45; display: flex; align-items: center; justify-content: center; flex-grow: 1;">Bancroft Place, 10 Bancroft Road, Reigate, Surrey, RH2 7RP</p>
+                        <span style="font-size: 9pt; color: transparent; user-select: none;">Contact</span>
                     </div>
 
                 </div>
