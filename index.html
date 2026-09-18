@@ -49,7 +49,7 @@
         .slide-container {
             align-items: flex-start;
             background-color: #ffffff;
-            border-radius: 0; /* Square / Sharp layout per guidelines */
+            border-radius: 0;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
             display: flex;
             flex-direction: column;
@@ -195,68 +195,32 @@
             line-height: 1.45;
         }
 
-        /* Title Slide Layout matching PowerPoint Reference Image */
+        /* Title Slide Layout (Centered) */
         .title-layout {
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            text-align: left;
-            background: var(--rand-deep-blue);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--rand-deep-blue) 0%, #152248 100%);
             color: #ffffff;
             border-radius: 0;
             margin: -18mm -22mm;
-            padding: 22mm;
+            padding: 20mm;
             height: calc(210mm);
             width: calc(297mm);
             position: relative;
             overflow: hidden;
         }
 
-        /* Background Template Shapes mimicking PowerPoint reference */
-        .title-layout::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 250px;
-            height: 600px;
-            background: var(--rand-aqua);
-            transform: rotate(35deg);
-            opacity: 0.85;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .title-layout::after {
-            content: '';
-            position: absolute;
-            bottom: -150px;
-            right: 80px;
-            width: 220px;
-            height: 500px;
-            background: var(--rand-green);
-            transform: rotate(35deg);
-            opacity: 0.9;
-            z-index: 1;
-            pointer-events: none;
-        }
-
         .title-logo {
-            max-width: 65mm;
-            margin-bottom: 25mm;
-            background: #ffffff;
-            padding: 4mm 5mm;
+            max-width: 85mm;
+            margin-bottom: 10mm;
+            background: transparent; /* Removed white background block */
+            padding: 0;
             border-radius: 0;
             object-fit: contain;
-            position: relative;
-            z-index: 2;
-        }
-
-        .title-content-group {
-            position: relative;
-            z-index: 2;
-            max-width: 160mm;
+            mix-blend-mode: screen; /* Automatically transparently blends white backgrounds out on dark blue */
         }
 
         /* Cards & Square Grids */
@@ -277,7 +241,7 @@
 
         .card-box {
             background-color: var(--rand-light-bg);
-            border-radius: 0; /* Strict square corners */
+            border-radius: 0;
             border: 1px solid var(--rand-card-border);
             padding: 6mm;
             text-align: left;
@@ -420,15 +384,12 @@
 </head>
 <body>
 
-    <!-- SLIDE 1: Title Slide (Replicating PowerPoint Reference Layout) -->
+    <!-- SLIDE 1: Title Slide -->
     <div class="slide-container">
         <div class="title-layout">
             <img src="dark-logo-rand.png" alt="Rand Associates Logo" class="title-logo" onerror="this.src='rand-main-logo.png'; this.onerror=null;">
-            <div class="title-content-group">
-                <h1 style="font-size: 30pt; margin-bottom: 6mm; font-family: 'Libre Franklin', sans-serif; font-weight: 700; line-height: 1.2; letter-spacing: -0.5px;">Heating Season 2026: Previous Year Comparison</h1>
-                <h2 style="font-size: 15pt; font-weight: 300; color: #CBD5E1; margin-bottom: 12mm;">UK Residential Heating Gas and Oil Trends</h2>
-                <div style="font-size: 11pt; color: var(--rand-aqua); font-weight: 600; letter-spacing: 0.5px;">17.09.2026</div>
-            </div>
+            <h1 style="font-size: 34pt; margin-bottom: 5mm; font-family: 'Libre Franklin', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Heating Season 2026: Previous Year Comparison</h1>
+            <h2 style="font-size: 17pt; font-weight: 300; color: #94A3B8;">UK Residential Heating Gas and Oil Trends</h2>
         </div>
     </div>
 
@@ -436,7 +397,7 @@
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">October Price Cap Details: Gas Cost Breakdown</div>
-            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" onerror="this.src='rand-logo.png'; this.onerror=null;">
+            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" style="mix-blend-mode: multiply;" onerror="this.src='rand-logo.png'; this.onerror=null;">
         </div>
         <div class="content-area">
             <div class="table-layout">
@@ -501,7 +462,7 @@
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">Gas Unit Rate Trend & Property Impact</div>
-            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" onerror="this.src='rand-logo.png'; this.onerror=null;">
+            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" style="mix-blend-mode: multiply;" onerror="this.src='rand-logo.png'; this.onerror=null;">
         </div>
         <div class="content-area">
             <div class="two-column" style="grid-template-columns: 1.1fr 0.9fr; gap: 6mm;">
@@ -567,7 +528,7 @@
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">January 2027 Forecast & Fixed Rate Analysis</div>
-            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" onerror="this.src='rand-logo.png'; this.onerror=null;">
+            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" style="mix-blend-mode: multiply;" onerror="this.src='rand-logo.png'; this.onerror=null;">
         </div>
         <div class="content-area">
             <div class="two-column">
@@ -610,7 +571,7 @@
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">Rural Heating Oil (Kerosene) Cost Surge</div>
-            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" onerror="this.src='rand-logo.png'; this.onerror=null;">
+            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" style="mix-blend-mode: multiply;" onerror="this.src='rand-logo.png'; this.onerror=null;">
         </div>
         <div class="content-area">
             <div class="two-column" style="grid-template-columns: 1.1fr 0.9fr;">
@@ -660,7 +621,7 @@
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">Absorption of the April Tax Shift Savings</div>
-            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" onerror="this.src='rand-logo.png'; this.onerror=null;">
+            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" style="mix-blend-mode: multiply;" onerror="this.src='rand-logo.png'; this.onerror=null;">
         </div>
         <div class="content-area">
             <p style="font-size: 12pt; color: var(--rand-text-muted); margin-bottom: 5mm; width: 100%; font-weight: 500;">
@@ -691,7 +652,7 @@
     <div class="slide-container" style="background: linear-gradient(135deg, var(--rand-deep-blue) 0%, #152248 100%); color: #ffffff;">
         <div class="slide-header" style="border-bottom-color: rgba(255,255,255,0.15);">
             <div class="slide-title" style="color: #ffffff;">Energy Support & Consumer Advice</div>
-            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" style="filter: brightness(0) invert(1);" onerror="this.src='rand-logo.png'; this.onerror=null;">
+            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" style="mix-blend-mode: screen;" onerror="this.src='rand-logo.png'; this.onerror=null;">
         </div>
         
         <div class="content-area" style="justify-content: space-around; padding: 2mm 0; height: 100%;">
@@ -729,9 +690,9 @@
             <div style="width: 100%;">
                 <div class="three-card-grid" style="width: 100%;">
                     
-                    <!-- Slot 1: Standalone Scaled Logo (max-height: 38mm) -->
+                    <!-- Slot 1: Standalone Scaled Logo -->
                     <div style="display: flex; align-items: center; justify-content: center; height: 42mm; padding: 2mm 0;">
-                        <img src="dark-logo-rand.png" alt="Rand Associates" style="max-height: 38mm; max-width: 100%; object-fit: contain; background: #ffffff; padding: 3mm; border-radius: 0;" onerror="this.src='rand-main-logo.png'; this.onerror=null;">
+                        <img src="dark-logo-rand.png" alt="Rand Associates" style="max-height: 38mm; max-width: 100%; object-fit: contain; background: transparent; mix-blend-mode: screen; padding: 0;" onerror="this.src='rand-main-logo.png'; this.onerror=null;">
                     </div>
 
                     <!-- Slot 2: Rand Details Box -->
