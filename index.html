@@ -216,11 +216,11 @@
         .title-logo {
             max-width: 85mm;
             margin-bottom: 10mm;
-            background: transparent; /* Removed white background block */
+            background: transparent;
             padding: 0;
             border-radius: 0;
             object-fit: contain;
-            mix-blend-mode: screen; /* Automatically transparently blends white backgrounds out on dark blue */
+            mix-blend-mode: screen;
         }
 
         /* Cards & Square Grids */
@@ -397,7 +397,7 @@
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">October Price Cap Details: Gas Cost Breakdown</div>
-            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" style="mix-blend-mode: multiply;" onerror="this.src='rand-logo.png'; this.onerror=null;">
+            <img src="rand-logo.png" alt="Rand" class="logo-small" onerror="this.style.display='none'">
         </div>
         <div class="content-area">
             <div class="table-layout">
@@ -462,7 +462,7 @@
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">Gas Unit Rate Trend & Property Impact</div>
-            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" style="mix-blend-mode: multiply;" onerror="this.src='rand-logo.png'; this.onerror=null;">
+            <img src="rand-logo.png" alt="Rand" class="logo-small" onerror="this.style.display='none'">
         </div>
         <div class="content-area">
             <div class="two-column" style="grid-template-columns: 1.1fr 0.9fr; gap: 6mm;">
@@ -528,7 +528,7 @@
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">January 2027 Forecast & Fixed Rate Analysis</div>
-            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" style="mix-blend-mode: multiply;" onerror="this.src='rand-logo.png'; this.onerror=null;">
+            <img src="rand-logo.png" alt="Rand" class="logo-small" onerror="this.style.display='none'">
         </div>
         <div class="content-area">
             <div class="two-column">
@@ -571,7 +571,7 @@
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">Rural Heating Oil (Kerosene) Cost Surge</div>
-            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" style="mix-blend-mode: multiply;" onerror="this.src='rand-logo.png'; this.onerror=null;">
+            <img src="rand-logo.png" alt="Rand" class="logo-small" onerror="this.style.display='none'">
         </div>
         <div class="content-area">
             <div class="two-column" style="grid-template-columns: 1.1fr 0.9fr;">
@@ -621,7 +621,7 @@
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">Absorption of the April Tax Shift Savings</div>
-            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" style="mix-blend-mode: multiply;" onerror="this.src='rand-logo.png'; this.onerror=null;">
+            <img src="rand-logo.png" alt="Rand" class="logo-small" onerror="this.style.display='none'">
         </div>
         <div class="content-area">
             <p style="font-size: 12pt; color: var(--rand-text-muted); margin-bottom: 5mm; width: 100%; font-weight: 500;">
@@ -648,11 +648,12 @@
         </div>
     </div>
 
-    <!-- SLIDE 7: Support Resources & Symmetrical 3-Column Lower Row -->
+    <!-- SLIDE 7: Support Resources & Symmetrical 3-Column Lower Row (No Header Logo) -->
     <div class="slide-container" style="background: linear-gradient(135deg, var(--rand-deep-blue) 0%, #152248 100%); color: #ffffff;">
         <div class="slide-header" style="border-bottom-color: rgba(255,255,255,0.15);">
             <div class="slide-title" style="color: #ffffff;">Energy Support & Consumer Advice</div>
-            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" style="mix-blend-mode: screen;" onerror="this.src='rand-logo.png'; this.onerror=null;">
+            <!-- Top-right logo intentionally omitted for Slide 7 as requested -->
+            <div></div>
         </div>
         
         <div class="content-area" style="justify-content: space-around; padding: 2mm 0; height: 100%;">
