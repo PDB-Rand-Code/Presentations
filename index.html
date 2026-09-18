@@ -16,7 +16,7 @@
             --rand-green: #89c997;
             --rand-slate: #7e838d;
             --rand-light-bg: #F4F7FA;
-            --rand-card-border: #E2E8F0;
+            --rand-card-border: #CBD5E1;
             --rand-text-dark: #0F172A;
             --rand-text-muted: #475569;
         }
@@ -49,7 +49,7 @@
         .slide-container {
             align-items: flex-start;
             background-color: #ffffff;
-            border-radius: 16px;
+            border-radius: 0; /* Square / Sharp layout per guidelines */
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
             display: flex;
             flex-direction: column;
@@ -107,7 +107,7 @@
             width: 6px;
             height: 20pt;
             background-color: var(--rand-aqua);
-            border-radius: 3px;
+            border-radius: 0;
         }
 
         .content-area {
@@ -130,13 +130,13 @@
             padding-top: 2.5mm;
         }
 
-        /* Tables */
+        /* Tables (Square Edges) */
         .table-layout {
             width: 100%;
-            border-radius: 8px;
+            border-radius: 0;
             overflow: hidden;
             border: 1px solid var(--rand-card-border);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+            box-shadow: none;
             margin-bottom: 3.5mm;
         }
 
@@ -172,7 +172,7 @@
             font-weight: 600;
             font-size: 10pt;
             padding: 2px 6px;
-            border-radius: 4px;
+            border-radius: 0;
         }
 
         .green-tag {
@@ -181,60 +181,85 @@
             font-weight: 600;
             font-size: 10pt;
             padding: 2px 6px;
-            border-radius: 4px;
+            border-radius: 0;
         }
 
         .summary-banner {
             background-color: #EFF6FF;
             border-left: 5px solid var(--rand-sky-blue);
             padding: 3.5mm 4.5mm;
-            border-radius: 0 6px 6px 0;
+            border-radius: 0;
             width: 100%;
             color: var(--rand-deep-blue);
             font-size: 11pt;
             line-height: 1.45;
         }
 
-        /* Title Slide Layout (Centered) */
+        /* Title Slide Layout matching PowerPoint Reference Image */
         .title-layout {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(135deg, var(--rand-deep-blue) 0%, #152248 100%);
+            justify-content: flex-start;
+            align-items: flex-start;
+            text-align: left;
+            background: var(--rand-deep-blue);
             color: #ffffff;
-            border-radius: 12px;
+            border-radius: 0;
             margin: -18mm -22mm;
-            padding: 20mm;
+            padding: 22mm;
             height: calc(210mm);
             width: calc(297mm);
             position: relative;
             overflow: hidden;
         }
 
+        /* Background Template Shapes mimicking PowerPoint reference */
+        .title-layout::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 250px;
+            height: 600px;
+            background: var(--rand-aqua);
+            transform: rotate(35deg);
+            opacity: 0.85;
+            z-index: 1;
+            pointer-events: none;
+        }
+
         .title-layout::after {
             content: '';
             position: absolute;
-            bottom: -100px;
-            right: -100px;
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(104, 200, 201, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
-            border-radius: 50%;
+            bottom: -150px;
+            right: 80px;
+            width: 220px;
+            height: 500px;
+            background: var(--rand-green);
+            transform: rotate(35deg);
+            opacity: 0.9;
+            z-index: 1;
             pointer-events: none;
         }
 
         .title-logo {
-            max-width: 85mm;
-            margin-bottom: 10mm;
+            max-width: 65mm;
+            margin-bottom: 25mm;
             background: #ffffff;
-            padding: 6mm;
-            border-radius: 10px;
+            padding: 4mm 5mm;
+            border-radius: 0;
             object-fit: contain;
+            position: relative;
+            z-index: 2;
         }
 
-        /* Cards & Grids */
+        .title-content-group {
+            position: relative;
+            z-index: 2;
+            max-width: 160mm;
+        }
+
+        /* Cards & Square Grids */
         .two-column {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -252,7 +277,7 @@
 
         .card-box {
             background-color: var(--rand-light-bg);
-            border-radius: 8px;
+            border-radius: 0; /* Strict square corners */
             border: 1px solid var(--rand-card-border);
             padding: 6mm;
             text-align: left;
@@ -299,7 +324,7 @@
             color: var(--rand-sky-blue);
             background: #EFF6FF;
             padding: 2px 4px;
-            border-radius: 4px;
+            border-radius: 0;
             margin-bottom: 2px;
         }
 
@@ -312,7 +337,7 @@
 
         .column-track {
             background-color: #E2E8F0;
-            border-radius: 6px 6px 0 0;
+            border-radius: 0;
             width: 100%;
             max-width: 22mm;
             height: 100%;
@@ -322,7 +347,7 @@
 
         .column-fill {
             width: 100%;
-            border-radius: 6px 6px 0 0;
+            border-radius: 0;
         }
 
         .column-label {
@@ -395,12 +420,15 @@
 </head>
 <body>
 
-    <!-- SLIDE 1: Title Slide -->
+    <!-- SLIDE 1: Title Slide (Replicating PowerPoint Reference Layout) -->
     <div class="slide-container">
         <div class="title-layout">
-            <img src="rand-main-logo.png" alt="Rand Associates Logo" class="title-logo" onerror="this.style.display='none'">
-            <h1 style="font-size: 34pt; margin-bottom: 5mm; font-family: 'Libre Franklin', sans-serif; font-weight: 700; letter-spacing: -0.5px;">Heating Season 2026: Previous Year Comparison</h1>
-            <h2 style="font-size: 17pt; font-weight: 300; color: #94A3B8;">UK Residential Heating Gas and Oil Trends</h2>
+            <img src="dark-logo-rand.png" alt="Rand Associates Logo" class="title-logo" onerror="this.src='rand-main-logo.png'; this.onerror=null;">
+            <div class="title-content-group">
+                <h1 style="font-size: 30pt; margin-bottom: 6mm; font-family: 'Libre Franklin', sans-serif; font-weight: 700; line-height: 1.2; letter-spacing: -0.5px;">Heating Season 2026: Previous Year Comparison</h1>
+                <h2 style="font-size: 15pt; font-weight: 300; color: #CBD5E1; margin-bottom: 12mm;">UK Residential Heating Gas and Oil Trends</h2>
+                <div style="font-size: 11pt; color: var(--rand-aqua); font-weight: 600; letter-spacing: 0.5px;">17.09.2026</div>
+            </div>
         </div>
     </div>
 
@@ -408,7 +436,7 @@
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">October Price Cap Details: Gas Cost Breakdown</div>
-            <img src="rand-logo.png" alt="Rand" class="logo-small" onerror="this.style.display='none'">
+            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" onerror="this.src='rand-logo.png'; this.onerror=null;">
         </div>
         <div class="content-area">
             <div class="table-layout">
@@ -473,7 +501,7 @@
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">Gas Unit Rate Trend & Property Impact</div>
-            <img src="rand-logo.png" alt="Rand" class="logo-small" onerror="this.style.display='none'">
+            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" onerror="this.src='rand-logo.png'; this.onerror=null;">
         </div>
         <div class="content-area">
             <div class="two-column" style="grid-template-columns: 1.1fr 0.9fr; gap: 6mm;">
@@ -509,19 +537,19 @@
                             <div class="column-label" style="font-weight: 700;">Oct 2026</div>
                         </div>
                     </div>
-                    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 2.5mm 4mm; border-radius: 6px; margin-top: 2mm; font-size: 9pt; color: var(--rand-text-muted);">
+                    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 2.5mm 4mm; border-radius: 0; margin-top: 2mm; font-size: 9pt; color: var(--rand-text-muted);">
                         <strong>National Benchmark:</strong> Two-bedroom property with a consumption usage of 11,500 kWh per year (including standing charges).
                     </div>
                 </div>
 
                 <div style="display: flex; flex-direction: column; gap: 4mm;">
-                    <div style="background: linear-gradient(135deg, var(--rand-deep-blue) 0%, var(--rand-sky-blue) 100%); color: #ffffff; border-radius: 8px; padding: 4.5mm 5mm; text-align: center;">
+                    <div style="background: linear-gradient(135deg, var(--rand-deep-blue) 0%, var(--rand-sky-blue) 100%); color: #ffffff; border-radius: 0; padding: 4.5mm 5mm; text-align: center;">
                         <div style="font-size: 9pt; text-transform: uppercase; color: #94A3B8; font-weight: 600; letter-spacing: 0.5px;">Monthly Cost Increase vs Oct 2025</div>
                         <div style="font-family: 'Libre Franklin', sans-serif; font-size: 24pt; font-weight: 700; color: var(--rand-aqua); margin: 2px 0;">+£19.50 / mo</div>
                         <div style="font-size: 9pt; color: #E2E8F0;">Monthly bill rises from ~£66.30 to ~£85.80</div>
                     </div>
 
-                    <div style="background: linear-gradient(135deg, #152248 0%, var(--rand-deep-blue) 100%); color: #ffffff; border-radius: 8px; padding: 4.5mm 5mm; text-align: center;">
+                    <div style="background: linear-gradient(135deg, #152248 0%, var(--rand-deep-blue) 100%); color: #ffffff; border-radius: 0; padding: 4.5mm 5mm; text-align: center;">
                         <div style="font-size: 9pt; text-transform: uppercase; color: #94A3B8; font-weight: 600; letter-spacing: 0.5px;">Annual Cost Increase vs Oct 2025</div>
                         <div style="font-family: 'Libre Franklin', sans-serif; font-size: 24pt; font-weight: 700; color: var(--rand-aqua); margin: 2px 0;">+£228.00 / yr</div>
                         <div style="font-size: 9pt; color: #E2E8F0;">Annual expenditure shifts from ~£796 to ~£1,025</div>
@@ -539,7 +567,7 @@
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">January 2027 Forecast & Fixed Rate Analysis</div>
-            <img src="rand-logo.png" alt="Rand" class="logo-small" onerror="this.style.display='none'">
+            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" onerror="this.src='rand-logo.png'; this.onerror=null;">
         </div>
         <div class="content-area">
             <div class="two-column">
@@ -550,7 +578,7 @@
                             Industry forecasters project an additional ~8.8% rise in the Ofgem Price Cap heading into January 2027.
                         </p>
                     </div>
-                    <div style="background: #EFF6FF; padding: 5mm; border-radius: 6px; font-size: 10pt; color: var(--rand-deep-blue); line-height: 1.5;">
+                    <div style="background: #EFF6FF; padding: 5mm; border-radius: 0; font-size: 10pt; color: var(--rand-deep-blue); line-height: 1.5;">
                         • Q1 Projected Gas Unit Rate: ~8.65p / kWh<br>
                         • Projected 2-Bed Monthly Bill: ~£92.30 / mo<br>
                         • Projected 2-Bed Annual Total: ~£1,107 / yr
@@ -563,7 +591,7 @@
                             Active market fixed tariff quoted at <strong>9.08p per kWh</strong> for gas (12-month lock).
                         </p>
                     </div>
-                    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 5mm; border-radius: 6px; font-size: 10pt; line-height: 1.5;">
+                    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 5mm; border-radius: 0; font-size: 10pt; line-height: 1.5;">
                         • Fixed Gas Rate: <strong>9.08p / kWh</strong><br>
                         • Estimated Monthly Bill: <strong>~£96.70 / mo</strong><br>
                         • Estimated Annual Bill: <strong>~£1,160 / yr</strong><br>
@@ -582,7 +610,7 @@
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">Rural Heating Oil (Kerosene) Cost Surge</div>
-            <img src="rand-logo.png" alt="Rand" class="logo-small" onerror="this.style.display='none'">
+            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" onerror="this.src='rand-logo.png'; this.onerror=null;">
         </div>
         <div class="content-area">
             <div class="two-column" style="grid-template-columns: 1.1fr 0.9fr;">
@@ -612,7 +640,7 @@
                         </table>
                     </div>
                 </div>
-                <div style="background: linear-gradient(135deg, var(--rand-deep-blue) 0%, #152248 100%); color: #ffffff; border-radius: 10px; border-left: 5px solid var(--rand-green); padding: 6mm; text-align: left;">
+                <div style="background: linear-gradient(135deg, var(--rand-deep-blue) 0%, #152248 100%); color: #ffffff; border-radius: 0; border-left: 5px solid var(--rand-green); padding: 6mm; text-align: left;">
                     <i class="fa-solid fa-oil-well" style="font-size: 26pt; color: var(--rand-aqua); margin-bottom: 6mm;"></i>
                     <div style="font-size: 8.5pt; text-transform: uppercase; color: #94A3B8; font-weight: 600;">1,000L Tank Difference</div>
                     <div style="font-family: 'Libre Franklin', sans-serif; font-size: 28pt; font-weight: 700; color: var(--rand-aqua); margin: 2px 0;">+£241.00</div>
@@ -632,7 +660,7 @@
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">Absorption of the April Tax Shift Savings</div>
-            <img src="rand-logo.png" alt="Rand" class="logo-small" onerror="this.style.display='none'">
+            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" onerror="this.src='rand-logo.png'; this.onerror=null;">
         </div>
         <div class="content-area">
             <p style="font-size: 12pt; color: var(--rand-text-muted); margin-bottom: 5mm; width: 100%; font-weight: 500;">
@@ -663,7 +691,7 @@
     <div class="slide-container" style="background: linear-gradient(135deg, var(--rand-deep-blue) 0%, #152248 100%); color: #ffffff;">
         <div class="slide-header" style="border-bottom-color: rgba(255,255,255,0.15);">
             <div class="slide-title" style="color: #ffffff;">Energy Support & Consumer Advice</div>
-            <img src="rand-logo.png" alt="Rand" class="logo-small" style="filter: brightness(0) invert(1);" onerror="this.style.display='none'">
+            <img src="dark-logo-rand.png" alt="Rand" class="logo-small" style="filter: brightness(0) invert(1);" onerror="this.src='rand-logo.png'; this.onerror=null;">
         </div>
         
         <div class="content-area" style="justify-content: space-around; padding: 2mm 0; height: 100%;">
@@ -674,19 +702,19 @@
                     If residents need independent energy advice, hardship grants, or efficiency support, please reach out to:
                 </p>
                 <div class="three-card-grid" style="width: 100%;">
-                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-sky-blue); border-radius: 8px; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 42mm;">
+                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-sky-blue); border-radius: 0; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 42mm;">
                         <h3 style="font-size: 11pt; color: #ffffff; font-weight: 600;">National Energy Action</h3>
                         <p style="font-size: 8.5pt; color: #94A3B8; line-height: 1.45; display: flex; align-items: center; justify-content: center; flex-grow: 1;">Working to end fuel poverty and support vulnerable households.</p>
                         <a href="https://www.nea.org.uk" target="_blank" style="color: var(--rand-aqua); font-size: 9pt; text-decoration: none; font-weight: 600;">nea.org.uk</a>
                     </div>
 
-                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-aqua); border-radius: 8px; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 42mm;">
+                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-aqua); border-radius: 0; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 42mm;">
                         <h3 style="font-size: 11pt; color: #ffffff; font-weight: 600;">Centre for Sustainable Energy</h3>
                         <p style="font-size: 8.5pt; color: #94A3B8; line-height: 1.45; display: flex; align-items: center; justify-content: center; flex-grow: 1;">Practical home energy guidance and efficiency grants.</p>
                         <a href="https://www.cse.org.uk" target="_blank" style="color: var(--rand-aqua); font-size: 9pt; text-decoration: none; font-weight: 600;">cse.org.uk</a>
                     </div>
 
-                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-green); border-radius: 8px; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 42mm;">
+                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-green); border-radius: 0; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 42mm;">
                         <h3 style="font-size: 11pt; color: #ffffff; font-weight: 600;">Local Energy Advice Partnership</h3>
                         <p style="font-size: 8.5pt; color: #94A3B8; line-height: 1.45; display: flex; align-items: center; justify-content: center; flex-grow: 1;">Free advisory service delivering eco-measures and tariff checks.</p>
                         <a href="https://applyforleap.org.uk" target="_blank" style="color: var(--rand-aqua); font-size: 9pt; text-decoration: none; font-weight: 600;">applyforleap.org.uk</a>
@@ -703,18 +731,18 @@
                     
                     <!-- Slot 1: Standalone Scaled Logo (max-height: 38mm) -->
                     <div style="display: flex; align-items: center; justify-content: center; height: 42mm; padding: 2mm 0;">
-                        <img src="rand-main-logo.png" alt="Rand Associates" style="max-height: 38mm; max-width: 100%; object-fit: contain; background: #ffffff; padding: 3mm; border-radius: 6px;" onerror="this.style.display='none'">
+                        <img src="dark-logo-rand.png" alt="Rand Associates" style="max-height: 38mm; max-width: 100%; object-fit: contain; background: #ffffff; padding: 3mm; border-radius: 0;" onerror="this.src='rand-main-logo.png'; this.onerror=null;">
                     </div>
 
                     <!-- Slot 2: Rand Details Box -->
-                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-green); border-radius: 8px; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 42mm;">
+                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-green); border-radius: 0; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 42mm;">
                         <h3 style="font-size: 11pt; color: #ffffff; font-weight: 600;">Rand Associates</h3>
                         <p style="font-size: 8.5pt; color: #94A3B8; line-height: 1.45; display: flex; align-items: center; justify-content: center; flex-grow: 1;">A multi-discipline practice specialising in the management of social housing throughout the UK.</p>
                         <a href="https://rand-associates.co.uk/" target="_blank" style="color: var(--rand-aqua); font-size: 9pt; text-decoration: none; font-weight: 600;">rand-associates.co.uk</a>
                     </div>
 
                     <!-- Slot 3: Address Box -->
-                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-green); border-radius: 8px; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 42mm;">
+                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-top: 4px solid var(--rand-green); border-radius: 0; padding: 4mm 5mm; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 42mm;">
                         <h3 style="font-size: 11pt; color: #ffffff; font-weight: 600;">Head Office</h3>
                         <p style="font-size: 8.5pt; color: #94A3B8; line-height: 1.45; display: flex; align-items: center; justify-content: center; flex-grow: 1;">Bancroft Place, 10 Bancroft Road, Reigate, Surrey, RH2 7RP</p>
                         <span style="font-size: 9pt; color: transparent; user-select: none;">Contact</span>
