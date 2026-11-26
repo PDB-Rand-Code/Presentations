@@ -48,6 +48,8 @@
             font-family: 'Libre Franklin', sans-serif;
             font-size: 11pt;
             color: var(--rand-text-dark);
+            overflow-x: hidden;
+            width: 100%;
         }
 
         .slide-container {
@@ -79,6 +81,12 @@
             height: 6px;
             background: linear-gradient(90deg, var(--rand-deep-blue) 0%, var(--rand-sky-blue) 45%, var(--rand-aqua) 80%, var(--rand-green) 100%);
             z-index: 10;
+        }
+
+        /* Full Bleed Dark Slide Style */
+        .slide-container.dark-slide {
+            background: linear-gradient(135deg, var(--rand-deep-blue) 0%, #111B38 100%);
+            color: #ffffff;
         }
 
         .slide-header {
@@ -137,20 +145,16 @@
             margin-top: 1mm;
         }
 
-        /* Title Slide Layout */
-        .title-layout {
+        /* Title Slide Layout - Self Contained */
+        .title-content {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(135deg, var(--rand-deep-blue) 0%, #111B38 100%);
-            color: #ffffff;
-            margin: -10mm -15mm -9mm -15mm;
-            padding: 20mm;
-            height: calc(210mm);
-            width: calc(297mm);
-            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 10mm 5mm;
         }
 
         .title-logo {
@@ -161,18 +165,34 @@
             mix-blend-mode: screen;
         }
 
-        /* Tables (Optimized for LinkedIn PDF visibility) */
+        /* Tables */
         .table-layout {
             width: 100%;
             border-radius: 0;
-            overflow: hidden;
+            overflow-x: auto;
             border: 1.5px solid var(--rand-card-border);
+            scrollbar-width: thin;
+            scrollbar-color: var(--rand-sky-blue) #E2E8F0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .table-layout::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .table-layout::-webkit-scrollbar-track {
+            background: #E2E8F0;
+        }
+
+        .table-layout::-webkit-scrollbar-thumb {
+            background-color: var(--rand-sky-blue);
         }
 
         table {
             border-collapse: collapse;
             width: 100%;
             font-size: 11pt;
+            min-width: 620px;
         }
 
         th {
@@ -251,7 +271,7 @@
         .card-box.highlight-amber { border-top: 4px solid var(--rand-accent-warm); }
         .card-box.highlight-red { border-top: 4px solid var(--rand-accent-red); }
 
-        /* Correlation Charts */
+        /* Correlation Charts & Responsive Horizontal Scroll */
         .dual-chart-container {
             display: flex;
             flex-direction: column;
@@ -264,6 +284,22 @@
             border: 1.5px solid var(--rand-card-border);
             padding: 2.5mm 4mm;
             width: 100%;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--rand-sky-blue) #E2E8F0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .chart-panel::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .chart-panel::-webkit-scrollbar-track {
+            background: #E2E8F0;
+        }
+
+        .chart-panel::-webkit-scrollbar-thumb {
+            background-color: var(--rand-sky-blue);
         }
 
         .chart-header {
@@ -271,6 +307,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 1.8mm;
+            min-width: 540px;
         }
 
         .chart-header-title {
@@ -291,6 +328,7 @@
             padding-top: 1mm;
             border-bottom: 1.5px solid #E2E8F0;
             width: 100%;
+            min-width: 540px;
         }
 
         .chart-bar-group {
@@ -340,6 +378,7 @@
             margin-top: 3.5px;
             text-align: center;
             line-height: 1.15;
+            white-space: nowrap;
         }
 
         .empty-col-placeholder {
@@ -349,8 +388,8 @@
             align-items: center;
             justify-content: center;
             color: #64748B;
-            font-size: 8.5pt;
-            font-weight: 600;
+            font-size: 8pt;
+            font-weight: 700;
             text-align: center;
             padding: 3px;
             max-width: 22mm;
@@ -373,25 +412,56 @@
             flex-shrink: 0;
         }
 
+        /* Mobile Viewport Adaptations */
         @media screen and (max-width: 1024px) {
-            body { padding: 10px; }
+            body {
+                padding: 12px 6px;
+                gap: 20px;
+                background-color: #0B132B;
+            }
             .slide-container {
                 width: 100% !important;
                 min-width: 100% !important;
+                max-width: 100% !important;
                 height: auto !important;
                 min-height: auto !important;
-                padding: 16px;
+                padding: 20px 14px 16px 14px !important;
+                margin: 0 !important;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             }
-            .title-layout {
-                width: 100% !important;
+            .slide-header {
+                padding-bottom: 8px;
+                margin-bottom: 12px;
+            }
+            .slide-title {
+                font-size: 16pt;
+            }
+            .title-content {
+                padding: 24px 8px;
+            }
+            .title-logo {
+                max-width: 75mm;
+                margin-bottom: 16px;
+            }
+            .two-column, .three-card-grid {
+                grid-template-columns: 1fr !important;
+                gap: 14px !important;
+            }
+            .card-box {
                 height: auto !important;
-                margin: -16px !important;
-                padding: 32px 16px !important;
+                min-height: auto !important;
+                padding: 16px !important;
             }
-            .two-column, .three-card-grid { grid-template-columns: 1fr !important; }
-            .table-layout { overflow-x: auto; }
-            table { min-width: 580px; }
-            .aligned-5col-chart { height: 26mm; }
+            .aligned-5col-chart {
+                height: 30mm;
+            }
+            .slide-footer {
+                flex-direction: column;
+                gap: 6px;
+                text-align: center;
+                margin-top: 14px;
+                padding-top: 10px;
+            }
         }
 
         @media print {
@@ -403,18 +473,19 @@
                 height: 210mm !important;
                 min-width: 297mm !important;
                 min-height: 210mm !important;
+                page-break-after: always;
             }
-            .title-layout {
-                margin: -10mm -15mm -9mm -15mm !important;
+            .table-layout, .chart-panel {
+                overflow: visible !important;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- SLIDE 1: Title Slide -->
-    <div class="slide-container">
-        <div class="title-layout">
+    <!-- SLIDE 1: Title Slide (Full Bleed Background - No White Side Slivers) -->
+    <div class="slide-container dark-slide">
+        <div class="title-content">
             <img src="dark-logo-rand.png" alt="Rand Associates Logo" class="title-logo" onerror="this.src='rand-main-logo.png'; this.onerror=null;">
             <div style="font-size: 13pt; text-transform: uppercase; letter-spacing: 2.5px; color: var(--rand-aqua); font-weight: 700; margin-bottom: 4mm;">
                 UK Domestic Energy Market
@@ -425,7 +496,7 @@
             <p style="font-size: 15pt; font-weight: 300; color: #CBD5E1; max-width: 230mm; margin-bottom: 9mm; line-height: 1.45;">
                 Price per unit review: Ofgem rates, oil market correlations, standing charges, and market data.
             </p>
-            <div style="display: flex; gap: 8mm; font-size: 11pt; font-weight: 600; color: #E2E8F0; border-top: 1.5px solid rgba(255,255,255,0.25); padding-top: 4mm;">
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8mm; font-size: 11pt; font-weight: 600; color: #E2E8F0; border-top: 1.5px solid rgba(255,255,255,0.25); padding-top: 4mm; width: 100%;">
                 <span><i class="fa-solid fa-bolt" style="color: var(--rand-aqua); margin-right: 5px;"></i> Electricity: 32.69p/kWh</span>
                 <span><i class="fa-solid fa-fire-flame-simple" style="color: var(--rand-green); margin-right: 5px;"></i> Gas: 10.96p/kWh</span>
                 <span><i class="fa-solid fa-receipt" style="color: #F87171; margin-right: 5px;"></i> Electricity VAT Exemption</span>
@@ -509,7 +580,7 @@
         </div>
     </div>
 
-    <!-- SLIDE 3: Electricity & Oil Price Correlation -->
+    <!-- SLIDE 3: Electricity & Oil Price Correlation (Scrollable Charts on Mobile) -->
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">Correlation: Crude Oil Index vs. Electricity Unit Rates</div>
@@ -517,13 +588,13 @@
         </div>
         <div class="content-area">
             <div class="dual-chart-container">
-                <!-- Electricity Chart (5 Columns) -->
+                <!-- Electricity Chart (5 Columns with Horizontal Scroll Support) -->
                 <div class="chart-panel">
                     <div class="chart-header">
                         <div class="chart-header-title">
                             <i class="fa-solid fa-bolt" style="color: var(--rand-sky-blue);"></i> Electricity Unit Rates & Dual Fuel Cost (2,700 kWh/yr, Excl. SC & VAT)
                         </div>
-                        <span style="font-size: 9pt; color: var(--rand-text-muted); font-weight: 600;">Ofgem Price Cap Rate Progression</span>
+                        <span style="font-size: 9pt; color: var(--rand-text-muted); font-weight: 600;">Swipe to view progression &rarr;</span>
                     </div>
                     <div class="aligned-5col-chart">
                         <!-- Col 1: Jan 2026 -->
@@ -570,7 +641,7 @@
                         <div class="chart-header-title">
                             <i class="fa-solid fa-barrel-oil" style="color: #64748B;"></i> Global Brent Crude Oil Benchmark (Average Price Per Barrel for Known Periods)
                         </div>
-                        <span style="font-size: 9pt; color: var(--rand-text-muted); font-weight: 600;">Historical Market Pricing (No Projections)</span>
+                        <span style="font-size: 9pt; color: var(--rand-text-muted); font-weight: 600;">Historical ICE Market Pricing</span>
                     </div>
                     <div class="aligned-5col-chart" style="height: 25mm;">
                         <!-- Col 1: Jan–Mar 2026 -->
@@ -601,10 +672,10 @@
                             <div class="bar-track"><div class="bar-fill" style="height: 100%; background: #B91C1C;"></div></div>
                             <div class="bar-period-lbl" style="font-weight: 800; color: var(--rand-accent-red);">Oct 2026 – Present</div>
                         </div>
-                        <!-- Col 5: Gap under Jan 2027 -->
+                        <!-- Col 5: Gap under Jan 2027 - Updated to 'No Projection Available' -->
                         <div class="chart-bar-group">
                             <div class="empty-col-placeholder">
-                                <span>No projection<br>(Current period)</span>
+                                <span>No Projection Available</span>
                             </div>
                             <div class="bar-period-lbl" style="color: #94A3B8;">Jan 2027</div>
                         </div>
@@ -699,7 +770,7 @@
         </div>
     </div>
 
-    <!-- SLIDE 5: Gas Price Cap & Oil Comparison Charts -->
+    <!-- SLIDE 5: Gas Price Cap & Oil Comparison Charts (Scrollable on Mobile) -->
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">Gas Cap Trend & Crude Oil Benchmark Comparison</div>
@@ -713,7 +784,7 @@
                         <div class="chart-header-title">
                             <i class="fa-solid fa-fire-flame-simple" style="color: #EA580C;"></i> Gas Unit Rate Trend & Monthly Total (11,500 kWh/yr Benchmark, Excl. SC & VAT)
                         </div>
-                        <span style="font-size: 9pt; color: var(--rand-text-muted); font-weight: 600;">Ofgem Standard Variable Gas Rates</span>
+                        <span style="font-size: 9pt; color: var(--rand-text-muted); font-weight: 600;">Swipe to view progression &rarr;</span>
                     </div>
                     <div class="aligned-5col-chart">
                         <!-- Col 1: Jan 2026 -->
@@ -760,7 +831,7 @@
                         <div class="chart-header-title">
                             <i class="fa-solid fa-barrel-oil" style="color: #64748B;"></i> Global Brent Crude Oil Benchmark (Average Price Per Barrel for Known Periods)
                         </div>
-                        <span style="font-size: 9pt; color: var(--rand-text-muted); font-weight: 600;">Historical Market Pricing (No Projections)</span>
+                        <span style="font-size: 9pt; color: var(--rand-text-muted); font-weight: 600;">Historical ICE Market Pricing</span>
                     </div>
                     <div class="aligned-5col-chart" style="height: 25mm;">
                         <!-- Col 1: Jan–Mar 2026 -->
@@ -791,10 +862,10 @@
                             <div class="bar-track"><div class="bar-fill" style="height: 100%; background: #B91C1C;"></div></div>
                             <div class="bar-period-lbl" style="font-weight: 800; color: var(--rand-accent-red);">Oct 2026 – Present</div>
                         </div>
-                        <!-- Col 5: Gap under Jan 2027 -->
+                        <!-- Col 5: Gap under Jan 2027 - Updated to 'No Projection Available' -->
                         <div class="chart-bar-group">
                             <div class="empty-col-placeholder">
-                                <span>No projection<br>(Current period)</span>
+                                <span>No Projection Available</span>
                             </div>
                             <div class="bar-period-lbl" style="color: #94A3B8;">Jan 2027</div>
                         </div>
@@ -812,7 +883,7 @@
         </div>
     </div>
 
-    <!-- SLIDE 6: Standing Charges -->
+    <!-- SLIDE 6: Standing Charges (Scrollable Charts on Mobile) -->
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">Daily Standing Charges: Price Stability & Reform Plans</div>
@@ -824,12 +895,12 @@
                 
                 <!-- Electricity Standing Charge Graph -->
                 <div class="chart-panel" style="padding: 3mm 4mm;">
-                    <div class="chart-header">
+                    <div class="chart-header" style="min-width: 480px;">
                         <div class="chart-header-title">
                             <i class="fa-solid fa-plug" style="color: var(--rand-sky-blue);"></i> Electricity Daily Standing Charge (p/day, Excl. VAT)
                         </div>
                     </div>
-                    <div class="chart-bars-row" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; height: 32mm; border-bottom: 1.5px solid #E2E8F0;">
+                    <div class="chart-bars-row" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; height: 32mm; border-bottom: 1.5px solid #E2E8F0; min-width: 480px;">
                         <div class="chart-bar-group">
                             <div class="bar-label-top">60.90p</div>
                             <div class="bar-sublabel">£222.29/yr</div>
@@ -865,12 +936,12 @@
 
                 <!-- Gas Standing Charge Graph -->
                 <div class="chart-panel" style="padding: 3mm 4mm;">
-                    <div class="chart-header">
+                    <div class="chart-header" style="min-width: 480px;">
                         <div class="chart-header-title">
                             <i class="fa-solid fa-fire" style="color: #EA580C;"></i> Gas Daily Standing Charge (p/day, Excl. VAT)
                         </div>
                     </div>
-                    <div class="chart-bars-row" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; height: 32mm; border-bottom: 1.5px solid #E2E8F0;">
+                    <div class="chart-bars-row" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; height: 32mm; border-bottom: 1.5px solid #E2E8F0; min-width: 480px;">
                         <div class="chart-bar-group">
                             <div class="bar-label-top">31.58p</div>
                             <div class="bar-sublabel">£115.27/yr</div>
@@ -897,7 +968,7 @@
                         </div>
                         <div class="chart-bar-group">
                             <div class="bar-label-top" style="color: var(--rand-deep-blue); font-size: 11.5pt;">29.65p</div>
-                            <div class="bar-sublabel">£108.22/yr</div>
+                            <div class="bar-sublabel" style="color: var(--rand-deep-blue);">£108.22/yr</div>
                             <div class="bar-track"><div class="bar-fill" style="height: 94%; background: var(--rand-deep-blue);"></div></div>
                             <div class="bar-period-lbl" style="font-weight: 800; color: var(--rand-deep-blue);">Jan 2027</div>
                         </div>
@@ -1116,7 +1187,7 @@
     </div>
 
     <!-- SLIDE 10: Energy Support & Consumer Advice -->
-    <div class="slide-container" style="background: linear-gradient(135deg, var(--rand-deep-blue) 0%, #152248 100%); color: #ffffff;">
+    <div class="slide-container dark-slide">
         <div class="slide-header" style="border-bottom-color: rgba(255,255,255,0.18);">
             <div class="slide-title" style="color: #ffffff;">Independent Energy Support & Guidance</div>
             <span style="font-size: 9.5pt; color: var(--rand-aqua); font-weight: 700;">Consumer Advice Directory</span>
@@ -1215,8 +1286,8 @@
         </div>
     </div>
 
-    <!-- SLIDE 11: Rand Associates Energy Team (Final Slide) -->
-    <div class="slide-container" style="background: linear-gradient(135deg, var(--rand-deep-blue) 0%, #152248 100%); color: #ffffff;">
+    <!-- SLIDE 11: Rand Associates Energy Team (With Title Page Logo Added) -->
+    <div class="slide-container dark-slide">
         <div class="slide-header" style="border-bottom-color: rgba(255,255,255,0.18);">
             <div class="slide-title" style="color: #ffffff;">Rand Associates: Energy Advice Team</div>
             <span style="font-size: 9.5pt; color: var(--rand-green); font-weight: 700;">Energy Training & Advisory</span>
@@ -1224,9 +1295,10 @@
         
         <div class="content-area" style="justify-content: space-around; padding: 1mm 0; height: 100%;">
             
-            <!-- Headline & Services Introduction -->
-            <div style="width: 100%; text-align: center;">
-                <p style="font-size: 11.5pt; color: #CBD5E1; font-weight: 500; margin-bottom: 2mm;">
+            <!-- Headline & Services Introduction with Prominent Rand Logo -->
+            <div style="width: 100%; text-align: center; display: flex; flex-direction: column; align-items: center;">
+                <img src="dark-logo-rand.png" alt="Rand Associates Logo" style="max-height: 18mm; max-width: 70mm; object-fit: contain; margin-bottom: 2.5mm; mix-blend-mode: screen;" onerror="this.src='rand-main-logo.png'; this.onerror=null;">
+                <p style="font-size: 11.5pt; color: #CBD5E1; font-weight: 500; margin-bottom: 1.5mm;">
                     This presentation was created by the Energy Team at Rand Associates.
                 </p>
                 <p style="font-size: 13.5pt; color: var(--rand-aqua); font-weight: 700; max-width: 240mm; margin: 0 auto; line-height: 1.4;">
@@ -1245,9 +1317,9 @@
                 <div class="three-card-grid" style="width: 100%; gap: 5mm;">
                     
                     <!-- Office 1: London / Head Office -->
-                    <div style="background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.18); border-top: 4px solid var(--rand-sky-blue); padding: 4mm 4.5mm; text-align: left; display: flex; flex-direction: column; justify-content: space-between; height: 40mm;">
+                    <div style="background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.18); border-top: 4px solid var(--rand-sky-blue); padding: 4mm 4.5mm; text-align: left; display: flex; flex-direction: column; justify-content: space-between; height: 38mm;">
                         <div>
-                            <h3 style="font-size: 11pt; color: #ffffff; font-weight: 700; margin-bottom: 2mm;">Head Office (London)</h3>
+                            <h3 style="font-size: 11pt; color: #ffffff; font-weight: 700; margin-bottom: 1.5mm;">Head Office (London)</h3>
                             <p style="font-size: 9.5pt; color: #CBD5E1; line-height: 1.45;">
                                 Bancroft Place, 10 Bancroft Road,<br>
                                 Reigate, Surrey,<br>
@@ -1258,9 +1330,9 @@
                     </div>
 
                     <!-- Office 2: Northern Office (Wirral) -->
-                    <div style="background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.18); border-top: 4px solid var(--rand-green); padding: 4mm 4.5mm; text-align: left; display: flex; flex-direction: column; justify-content: space-between; height: 40mm;">
+                    <div style="background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.18); border-top: 4px solid var(--rand-green); padding: 4mm 4.5mm; text-align: left; display: flex; flex-direction: column; justify-content: space-between; height: 38mm;">
                         <div>
-                            <h3 style="font-size: 11pt; color: #ffffff; font-weight: 700; margin-bottom: 2mm;">Northern Office (Wirral)</h3>
+                            <h3 style="font-size: 11pt; color: #ffffff; font-weight: 700; margin-bottom: 1.5mm;">Northern Office (Wirral)</h3>
                             <p style="font-size: 9.5pt; color: #CBD5E1; line-height: 1.45;">
                                 Maritime House, Maritime Business Park,<br>
                                 Dock Road, Birkenhead,<br>
@@ -1271,9 +1343,9 @@
                     </div>
 
                     <!-- Office 3: South West Office (Exeter) -->
-                    <div style="background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.18); border-top: 4px solid var(--rand-aqua); padding: 4mm 4.5mm; text-align: left; display: flex; flex-direction: column; justify-content: space-between; height: 40mm;">
+                    <div style="background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.18); border-top: 4px solid var(--rand-aqua); padding: 4mm 4.5mm; text-align: left; display: flex; flex-direction: column; justify-content: space-between; height: 38mm;">
                         <div>
-                            <h3 style="font-size: 11pt; color: #ffffff; font-weight: 700; margin-bottom: 2mm;">South West Office (Exeter)</h3>
+                            <h3 style="font-size: 11pt; color: #ffffff; font-weight: 700; margin-bottom: 1.5mm;">South West Office (Exeter)</h3>
                             <p style="font-size: 9.5pt; color: #CBD5E1; line-height: 1.45;">
                                 Unit 8 Silverdown Office Park,<br>
                                 Fair Oak Close, Exeter, Devon,<br>
@@ -1287,7 +1359,7 @@
             </div>
 
             <!-- Central Contact Footer Bar -->
-            <div style="display: flex; justify-content: center; align-items: center; gap: 10mm; font-size: 11pt; color: #E2E8F0; padding-top: 1mm;">
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8mm; font-size: 11pt; color: #E2E8F0; padding-top: 1mm;">
                 <span><i class="fa-solid fa-phone" style="color: var(--rand-green); margin-right: 6px;"></i> Contact Number: <strong>0333 358 3210</strong></span>
                 <span><i class="fa-solid fa-globe" style="color: var(--rand-aqua); margin-right: 6px;"></i> Website: <a href="https://www.rand-associates.co.uk/" target="_blank" style="color: #ffffff; text-decoration: none; font-weight: 700;">https://www.rand-associates.co.uk/</a></span>
             </div>
