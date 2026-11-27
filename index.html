@@ -1,3 +1,4 @@
+html
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -118,7 +119,7 @@
             content: '';
             display: inline-block;
             width: 6px;
-            height: 19pt;
+            height: 18pt;
             background-color: var(--rand-aqua);
         }
 
@@ -145,7 +146,7 @@
             margin-top: 1mm;
         }
 
-        /* Title Slide Layout - Self Contained */
+        /* Title & Section Divider Slide Layout */
         .title-content {
             display: flex;
             flex-direction: column;
@@ -155,6 +156,43 @@
             width: 100%;
             height: 100%;
             padding: 10mm 5mm;
+        }
+
+        .section-divider-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            padding: 10mm 15mm;
+        }
+
+        .section-kicker {
+            font-size: 13pt;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--rand-aqua);
+            font-weight: 700;
+            margin-bottom: 3mm;
+        }
+
+        .section-headline {
+            font-size: 42pt;
+            line-height: 1.1;
+            margin-bottom: 4mm;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtext {
+            font-size: 14pt;
+            font-weight: 300;
+            color: #CBD5E1;
+            max-width: 210mm;
+            line-height: 1.45;
         }
 
         .title-logo {
@@ -191,7 +229,7 @@
         table {
             border-collapse: collapse;
             width: 100%;
-            font-size: 11pt;
+            font-size: 10.5pt;
             min-width: 620px;
         }
 
@@ -199,18 +237,18 @@
             background-color: var(--rand-deep-blue);
             color: #ffffff;
             font-weight: 700;
-            padding: 2.8mm 3.2mm;
+            padding: 2.5mm 3mm;
             text-align: left;
-            font-size: 10.8pt;
+            font-size: 10.2pt;
             letter-spacing: 0.1px;
         }
 
         td {
             background-color: #ffffff;
             border-bottom: 1px solid #E2E8F0;
-            padding: 2.8mm 3.2mm;
+            padding: 2.5mm 3mm;
             color: var(--rand-text-dark);
-            font-size: 11.2pt;
+            font-size: 10.5pt;
         }
 
         tr:nth-child(even) td {
@@ -219,9 +257,9 @@
 
         .tag-pill {
             display: inline-block;
-            font-size: 9.5pt;
+            font-size: 9pt;
             font-weight: 700;
-            padding: 2px 7px;
+            padding: 2px 6px;
         }
 
         .tag-up { background-color: #FEE2E2; color: #DC2626; }
@@ -231,15 +269,15 @@
         .summary-banner {
             background-color: #EFF6FF;
             border-left: 5px solid var(--rand-sky-blue);
-            padding: 3mm 4.5mm;
+            padding: 2.8mm 4mm;
             width: 100%;
             color: var(--rand-deep-blue);
-            font-size: 10.5pt;
-            line-height: 1.5;
+            font-size: 10pt;
+            line-height: 1.45;
             font-weight: 500;
         }
 
-        /* Grid Layouts */
+        /* Grid Framework */
         .two-column {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -271,7 +309,7 @@
         .card-box.highlight-amber { border-top: 4px solid var(--rand-accent-warm); }
         .card-box.highlight-red { border-top: 4px solid var(--rand-accent-red); }
 
-        /* Correlation Charts & Responsive Horizontal Scroll */
+        /* Correlation Charts & Horizontal Scroll Support */
         .dual-chart-container {
             display: flex;
             flex-direction: column;
@@ -398,18 +436,35 @@
             line-height: 1.25;
         }
 
-        /* Support Organisation Badges */
-        .org-logo-badge {
-            width: 38px;
-            height: 38px;
-            border-radius: 4px;
+        /* Circular Support Pods for Slide 21 (White Background Adaptation) */
+        .circle-pod-white {
+            width: 64mm;
+            height: 64mm;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2.5px solid #CBD5E1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4mm 5mm;
+            box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+        }
+
+        /* Larger Badge to comfortably accommodate LEAP, NEA, CSE */
+        .circle-badge-large {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            font-size: 9.5pt;
-            letter-spacing: -0.5px;
-            flex-shrink: 0;
+            font-size: 11pt;
+            margin-bottom: 2mm;
+            letter-spacing: 0.2px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
         }
 
         /* Mobile Viewport Adaptations */
@@ -436,8 +491,11 @@
             .slide-title {
                 font-size: 16pt;
             }
-            .title-content {
+            .title-content, .section-divider-content {
                 padding: 24px 8px;
+            }
+            .section-headline {
+                font-size: 26pt;
             }
             .title-logo {
                 max-width: 75mm;
@@ -446,6 +504,12 @@
             .two-column, .three-card-grid {
                 grid-template-columns: 1fr !important;
                 gap: 14px !important;
+            }
+            .circle-pod-white {
+                width: 100% !important;
+                height: auto !important;
+                border-radius: 12px !important;
+                padding: 16px !important;
             }
             .card-box {
                 height: auto !important;
@@ -483,7 +547,7 @@
 </head>
 <body>
 
-    <!-- SLIDE 1: Title Slide (Full Bleed Background - No White Side Slivers) -->
+    <!-- SLIDE 1: Title Slide (Dark Theme) -->
     <div class="slide-container dark-slide">
         <div class="title-content">
             <img src="dark-logo-rand.png" alt="Rand Associates Logo" class="title-logo" onerror="this.src='rand-main-logo.png'; this.onerror=null;">
@@ -503,12 +567,111 @@
                 <span><i class="fa-solid fa-scale-balanced" style="color: #FBBF24; margin-right: 5px;"></i> Market Fixes</span>
             </div>
         </div>
+        <div class="slide-footer" style="border-top-color: rgba(255,255,255,0.18); color: #94A3B8;">
+            <span>Rand Associates Energy Team | Ofgem Standard Variable Cap Analysis</span>
+            <span>Slide 1 of 22</span>
+        </div>
     </div>
 
-    <!-- SLIDE 2: Electricity Cost Per Unit Table -->
+    <!-- SLIDE 2: About Rand Associates (WHITE BACKGROUND) -->
     <div class="slide-container">
         <div class="slide-header">
-            <div class="slide-title">Cost of Electricity Per Unit: Standard Variable Cap</div>
+            <div class="slide-title">About Rand Associates</div>
+            <img src="rand-logo.png" alt="Rand Associates" class="logo-small" onerror="this.style.display='none'">
+        </div>
+        <div class="content-area" style="justify-content: space-around; padding: 1mm 0; height: 100%;">
+            
+            <!-- Top Section: Company Blurb & Schedule of Rates Highlight -->
+            <div style="width: 100%; text-align: left; max-width: 260mm;">
+                <p style="font-size: 11pt; color: var(--rand-text-muted); font-weight: 500; margin-bottom: 1.5mm;">
+                    This presentation was created by the Energy Team at Rand Associates.
+                </p>
+                <h3 style="font-size: 13.5pt; color: var(--rand-deep-blue); font-weight: 700; line-height: 1.4; margin-bottom: 2mm;">
+                    Rand Associates is a multi-discipline practice specialising in the management of social housing throughout the UK.
+                </h3>
+                <p style="font-size: 10.2pt; color: var(--rand-text-dark); line-height: 1.5;">
+                    Renowned across the housing sector as the authors and creators of the industry-standard <strong>Schedule of Rates</strong>, Rand Associates provides expert consultancy in stock condition surveys, asset management, procurement, and building maintenance for local authorities and housing associations nationwide.
+                </p>
+            </div>
+
+            <!-- Divider -->
+            <div style="width: 100%; height: 1.5px; background: #E2E8F0;"></div>
+
+            <!-- Lower Section: Energy Advice Element (3 Focused Boxes) -->
+            <div style="width: 100%; max-width: 260mm;">
+                <div style="font-size: 11pt; font-weight: 700; color: var(--rand-deep-blue); margin-bottom: 2.5mm; display: flex; align-items: center; gap: 7px;">
+                    <i class="fa-solid fa-leaf" style="color: var(--rand-green);"></i> Rand Associates Energy Advice Team Services
+                </div>
+                <div class="three-card-grid" style="width: 100%; gap: 5mm;">
+                    
+                    <!-- Box 1: Retrofit Services -->
+                    <div class="card-box highlight-blue" style="padding: 4mm 4.5mm;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 7px; margin-bottom: 2mm;">
+                                <i class="fa-solid fa-house-chimney-crack" style="color: var(--rand-sky-blue); font-size: 13pt;"></i>
+                                <h4 style="font-size: 11.5pt; color: var(--rand-deep-blue); font-weight: 700;">Retrofit Services</h4>
+                            </div>
+                            <p style="font-size: 9.3pt; color: var(--rand-text-dark); line-height: 1.45;">
+                                Supporting social housing providers with decarbonisation strategies, PAS 2035 compliance, energy efficiency assessments, and stock performance optimisation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Box 2: Energy Advocacy -->
+                    <div class="card-box highlight-green" style="padding: 4mm 4.5mm;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 7px; margin-bottom: 2mm;">
+                                <i class="fa-solid fa-handshake-angle" style="color: var(--rand-green); font-size: 13pt;"></i>
+                                <h4 style="font-size: 11.5pt; color: var(--rand-deep-blue); font-weight: 700;">Energy Advocacy</h4>
+                            </div>
+                            <p style="font-size: 9.3pt; color: var(--rand-text-dark); line-height: 1.45;">
+                                Providing dedicated advocacy for complex casework, helping housing officers and residents resolve billing errors, misallocated meters, tariff issues, and debt escalation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Box 3: Energy Training -->
+                    <div class="card-box highlight-navy" style="padding: 4mm 4.5mm;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 7px; margin-bottom: 2mm;">
+                                <i class="fa-solid fa-chalkboard-user" style="color: var(--rand-deep-blue); font-size: 13pt;"></i>
+                                <h4 style="font-size: 11.5pt; color: var(--rand-deep-blue); font-weight: 700;">Energy Training</h4>
+                            </div>
+                            <p style="font-size: 9.3pt; color: var(--rand-text-dark); line-height: 1.45;">
+                                Delivering bespoke, practical training courses for social housing officers and maintenance teams, empowering staff to effectively guide residents with energy bills and heating controls.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="slide-footer">
+            <span>Rand Associates Consultancy Services Ltd | Practice Profile & Energy Advice Services</span>
+            <span>Slide 2 of 22</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: SECTION TITLE: ELECTRICITY -->
+    <div class="slide-container dark-slide">
+        <div class="section-divider-content">
+            <div class="section-kicker"><i class="fa-solid fa-bolt" style="margin-right: 6px;"></i> Section 1</div>
+            <h2 class="section-headline">Electricity</h2>
+            <p class="section-subtext">
+                Unit rate progressions, oil benchmark correlations, 5-year January trends, and annual averages.
+            </p>
+        </div>
+        <div class="slide-footer" style="border-top-color: rgba(255,255,255,0.18); color: #94A3B8;">
+            <span>Rand Associates Energy Team</span>
+            <span>Slide 3 of 22</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: Electricity: Unit Rate Cap (2026–2027 Progression) -->
+    <div class="slide-container">
+        <div class="slide-header">
+            <div class="slide-title">Electricity: Unit Rate Cap</div>
             <img src="rand-logo.png" alt="Rand Associates" class="logo-small" onerror="this.style.display='none'">
         </div>
         <div class="content-area">
@@ -526,38 +689,38 @@
                     <tbody>
                         <tr>
                             <td><strong>January 2026</strong></td>
-                            <td><strong>24.86p</strong></td>
-                            <td>£671.22</td>
-                            <td>£1,044.12</td>
+                            <td><strong>27.69p</strong></td>
+                            <td>£747.63</td>
+                            <td>£1,162.98</td>
                             <td><span class="tag-pill tag-neutral">Baseline</span></td>
                         </tr>
                         <tr>
                             <td><strong>April 2026</strong></td>
-                            <td><strong>22.60p</strong></td>
-                            <td>£610.20</td>
-                            <td>£949.20</td>
-                            <td><span class="tag-pill tag-down">-9.09%</span></td>
+                            <td><strong>24.67p</strong></td>
+                            <td>£666.09</td>
+                            <td>£1,036.14</td>
+                            <td><span class="tag-pill tag-down">-10.91%</span></td>
                         </tr>
                         <tr>
                             <td><strong>July 2026</strong></td>
-                            <td><strong>22.38p</strong></td>
-                            <td>£604.26</td>
-                            <td>£939.96</td>
-                            <td><span class="tag-pill tag-down">-0.97%</span></td>
+                            <td><strong>26.11p</strong></td>
+                            <td>£704.97</td>
+                            <td>£1,096.62</td>
+                            <td><span class="tag-pill tag-up">+5.84%</span></td>
                         </tr>
                         <tr>
                             <td><strong>October 2026</strong></td>
-                            <td><strong>26.40p</strong></td>
-                            <td>£712.80</td>
-                            <td>£1,108.80</td>
-                            <td><span class="tag-pill tag-up">+17.96%</span></td>
+                            <td><strong>26.32p</strong></td>
+                            <td>£710.64</td>
+                            <td>£1,105.44</td>
+                            <td><span class="tag-pill tag-up">+0.80%</span></td>
                         </tr>
                         <tr style="background-color: #FEF2F2;">
                             <td><strong style="color: var(--rand-accent-red);">January 2027</strong></td>
                             <td><strong style="color: var(--rand-accent-red); font-size: 12.5pt;">32.69p</strong></td>
                             <td><strong style="color: var(--rand-accent-red);">£882.63</strong></td>
                             <td><strong style="color: var(--rand-accent-red);">£1,372.98</strong></td>
-                            <td><span class="tag-pill tag-up" style="font-weight: 800;">+23.83% Increase</span></td>
+                            <td><span class="tag-pill tag-up" style="font-weight: 800;">+24.20% Increase</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -572,20 +735,20 @@
             </div>
         </div>
         <div class="slide-footer">
-            <span>Official Ofgem Energy Price Cap Rates (1 January to 31 March 2027) | Standard Credit / Direct Debit Averages</span>
-            <span>Slide 2</span>
+            <span>Official Ofgem Energy Price Cap Rates (Direct Debit Averages across GB)</span>
+            <span>Slide 4 of 22</span>
         </div>
     </div>
 
-    <!-- SLIDE 3: Electricity & Oil Price Correlation (Scrollable Charts on Mobile) -->
+    <!-- SLIDE 5: Electricity & Crude Oil Correlation -->
     <div class="slide-container">
         <div class="slide-header">
-            <div class="slide-title">Correlation: Crude Oil Index vs. Electricity Unit Rates</div>
+            <div class="slide-title">Electricity & Crude Oil</div>
             <img src="rand-logo.png" alt="Rand Associates" class="logo-small" onerror="this.style.display='none'">
         </div>
         <div class="content-area">
             <div class="dual-chart-container">
-                <!-- Electricity Chart (5 Columns with Horizontal Scroll Support) -->
+                <!-- Electricity Chart (5 Columns) -->
                 <div class="chart-panel">
                     <div class="chart-header">
                         <div class="chart-header-title">
@@ -596,29 +759,29 @@
                     <div class="aligned-5col-chart">
                         <!-- Col 1: Jan 2026 -->
                         <div class="chart-bar-group">
-                            <div class="bar-label-top">24.86p</div>
-                            <div class="bar-sublabel">~£55.94/mo</div>
-                            <div class="bar-track"><div class="bar-fill" style="height: 76%; background: var(--rand-sky-blue);"></div></div>
+                            <div class="bar-label-top">27.69p</div>
+                            <div class="bar-sublabel">~£62.30/mo</div>
+                            <div class="bar-track"><div class="bar-fill" style="height: 85%; background: var(--rand-sky-blue);"></div></div>
                             <div class="bar-period-lbl">Jan 2026</div>
                         </div>
                         <!-- Col 2: Apr 2026 -->
                         <div class="chart-bar-group">
-                            <div class="bar-label-top">22.60p</div>
-                            <div class="bar-sublabel">~£50.85/mo</div>
-                            <div class="bar-track"><div class="bar-fill" style="height: 69%; background: var(--rand-green);"></div></div>
+                            <div class="bar-label-top">24.67p</div>
+                            <div class="bar-sublabel">~£55.51/mo</div>
+                            <div class="bar-track"><div class="bar-fill" style="height: 75%; background: var(--rand-green);"></div></div>
                             <div class="bar-period-lbl">Apr 2026</div>
                         </div>
                         <!-- Col 3: Jul 2026 -->
                         <div class="chart-bar-group">
-                            <div class="bar-label-top">22.38p</div>
-                            <div class="bar-sublabel">~£50.36/mo</div>
-                            <div class="bar-track"><div class="bar-fill" style="height: 68%; background: var(--rand-green);"></div></div>
+                            <div class="bar-label-top">26.11p</div>
+                            <div class="bar-sublabel">~£58.75/mo</div>
+                            <div class="bar-track"><div class="bar-fill" style="height: 80%; background: var(--rand-sky-blue);"></div></div>
                             <div class="bar-period-lbl">Jul 2026</div>
                         </div>
                         <!-- Col 4: Oct 2026 -->
                         <div class="chart-bar-group">
-                            <div class="bar-label-top">26.40p</div>
-                            <div class="bar-sublabel">~£59.40/mo</div>
+                            <div class="bar-label-top">26.32p</div>
+                            <div class="bar-sublabel">~£59.22/mo</div>
                             <div class="bar-track"><div class="bar-fill" style="height: 81%; background: var(--rand-deep-blue);"></div></div>
                             <div class="bar-period-lbl">Oct 2026</div>
                         </div>
@@ -686,14 +849,189 @@
         </div>
         <div class="slide-footer">
             <span>Electricity data from Ofgem | Oil index sourced from ICE Brent Benchmark | Excludes speculative forecasting</span>
-            <span>Slide 3</span>
+            <span>Slide 5 of 22</span>
         </div>
     </div>
 
-    <!-- SLIDE 4: Gas Price Per Unit Review -->
+    <!-- SLIDE 6: Electricity: 5-Year January Trend, EPG & SoLR Spike -->
     <div class="slide-container">
         <div class="slide-header">
-            <div class="slide-title">Gas Price Per Unit Review: Standard Variable Cap</div>
+            <div class="slide-title">Electricity: 5-Year January Trend</div>
+            <img src="rand-logo.png" alt="Rand Associates" class="logo-small" onerror="this.style.display='none'">
+        </div>
+        <div class="content-area">
+            <div class="table-layout" style="margin-bottom: 2mm;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cap Period (Q1)</th>
+                            <th>Electricity Unit Rate</th>
+                            <th>Daily Standing Charge</th>
+                            <th>Annual Cost (2,700 kWh)*</th>
+                            <th>Market Context</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>January 2022</strong></td>
+                            <td>20.80p</td>
+                            <td>24.89p / day</td>
+                            <td>£561.60</td>
+                            <td>Pre-invasion baseline: set Oct 2021 during initial post-COVID demand rebound</td>
+                        </tr>
+                        <tr style="background-color: #FEF2F2;">
+                            <td><strong style="color: var(--rand-accent-red);">January 2023 (EPG)</strong></td>
+                            <td><strong style="color: var(--rand-accent-red); font-size: 11.5pt;">34.04p</strong></td>
+                            <td>46.36p / day</td>
+                            <td><strong style="color: var(--rand-accent-red);">£919.08</strong></td>
+                            <td><strong style="color: var(--rand-accent-red);">Peak crisis intervention: EPG held rates below Ofgem's uncapped £4,279 level</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>January 2024</strong></td>
+                            <td>28.62p</td>
+                            <td>53.35p / day</td>
+                            <td>£772.74</td>
+                            <td>Winter seasonal uplift after late 2023 wholesale moderation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>January 2025</strong></td>
+                            <td>24.86p</td>
+                            <td>60.97p / day</td>
+                            <td>£671.22</td>
+                            <td>Lower wholesale gas compared to 2023–2024 winter periods</td>
+                        </tr>
+                        <tr>
+                            <td><strong>January 2026</strong></td>
+                            <td>27.69p</td>
+                            <td>54.75p / day</td>
+                            <td>£747.63</td>
+                            <td>Pre-April 2026 levy rebalancing</td>
+                        </tr>
+                        <tr style="background-color: #FEF2F2;">
+                            <td><strong style="color: var(--rand-accent-red);">January 2027</strong></td>
+                            <td><strong style="color: var(--rand-accent-red); font-size: 11.5pt;">32.69p</strong></td>
+                            <td>54.77p / day</td>
+                            <td><strong style="color: var(--rand-accent-red);">£882.63</strong></td>
+                            <td><strong style="color: var(--rand-accent-red);">Confirmed 25 Nov 2026; driven by wholesale gas surge linked to Middle East conflict</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Two Informative Context Boxes: EPG and SoLR Spike -->
+            <div class="two-column" style="margin-top: 1mm;">
+                <div class="card-box highlight-amber" style="padding: 3mm 4mm;">
+                    <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 1.5mm;">
+                        <i class="fa-solid fa-shield-halved" style="color: var(--rand-accent-warm); font-size: 12pt;"></i>
+                        <strong style="font-size: 10.5pt; color: var(--rand-deep-blue);">What was the Energy Price Guarantee (EPG)?</strong>
+                    </div>
+                    <p style="font-size: 9.2pt; color: var(--rand-text-dark); line-height: 1.45;">
+                        In Autumn 2022, following the invasion of Ukraine and international wholesale price shocks, Ofgem's standard formula produced an uncapped annual bill of <strong>£4,279</strong>. To protect consumers, the UK government introduced the EPG, directly subsidising suppliers to hold the electricity unit rate to <strong>34.04p/kWh</strong>. January 2027 (32.69p) is the highest rate seen since that crisis intervention.
+                    </p>
+                </div>
+
+                <div class="card-box highlight-navy" style="padding: 3mm 4mm;">
+                    <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 1.5mm;">
+                        <i class="fa-solid fa-triangle-exclamation" style="color: var(--rand-deep-blue); font-size: 12pt;"></i>
+                        <strong style="font-size: 10.5pt; color: var(--rand-deep-blue);">Supplier of Last Resort (SoLR) Levy Spike</strong>
+                    </div>
+                    <p style="font-size: 9.2pt; color: var(--rand-text-dark); line-height: 1.45;">
+                        Electricity standing charges jumped from <strong>24.89p/day (2022)</strong> to over <strong>54p–60p/day today</strong> because nearly 30 energy suppliers collapsed in 2021/2022. The ~£2.7bn cost of transferring customers and protecting credit balances was placed onto electricity standing charges. Industry levies and true-up repayments are scheduled to conclude around <strong>2027/2028</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>Historical figures verified against Ofgem and MoneySavingExpert Direct Debit publications</span>
+            <span>Slide 6 of 22</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: Electricity: 5-Year Annual Averages (With Annual Figures Below Pence Rate) -->
+    <div class="slide-container">
+        <div class="slide-header">
+            <div class="slide-title">Electricity: 5-Year Annual Averages</div>
+            <img src="rand-logo.png" alt="Rand Associates" class="logo-small" onerror="this.style.display='none'">
+        </div>
+        <div class="content-area">
+            <div class="chart-panel" style="padding: 4mm 5mm; margin-bottom: 2mm;">
+                <div class="chart-header" style="min-width: 520px; margin-bottom: 2mm;">
+                    <div class="chart-header-title">
+                        <i class="fa-solid fa-chart-column" style="color: var(--rand-deep-blue);"></i> Annual Average Unit Rates & Annual Cost (Dual Fuel Average: 2,700 kWh/yr)
+                    </div>
+                    <span style="font-size: 9pt; color: var(--rand-text-muted); font-weight: 600;">Pence per kWh | National Baseline Cost</span>
+                </div>
+                <div class="aligned-5col-chart" style="height: 38mm; min-width: 520px;">
+                    <div class="chart-bar-group">
+                        <div class="bar-label-top" style="font-size: 11.5pt;">27.88p</div>
+                        <div class="bar-sublabel" style="font-size: 8.5pt; background: #F1F5F9; color: var(--rand-deep-blue); font-weight: 700;">£753 / yr</div>
+                        <div class="bar-track"><div class="bar-fill" style="height: 89%; background: var(--rand-slate);"></div></div>
+                        <div class="bar-period-lbl" style="font-size: 10pt;">2022</div>
+                    </div>
+                    <div class="chart-bar-group">
+                        <div class="bar-label-top" style="color: var(--rand-accent-warm); font-size: 11.5pt;">31.18p</div>
+                        <div class="bar-sublabel" style="background: #FEF3C7; color: #B45309; font-size: 8.5pt; font-weight: 700;">£842 / yr</div>
+                        <div class="bar-track"><div class="bar-fill" style="height: 100%; background: var(--rand-accent-warm);"></div></div>
+                        <div class="bar-period-lbl" style="font-weight: 800; font-size: 10pt; color: var(--rand-accent-warm);">2023 (Crisis)</div>
+                    </div>
+                    <div class="chart-bar-group">
+                        <div class="bar-label-top" style="font-size: 11.5pt;">25.00p</div>
+                        <div class="bar-sublabel" style="font-size: 8.5pt; background: #DCFCE7; color: #166534; font-weight: 700;">£675 / yr</div>
+                        <div class="bar-track"><div class="bar-fill" style="height: 80%; background: var(--rand-green);"></div></div>
+                        <div class="bar-period-lbl" style="font-size: 10pt;">2024</div>
+                    </div>
+                    <div class="chart-bar-group">
+                        <div class="bar-label-top" style="font-size: 11.5pt;">25.99p</div>
+                        <div class="bar-sublabel" style="font-size: 8.5pt; background: #EFF6FF; color: var(--rand-sky-blue); font-weight: 700;">£702 / yr</div>
+                        <div class="bar-track"><div class="bar-fill" style="height: 83%; background: var(--rand-sky-blue);"></div></div>
+                        <div class="bar-period-lbl" style="font-size: 10pt;">2025</div>
+                    </div>
+                    <div class="chart-bar-group">
+                        <div class="bar-label-top" style="color: var(--rand-deep-blue); font-size: 11.5pt;">26.20p</div>
+                        <div class="bar-sublabel" style="font-size: 8.5pt; background: #EFF6FF; color: var(--rand-deep-blue); font-weight: 700;">£707 / yr</div>
+                        <div class="bar-track"><div class="bar-fill" style="height: 84%; background: var(--rand-deep-blue);"></div></div>
+                        <div class="bar-period-lbl" style="font-weight: 800; font-size: 10pt;">2026</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="two-column" style="margin-top: 1mm;">
+                <div class="summary-banner">
+                    <strong>Annual Average Dynamics (Based on 2,700 kWh/yr):</strong><br>
+                    • <strong>2023 Peak:</strong> Averaged 31.18p/kWh (£842/yr) across the crisis quarters.<br>
+                    • <strong>2024–2026 Baseline:</strong> Unit expenditure stabilized around £675 to £707/yr.<br>
+                    • <strong>Late 2026 Note:</strong> Reflected 0% VAT on electricity introduced 1 Oct 2026.
+                </div>
+                <div style="background: #F8FAFC; border: 1.5px solid var(--rand-card-border); border-left: 5px solid var(--rand-deep-blue); padding: 3mm 4mm; font-size: 10pt; color: var(--rand-deep-blue); line-height: 1.45;">
+                    <strong>Seasonal Divergence:</strong> While full calendar year averages hover around 26p/kWh (~£707/yr), winter quarter rates consistently jump higher. January 2027's rate of <strong>32.69p</strong> equates to <strong>£882.63/yr</strong>, which is <strong>+£175.23 higher</strong> than the 2026 annual average.
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>Unweighted annual averages compiled from confirmed quarterly Ofgem Price Cap datasets</span>
+            <span>Slide 7 of 22</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: SECTION TITLE: GAS -->
+    <div class="slide-container dark-slide">
+        <div class="section-divider-content">
+            <div class="section-kicker"><i class="fa-solid fa-fire-flame-simple" style="margin-right: 6px;"></i> Section 2</div>
+            <h2 class="section-headline">Gas</h2>
+            <p class="section-subtext">
+                Reviewing domestic gas unit rate shifts, peak heating seasonal multipliers, 5-year January comparisons, and annual averages.
+            </p>
+        </div>
+        <div class="slide-footer" style="border-top-color: rgba(255,255,255,0.18); color: #94A3B8;">
+            <span>Rand Associates Energy Team</span>
+            <span>Slide 8 of 22</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 9: Gas: Unit Rate Cap (Smooth Natural Line Spacing) -->
+    <div class="slide-container">
+        <div class="slide-header">
+            <div class="slide-title">Gas: Unit Rate Cap</div>
             <img src="rand-logo.png" alt="Rand Associates" class="logo-small" onerror="this.style.display='none'">
         </div>
         <div class="content-area">
@@ -711,31 +1049,31 @@
                     <tbody>
                         <tr>
                             <td><strong>January 2026</strong></td>
-                            <td><strong>6.05p</strong></td>
-                            <td>£695.75</td>
+                            <td><strong>5.93p</strong></td>
+                            <td>£681.95</td>
                             <td><span class="tag-pill tag-neutral">Baseline</span></td>
                             <td>—</td>
                         </tr>
                         <tr>
                             <td><strong>April 2026</strong></td>
-                            <td><strong>5.48p</strong></td>
-                            <td>£630.20</td>
-                            <td><span class="tag-pill tag-down">-9.42%</span></td>
-                            <td>-£65.55 / yr</td>
+                            <td><strong>5.74p</strong></td>
+                            <td>£660.10</td>
+                            <td><span class="tag-pill tag-down">-3.20%</span></td>
+                            <td>-£21.85 / yr</td>
                         </tr>
                         <tr>
                             <td><strong>July 2026</strong></td>
-                            <td><strong>5.35p</strong></td>
-                            <td>£615.25</td>
-                            <td><span class="tag-pill tag-down">-2.37%</span></td>
-                            <td>-£14.95 / yr</td>
+                            <td><strong>7.33p</strong></td>
+                            <td>£842.95</td>
+                            <td><span class="tag-pill tag-up">+27.70%</span></td>
+                            <td>+£182.85 / yr</td>
                         </tr>
                         <tr>
                             <td><strong>October 2026</strong></td>
                             <td><strong>7.97p</strong></td>
                             <td>£916.55</td>
-                            <td><span class="tag-pill tag-up">+48.97%</span></td>
-                            <td>+£301.30 / yr</td>
+                            <td><span class="tag-pill tag-up">+8.73%</span></td>
+                            <td>+£73.60 / yr</td>
                         </tr>
                         <tr style="background-color: #FEF2F2;">
                             <td><strong style="color: var(--rand-accent-red);">January 2027</strong></td>
@@ -751,26 +1089,26 @@
             <div class="two-column" style="margin-top: 1mm;">
                 <div style="background: linear-gradient(135deg, var(--rand-deep-blue) 0%, var(--rand-sky-blue) 100%); color: #ffffff; padding: 3.5mm 4.5mm; display: flex; flex-direction: column; justify-content: center;">
                     <div style="font-size: 9pt; text-transform: uppercase; color: #CBD5E1; font-weight: 700; letter-spacing: 0.5px;">Peak Heating Season Impact</div>
-                    <div style="font-size: 22pt; font-weight: 800; color: var(--rand-aqua); margin: 1px 0;">+£645.15 / yr</div>
-                    <div style="font-size: 9.5pt; color: #E2E8F0; line-height: 1.4;">Annual gas expenditure has doubled from July 2026 (£615.25) to January 2027 (£1,260.40). Over 70% of residential gas is consumed during these cold winter months.</div>
+                    <div style="font-size: 22pt; font-weight: 800; color: var(--rand-aqua); margin: 1px 0;">+£600.30 / yr</div>
+                    <div style="font-size: 9.5pt; color: #E2E8F0; line-height: 1.4;">Annual gas expenditure has jumped from April 2026 (£660.10) to January 2027 (£1,260.40). Over 70% of residential gas is consumed during these cold winter months.</div>
                 </div>
 
-                <div style="background: #F8FAFC; border: 1.5px solid var(--rand-card-border); border-left: 5px solid var(--rand-deep-blue); padding: 3.5mm 4.5mm; font-size: 9.8pt; color: var(--rand-text-dark); display: flex; flex-direction: column; justify-content: center; line-height: 1.5;">
-                    <strong style="color: var(--rand-deep-blue); font-size: 10.5pt; margin-bottom: 2px;">Calculating Your Household's Exact Impact:</strong>
-                    The national average benchmark of <strong>11,500 kWh</strong> provides a standard baseline. If you check your latest energy bill or annual statement, your supplier provides your specific <strong>Estimated Annual Consumption</strong> in kWh. You can <strong>multiply this by 0.1096</strong> to calculate your household's exact annual gas expenditure directly in pounds (£).
+                <div style="background: #F8FAFC; border: 1.5px solid var(--rand-card-border); border-left: 5px solid var(--rand-deep-blue); padding: 3.5mm 4.5mm; font-size: 9.8pt; color: var(--rand-text-dark); display: flex; flex-direction: column; justify-content: center; line-height: 1.55;">
+                    <strong style="color: var(--rand-deep-blue); font-size: 10.5pt; margin-bottom: 3px;">Calculating Your Household's Exact Impact:</strong>
+                    The national average benchmark of 11,500 kWh provides a standard baseline. If you check your latest energy bill or annual statement, your supplier provides your specific Estimated Annual Consumption in kWh. You can <strong>multiply this by 0.1096</strong> to calculate your household's exact annual gas expenditure directly in pounds (£).
                 </div>
             </div>
         </div>
         <div class="slide-footer">
-            <span>*National average standard annual gas consumption: 11,500 kWh (excludes standing charges and VAT)</span>
-            <span>Slide 4</span>
+            <span>*National average standard annual gas consumption: 11,500 kWh (excludes standing charges and includes 5% VAT)</span>
+            <span>Slide 9 of 22</span>
         </div>
     </div>
 
-    <!-- SLIDE 5: Gas Price Cap & Oil Comparison Charts (Scrollable on Mobile) -->
+    <!-- SLIDE 10: Gas & Crude Oil Correlation -->
     <div class="slide-container">
         <div class="slide-header">
-            <div class="slide-title">Gas Cap Trend & Crude Oil Benchmark Comparison</div>
+            <div class="slide-title">Gas & Crude Oil</div>
             <img src="rand-logo.png" alt="Rand Associates" class="logo-small" onerror="this.style.display='none'">
         </div>
         <div class="content-area">
@@ -779,37 +1117,37 @@
                 <div class="chart-panel">
                     <div class="chart-header">
                         <div class="chart-header-title">
-                            <i class="fa-solid fa-fire-flame-simple" style="color: #EA580C;"></i> Gas Unit Rate Trend & Monthly Total (11,500 kWh/yr Benchmark, Excl. SC & VAT)
+                            <i class="fa-solid fa-fire-flame-simple" style="color: #EA580C;"></i> Gas Unit Rate Trend & Monthly Total (11,500 kWh/yr Benchmark, Excl. SC)
                         </div>
                         <span style="font-size: 9pt; color: var(--rand-text-muted); font-weight: 600;">Swipe to view progression &rarr;</span>
                     </div>
                     <div class="aligned-5col-chart">
                         <!-- Col 1: Jan 2026 -->
                         <div class="chart-bar-group">
-                            <div class="bar-label-top">6.05p</div>
-                            <div class="bar-sublabel">~£57.98/mo</div>
-                            <div class="bar-track"><div class="bar-fill" style="height: 55%; background: var(--rand-sky-blue);"></div></div>
+                            <div class="bar-label-top">5.93p</div>
+                            <div class="bar-sublabel">~£56.83/mo</div>
+                            <div class="bar-track"><div class="bar-fill" style="height: 54%; background: var(--rand-sky-blue);"></div></div>
                             <div class="bar-period-lbl">Jan 2026</div>
                         </div>
                         <!-- Col 2: Apr 2026 -->
                         <div class="chart-bar-group">
-                            <div class="bar-label-top">5.48p</div>
-                            <div class="bar-sublabel">~£52.52/mo</div>
-                            <div class="bar-track"><div class="bar-fill" style="height: 50%; background: var(--rand-green);"></div></div>
+                            <div class="bar-label-top">5.74p</div>
+                            <div class="bar-sublabel">~£55.01/mo</div>
+                            <div class="bar-track"><div class="bar-fill" style="height: 52%; background: var(--rand-green);"></div></div>
                             <div class="bar-period-lbl">Apr 2026</div>
                         </div>
                         <!-- Col 3: Jul 2026 -->
                         <div class="chart-bar-group">
-                            <div class="bar-label-top">5.35p</div>
-                            <div class="bar-sublabel">~£51.27/mo</div>
-                            <div class="bar-track"><div class="bar-fill" style="height: 48%; background: var(--rand-green);"></div></div>
+                            <div class="bar-label-top">7.33p</div>
+                            <div class="bar-sublabel">~£70.25/mo</div>
+                            <div class="bar-track"><div class="bar-fill" style="height: 67%; background: var(--rand-sky-blue);"></div></div>
                             <div class="bar-period-lbl">Jul 2026</div>
                         </div>
                         <!-- Col 4: Oct 2026 -->
                         <div class="chart-bar-group">
                             <div class="bar-label-top">7.97p</div>
                             <div class="bar-sublabel">~£76.38/mo</div>
-                            <div class="bar-track"><div class="bar-fill" style="height: 72%; background: var(--rand-deep-blue);"></div></div>
+                            <div class="bar-track"><div class="bar-fill" style="height: 73%; background: var(--rand-deep-blue);"></div></div>
                             <div class="bar-period-lbl">Oct 2026</div>
                         </div>
                         <!-- Col 5: Jan 2027 -->
@@ -871,102 +1209,264 @@
             </div>
 
             <div class="summary-banner" style="font-size: 9.5pt; padding: 2mm 3.5mm;">
-                <strong>Correlated Upward Shift:</strong> International natural gas prices (UK NBP) move in tandem with global energy complex benchmarks. When crude softened between April and September 2026, gas unit rates remained around 5.35p–5.48p. However, escalating geopolitical tension and the conflict in the Middle East drove crude past $84/bbl, creating the wholesale surge that pushed the January 2027 gas price cap to 10.96p/kWh.
+                <strong>Correlated Upward Shift:</strong> International natural gas prices (UK NBP) move in tandem with global energy complex benchmarks. When crude softened between April and September 2026, gas unit rates remained lower. However, escalating geopolitical tension and the conflict in the Middle East drove crude past $84/bbl, creating the wholesale surge that pushed the January 2027 gas price cap to 10.96p/kWh.
             </div>
         </div>
         <div class="slide-footer">
-            <span>Unit rates exclude standing charge and VAT | Oil rates reflect ICE Brent daily settlements converted to period averages</span>
-            <span>Slide 5</span>
+            <span>Unit rates exclude standing charge | Oil rates reflect ICE Brent daily settlements converted to period averages</span>
+            <span>Slide 10 of 22</span>
         </div>
     </div>
 
-    <!-- SLIDE 6: Standing Charges (Scrollable Charts on Mobile) -->
+    <!-- SLIDE 11: Gas: 5-Year January Trend, EPG & Historical Record -->
     <div class="slide-container">
         <div class="slide-header">
-            <div class="slide-title">Daily Standing Charges: Price Stability & Reform Plans</div>
+            <div class="slide-title">Gas: 5-Year January Trend</div>
             <img src="rand-logo.png" alt="Rand Associates" class="logo-small" onerror="this.style.display='none'">
         </div>
         <div class="content-area">
-            <!-- Graphical comparison of standing charges -->
+            <div class="table-layout" style="margin-bottom: 2mm;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cap Period (Q1)</th>
+                            <th>Gas Unit Rate</th>
+                            <th>Daily Standing Charge</th>
+                            <th>Annual Cost (11,500 kWh)*</th>
+                            <th>Market Context</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>January 2022</strong></td>
+                            <td>4.07p</td>
+                            <td>26.12p / day</td>
+                            <td>£468.05</td>
+                            <td>Pre-invasion baseline: set Oct 2021 during initial post-COVID demand rebound</td>
+                        </tr>
+                        <tr style="background-color: #FEF2F2;">
+                            <td><strong style="color: var(--rand-accent-red);">January 2023 (EPG)</strong></td>
+                            <td><strong style="color: var(--rand-accent-red); font-size: 11.5pt;">10.33p</strong></td>
+                            <td>28.49p / day</td>
+                            <td><strong style="color: var(--rand-accent-red);">£1,187.95</strong></td>
+                            <td><strong style="color: var(--rand-accent-red);">Peak crisis intervention: EPG held rates below uncapped £4,279 level</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>January 2024</strong></td>
+                            <td>7.42p</td>
+                            <td>29.60p / day</td>
+                            <td>£853.30</td>
+                            <td>Winter seasonal uplift after late 2023 moderation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>January 2025</strong></td>
+                            <td>6.34p</td>
+                            <td>31.65p / day</td>
+                            <td>£729.10</td>
+                            <td>Lower wholesale gas compared to 2023–2024</td>
+                        </tr>
+                        <tr>
+                            <td><strong>January 2026</strong></td>
+                            <td>5.93p</td>
+                            <td>35.09p / day</td>
+                            <td>£681.95</td>
+                            <td>Pre-April 2026 multi-year seasonal low</td>
+                        </tr>
+                        <tr style="background-color: #FEF2F2;">
+                            <td><strong style="color: var(--rand-accent-red);">January 2027</strong></td>
+                            <td><strong style="color: var(--rand-accent-red); font-size: 11.5pt;">10.96p</strong></td>
+                            <td>29.65p / day</td>
+                            <td><strong style="color: var(--rand-accent-red);">£1,260.40</strong></td>
+                            <td><strong style="color: var(--rand-accent-red);">Confirmed 25 Nov 2026; driven by wholesale gas surge linked to Middle East conflict</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Two Distinct Context Cards: EPG Explanation and Historical Record -->
+            <div class="two-column" style="margin-top: 1mm;">
+                <div class="card-box highlight-amber" style="padding: 3mm 4mm;">
+                    <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 1.5mm;">
+                        <i class="fa-solid fa-shield-halved" style="color: var(--rand-accent-warm); font-size: 12pt;"></i>
+                        <strong style="font-size: 10.5pt; color: var(--rand-deep-blue);">What was the Energy Price Guarantee (EPG)?</strong>
+                    </div>
+                    <p style="font-size: 9.2pt; color: var(--rand-text-dark); line-height: 1.45;">
+                        The EPG was the UK government's emergency intervention introduced in Autumn 2022 to shield households after Russia invaded Ukraine. Without government subsidies, wholesale gas prices would have driven annual dual-fuel bills past £4,279. The EPG capped the domestic gas unit rate to <strong>10.33p/kWh</strong>.
+                    </p>
+                </div>
+
+                <div class="card-box highlight-red" style="padding: 3mm 4mm;">
+                    <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 1.5mm;">
+                        <i class="fa-solid fa-chart-line" style="color: var(--rand-accent-red); font-size: 12pt;"></i>
+                        <strong style="font-size: 10.5pt; color: var(--rand-deep-blue);">Historical Record: January 2027 Exceeds 2023 Crisis</strong>
+                    </div>
+                    <p style="font-size: 9.2pt; color: var(--rand-text-dark); line-height: 1.45;">
+                        At <strong>10.96p/kWh</strong>, the confirmed January 2027 gas price cap is <strong>0.63p higher</strong> than the January 2023 EPG crisis cap (10.33p). This makes January 2027 the single highest regulated domestic winter gas unit rate on record in the UK.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>Historical figures verified against Ofgem and MoneySavingExpert Direct Debit publications</span>
+            <span>Slide 11 of 22</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 12: Gas: 5-Year Annual Averages (With Annual Figures Below Pence Rate) -->
+    <div class="slide-container">
+        <div class="slide-header">
+            <div class="slide-title">Gas: 5-Year Annual Averages</div>
+            <img src="rand-logo.png" alt="Rand Associates" class="logo-small" onerror="this.style.display='none'">
+        </div>
+        <div class="content-area">
+            <div class="chart-panel" style="padding: 4mm 5mm; margin-bottom: 2mm;">
+                <div class="chart-header" style="min-width: 520px; margin-bottom: 2mm;">
+                    <div class="chart-header-title">
+                        <i class="fa-solid fa-chart-column" style="color: #EA580C;"></i> Annual Average Unit Rates & Annual Cost (Benchmark Gas Average: 11,500 kWh/yr)
+                    </div>
+                    <span style="font-size: 9pt; color: var(--rand-text-muted); font-weight: 600;">Pence per kWh | National Baseline Cost</span>
+                </div>
+                <div class="aligned-5col-chart" style="height: 38mm; min-width: 520px;">
+                    <div class="chart-bar-group">
+                        <div class="bar-label-top" style="font-size: 11.5pt;">7.29p</div>
+                        <div class="bar-sublabel" style="font-size: 8.5pt; background: #F1F5F9; color: var(--rand-deep-blue); font-weight: 700;">£838 / yr</div>
+                        <div class="bar-track"><div class="bar-fill" style="height: 83%; background: var(--rand-slate);"></div></div>
+                        <div class="bar-period-lbl" style="font-size: 10pt;">2022</div>
+                    </div>
+                    <div class="chart-bar-group">
+                        <div class="bar-label-top" style="color: var(--rand-accent-warm); font-size: 11.5pt;">8.76p</div>
+                        <div class="bar-sublabel" style="background: #FEF3C7; color: #B45309; font-size: 8.5pt; font-weight: 700;">£1,007 / yr</div>
+                        <div class="bar-track"><div class="bar-fill" style="height: 100%; background: var(--rand-accent-warm);"></div></div>
+                        <div class="bar-period-lbl" style="font-weight: 800; font-size: 10pt; color: var(--rand-accent-warm);">2023 (Crisis)</div>
+                    </div>
+                    <div class="chart-bar-group">
+                        <div class="bar-label-top" style="font-size: 11.5pt;">6.30p</div>
+                        <div class="bar-sublabel" style="font-size: 8.5pt; background: #DCFCE7; color: #166534; font-weight: 700;">£725 / yr</div>
+                        <div class="bar-track"><div class="bar-fill" style="height: 72%; background: var(--rand-green);"></div></div>
+                        <div class="bar-period-lbl" style="font-size: 10pt;">2024</div>
+                    </div>
+                    <div class="chart-bar-group">
+                        <div class="bar-label-top" style="font-size: 11.5pt;">6.49p</div>
+                        <div class="bar-sublabel" style="font-size: 8.5pt; background: #EFF6FF; color: var(--rand-sky-blue); font-weight: 700;">£746 / yr</div>
+                        <div class="bar-track"><div class="bar-fill" style="height: 74%; background: var(--rand-sky-blue);"></div></div>
+                        <div class="bar-period-lbl" style="font-size: 10pt;">2025</div>
+                    </div>
+                    <div class="chart-bar-group">
+                        <div class="bar-label-top" style="color: var(--rand-deep-blue); font-size: 11.5pt;">6.74p</div>
+                        <div class="bar-sublabel" style="font-size: 8.5pt; background: #EFF6FF; color: var(--rand-deep-blue); font-weight: 700;">£775 / yr</div>
+                        <div class="bar-track"><div class="bar-fill" style="height: 77%; background: var(--rand-deep-blue);"></div></div>
+                        <div class="bar-period-lbl" style="font-weight: 800; font-size: 10pt;">2026</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="two-column" style="margin-top: 1mm;">
+                <div class="summary-banner">
+                    <strong>Annual Average Trends (Based on 11,500 kWh/yr):</strong><br>
+                    • <strong>2023 Crisis:</strong> Capped annual average reached 8.76p (£1,007/yr).<br>
+                    • <strong>2024–2026 Moderation:</strong> Wholesale rates held between 6.30p and 6.74p (£725–£775/yr).<br>
+                    • <strong>Late 2026 Climb:</strong> Wholesale gas climbed steadily between July and October 2026.
+                </div>
+                <div style="background: #F8FAFC; border: 1.5px solid var(--rand-card-border); border-left: 5px solid var(--rand-deep-blue); padding: 3mm 4mm; font-size: 10pt; color: var(--rand-deep-blue); line-height: 1.45;">
+                    <strong>Winter Cost Concentration:</strong> Across 2024 to 2026, calendar year gas rates averaged ~6.5p/kWh (£746/yr). January 2027's rate of <strong>10.96p/kWh</strong> represents an annualised expenditure of <strong>£1,260.40</strong>, a <strong>+£485.30 spike (+62.6%)</strong> above the 2026 calendar average during peak heating season.
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>Unweighted annual averages compiled from confirmed quarterly Ofgem Price Cap datasets</span>
+            <span>Slide 12 of 22</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 13: SECTION TITLE: STANDING CHARGES -->
+    <div class="slide-container dark-slide">
+        <div class="section-divider-content">
+            <div class="section-kicker"><i class="fa-solid fa-plug" style="margin-right: 6px;"></i> Section 3</div>
+            <h2 class="section-headline">Standing Charges</h2>
+            <p class="section-subtext">
+                Fixed grid connection costs, multi-year rate comparisons, and proposed government reform consultations.
+            </p>
+        </div>
+        <div class="slide-footer" style="border-top-color: rgba(255,255,255,0.18); color: #94A3B8;">
+            <span>Rand Associates Energy Team</span>
+            <span>Slide 13 of 22</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 14: Daily Standing Charges (With SoLR Context Repeated) -->
+    <div class="slide-container">
+        <div class="slide-header">
+            <div class="slide-title">Daily Standing Charges</div>
+            <img src="rand-logo.png" alt="Rand Associates" class="logo-small" onerror="this.style.display='none'">
+        </div>
+        <div class="content-area">
             <div class="two-column" style="gap: 5mm;">
                 
                 <!-- Electricity Standing Charge Graph -->
-                <div class="chart-panel" style="padding: 3mm 4mm;">
-                    <div class="chart-header" style="min-width: 480px;">
+                <div class="chart-panel" style="padding: 2.8mm 3.8mm;">
+                    <div class="chart-header" style="min-width: 460px;">
                         <div class="chart-header-title">
                             <i class="fa-solid fa-plug" style="color: var(--rand-sky-blue);"></i> Electricity Daily Standing Charge (p/day, Excl. VAT)
                         </div>
                     </div>
-                    <div class="chart-bars-row" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; height: 32mm; border-bottom: 1.5px solid #E2E8F0; min-width: 480px;">
+                    <div class="chart-bars-row" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; height: 30mm; border-bottom: 1.5px solid #E2E8F0; min-width: 460px;">
                         <div class="chart-bar-group">
-                            <div class="bar-label-top">60.90p</div>
-                            <div class="bar-sublabel">£222.29/yr</div>
-                            <div class="bar-track"><div class="bar-fill" style="height: 98%; background: var(--rand-slate);"></div></div>
+                            <div class="bar-label-top">53.35p</div>
+                            <div class="bar-sublabel">£194.73/yr</div>
+                            <div class="bar-track"><div class="bar-fill" style="height: 87%; background: var(--rand-slate);"></div></div>
+                            <div class="bar-period-lbl">Jan 2024</div>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="bar-label-top">60.97p</div>
+                            <div class="bar-sublabel">£222.54/yr</div>
+                            <div class="bar-track"><div class="bar-fill" style="height: 100%; background: var(--rand-slate);"></div></div>
+                            <div class="bar-period-lbl">Jan 2025</div>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="bar-label-top">54.75p</div>
+                            <div class="bar-sublabel">£199.84/yr</div>
+                            <div class="bar-track"><div class="bar-fill" style="height: 90%; background: var(--rand-deep-blue);"></div></div>
                             <div class="bar-period-lbl">Jan 2026</div>
-                        </div>
-                        <div class="chart-bar-group">
-                            <div class="bar-label-top">60.10p</div>
-                            <div class="bar-sublabel">£219.37/yr</div>
-                            <div class="bar-track"><div class="bar-fill" style="height: 96%; background: var(--rand-slate);"></div></div>
-                            <div class="bar-period-lbl">Apr 2026</div>
-                        </div>
-                        <div class="chart-bar-group">
-                            <div class="bar-label-top">60.12p</div>
-                            <div class="bar-sublabel">£219.44/yr</div>
-                            <div class="bar-track"><div class="bar-fill" style="height: 96%; background: var(--rand-slate);"></div></div>
-                            <div class="bar-period-lbl">Jul 2026</div>
-                        </div>
-                        <div class="chart-bar-group">
-                            <div class="bar-label-top">61.12p</div>
-                            <div class="bar-sublabel">£223.09/yr</div>
-                            <div class="bar-track"><div class="bar-fill" style="height: 99%; background: var(--rand-deep-blue);"></div></div>
-                            <div class="bar-period-lbl">Oct 2026</div>
                         </div>
                         <div class="chart-bar-group">
                             <div class="bar-label-top" style="color: #16A34A; font-size: 11.5pt;">54.77p</div>
                             <div class="bar-sublabel" style="color: #16A34A; background: #F0FDF4;">£199.91/yr</div>
-                            <div class="bar-track"><div class="bar-fill" style="height: 88%; background: #16A34A;"></div></div>
+                            <div class="bar-track"><div class="bar-fill" style="height: 90%; background: #16A34A;"></div></div>
                             <div class="bar-period-lbl" style="font-weight: 800; color: #16A34A;">Jan 2027</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Gas Standing Charge Graph -->
-                <div class="chart-panel" style="padding: 3mm 4mm;">
-                    <div class="chart-header" style="min-width: 480px;">
+                <div class="chart-panel" style="padding: 2.8mm 3.8mm;">
+                    <div class="chart-header" style="min-width: 460px;">
                         <div class="chart-header-title">
                             <i class="fa-solid fa-fire" style="color: #EA580C;"></i> Gas Daily Standing Charge (p/day, Excl. VAT)
                         </div>
                     </div>
-                    <div class="chart-bars-row" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; height: 32mm; border-bottom: 1.5px solid #E2E8F0; min-width: 480px;">
+                    <div class="chart-bars-row" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; height: 30mm; border-bottom: 1.5px solid #E2E8F0; min-width: 460px;">
                         <div class="chart-bar-group">
-                            <div class="bar-label-top">31.58p</div>
-                            <div class="bar-sublabel">£115.27/yr</div>
-                            <div class="bar-track"><div class="bar-fill" style="height: 100%; background: var(--rand-slate);"></div></div>
+                            <div class="bar-label-top">29.60p</div>
+                            <div class="bar-sublabel">£108.04/yr</div>
+                            <div class="bar-track"><div class="bar-fill" style="height: 84%; background: var(--rand-slate);"></div></div>
+                            <div class="bar-period-lbl">Jan 2024</div>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="bar-label-top">31.65p</div>
+                            <div class="bar-sublabel">£115.52/yr</div>
+                            <div class="bar-track"><div class="bar-fill" style="height: 90%; background: var(--rand-slate);"></div></div>
+                            <div class="bar-period-lbl">Jan 2025</div>
+                        </div>
+                        <div class="chart-bar-group">
+                            <div class="bar-label-top">35.09p</div>
+                            <div class="bar-sublabel">£128.08/yr</div>
+                            <div class="bar-track"><div class="bar-fill" style="height: 100%; background: var(--rand-deep-blue);"></div></div>
                             <div class="bar-period-lbl">Jan 2026</div>
-                        </div>
-                        <div class="chart-bar-group">
-                            <div class="bar-label-top">31.43p</div>
-                            <div class="bar-sublabel">£114.72/yr</div>
-                            <div class="bar-track"><div class="bar-fill" style="height: 99%; background: var(--rand-slate);"></div></div>
-                            <div class="bar-period-lbl">Apr 2026</div>
-                        </div>
-                        <div class="chart-bar-group">
-                            <div class="bar-label-top">31.41p</div>
-                            <div class="bar-sublabel">£114.65/yr</div>
-                            <div class="bar-track"><div class="bar-fill" style="height: 99%; background: var(--rand-slate);"></div></div>
-                            <div class="bar-period-lbl">Jul 2026</div>
-                        </div>
-                        <div class="chart-bar-group">
-                            <div class="bar-label-top">29.68p</div>
-                            <div class="bar-sublabel">£108.33/yr</div>
-                            <div class="bar-track"><div class="bar-fill" style="height: 94%; background: var(--rand-deep-blue);"></div></div>
-                            <div class="bar-period-lbl">Oct 2026</div>
                         </div>
                         <div class="chart-bar-group">
                             <div class="bar-label-top" style="color: var(--rand-deep-blue); font-size: 11.5pt;">29.65p</div>
                             <div class="bar-sublabel" style="color: var(--rand-deep-blue);">£108.22/yr</div>
-                            <div class="bar-track"><div class="bar-fill" style="height: 94%; background: var(--rand-deep-blue);"></div></div>
+                            <div class="bar-track"><div class="bar-fill" style="height: 85%; background: var(--rand-deep-blue);"></div></div>
                             <div class="bar-period-lbl" style="font-weight: 800; color: var(--rand-deep-blue);">Jan 2027</div>
                         </div>
                     </div>
@@ -974,52 +1474,67 @@
 
             </div>
 
-            <!-- Explanatory Context Cards -->
+            <!-- Repeated SoLR Context & Proposed Reforms -->
             <div class="two-column" style="margin-top: 1mm;">
-                <div class="card-box highlight-blue" style="padding: 3.5mm 4.5mm;">
-                    <strong style="color: var(--rand-deep-blue); font-size: 10.8pt; margin-bottom: 2px;">Why is There a Standing Charge?</strong>
-                    <p style="font-size: 9.8pt; color: var(--rand-text-muted); line-height: 1.45;">
-                        The standing charge is a mandatory daily fee covering the fixed operational costs of keeping homes connected: maintaining physical wires, pipes, pylons, meter infrastructure, customer servicing, and government-mandated safety programmes. It applies regardless of energy consumption.
+                <div class="card-box highlight-navy" style="padding: 3mm 4mm;">
+                    <strong style="color: var(--rand-deep-blue); font-size: 10.2pt; margin-bottom: 1.5px;">Why are Standing Charges Higher Than Pre-Crisis Levels?</strong>
+                    <p style="font-size: 9pt; color: var(--rand-text-muted); line-height: 1.45;">
+                        Prior to 2022, electricity standing charges were ~25p/day. The collapse of ~30 energy suppliers triggered Ofgem's <strong>Supplier of Last Resort (SoLR)</strong> process. Over £2.7bn in customer transfer and unhedged debt costs was added directly onto standing charges. Multi-year recovery levies are scheduled to conclude around <strong>2027/2028</strong>.
                     </p>
                 </div>
-                <div class="card-box highlight-green" style="padding: 3.5mm 4.5mm;">
-                    <strong style="color: var(--rand-deep-blue); font-size: 10.8pt; margin-bottom: 2px;">Government Consultation: Eliminating Gas Standing Charges</strong>
-                    <p style="font-size: 9.8pt; color: var(--rand-text-muted); line-height: 1.45;">
-                        The UK government and Ofgem are reviewing proposals to remove the standing charge for domestic gas entirely. Under this reform, fixed network costs would be added to the volumetric price per unit (p/kWh), directly incentivising energy reduction and lowering costs for low-usage households.
+                <div class="card-box highlight-green" style="padding: 3mm 4mm;">
+                    <strong style="color: var(--rand-deep-blue); font-size: 10.2pt; margin-bottom: 1.5px;">Government Consultation: Eliminating Gas Standing Charges</strong>
+                    <p style="font-size: 9pt; color: var(--rand-text-muted); line-height: 1.45;">
+                        The UK government and Ofgem are reviewing proposals to remove the standing charge for domestic gas entirely. Under this reform, fixed network maintenance costs would be moved to the unit rate (p/kWh), directly rewarding energy reduction and cutting bills for low-usage households.
                     </p>
                 </div>
             </div>
         </div>
         <div class="slide-footer">
             <span>Direct Debit national averages across Great Britain | Figures exclude regional network differentials and VAT</span>
-            <span>Slide 6</span>
+            <span>Slide 14 of 22</span>
         </div>
     </div>
 
-    <!-- SLIDE 7: Dedicated VAT Holiday & Government Interventions -->
+    <!-- SLIDE 15: SECTION TITLE: GOVERNMENT SUPPORT -->
+    <div class="slide-container dark-slide">
+        <div class="section-divider-content">
+            <div class="section-kicker"><i class="fa-solid fa-landmark" style="margin-right: 6px;"></i> Section 4</div>
+            <h2 class="section-headline">Government Support</h2>
+            <p class="section-subtext">
+                Detailing policy interventions: the temporary electricity VAT exemption, bill mechanics, and the £100 household credit.
+            </p>
+        </div>
+        <div class="slide-footer" style="border-top-color: rgba(255,255,255,0.18); color: #94A3B8;">
+            <span>Rand Associates Energy Team</span>
+            <span>Slide 15 of 22</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 16: VAT Exemption & £100 Credit (Fact-Checked Accuracy on Electricity vs Gas VAT) -->
     <div class="slide-container">
         <div class="slide-header">
-            <div class="slide-title">Government Interventions: Electricity VAT Exemption & £100 Credit</div>
+            <div class="slide-title">VAT Exemption & £100 Credit</div>
             <img src="rand-logo.png" alt="Rand Associates" class="logo-small" onerror="this.style.display='none'">
         </div>
         <div class="content-area">
             <div class="three-card-grid" style="gap: 5mm;">
                 
-                <!-- Card 1: VAT Removal on Electricity -->
+                <!-- Card 1: VAT Removal on Electricity Only -->
                 <div class="card-box highlight-blue" style="padding: 4mm 4.5mm; justify-content: flex-start; gap: 2.5mm;">
                     <div style="display: flex; align-items: center; gap: 7px;">
                         <i class="fa-solid fa-receipt" style="color: var(--rand-sky-blue); font-size: 15pt;"></i>
                         <h3 style="font-size: 11.5pt; color: var(--rand-deep-blue); font-weight: 700;">Electricity VAT Exemption</h3>
                     </div>
-                    <p style="font-size: 9.8pt; color: var(--rand-text-dark); line-height: 1.5;">
-                        Price per unit and standing charge figures are always quoted before VAT. VAT is added to the overall bill at the end based on your total consumption.
+                    <p style="font-size: 9.6pt; color: var(--rand-text-dark); line-height: 1.5;">
+                        The UK government has removed the standard 5% VAT <strong>strictly from domestic electricity bills</strong> between <strong>1 October 2026 and 30 June 2027</strong>.
                     </p>
-                    <div style="background: #ffffff; border: 1.5px solid var(--rand-card-border); padding: 2.8mm 3.5mm; font-size: 9.2pt; line-height: 1.45;">
-                        • <strong>Electricity Bills:</strong> The UK government has removed the standard 5% VAT on domestic electricity bills from <strong>1 October 2026 to 30 June 2027</strong> (0% VAT on bill total).<br>
-                        • <strong>Gas Bills:</strong> The standard <strong>5% VAT charge</strong> continues to be added to the overall gas bill total.
+                    <div style="background: #ffffff; border: 1.5px solid var(--rand-card-border); padding: 2.8mm 3.5mm; font-size: 9pt; line-height: 1.45;">
+                        • <strong>Electricity Bills:</strong> Quoted 32.69p/kWh rate excludes VAT (0% VAT charged on bill total).<br>
+                        • <strong>Gas Bills:</strong> The standard <strong>5% VAT remains payable</strong> and is included in the confirmed 10.96p/kWh price cap rate.
                     </div>
-                    <div style="font-size: 8.8pt; color: var(--rand-text-muted); font-style: italic;">
-                        Costs cannot be compared directly to previous periods without accounting for this VAT change.
+                    <div style="font-size: 8.5pt; color: var(--rand-text-muted); font-style: italic;">
+                        Costs cannot be compared directly to prior years without accounting for this electricity tax change.
                     </div>
                 </div>
 
@@ -1029,10 +1544,10 @@
                         <i class="fa-solid fa-chart-line" style="color: var(--rand-accent-warm); font-size: 15pt;"></i>
                         <h3 style="font-size: 11.5pt; color: var(--rand-deep-blue); font-weight: 700;">Why Winter Bills May Not Fall</h3>
                     </div>
-                    <p style="font-size: 9.8pt; color: var(--rand-text-dark); line-height: 1.5;">
+                    <p style="font-size: 9.6pt; color: var(--rand-text-dark); line-height: 1.5;">
                         Despite the electricity VAT exemption, households may not see much of a reduction in their overall winter bills due to two main factors:
                     </p>
-                    <div style="background: #ffffff; border: 1.5px solid var(--rand-card-border); padding: 2.8mm 3.5mm; font-size: 9.2pt; line-height: 1.45;">
+                    <div style="background: #ffffff; border: 1.5px solid var(--rand-card-border); padding: 2.8mm 3.5mm; font-size: 9pt; line-height: 1.45;">
                         1. <strong>Wholesale Gas Escalation:</strong> Ongoing conflict in the Middle East has kept international wholesale commodity purchase costs high.<br>
                         2. <strong>Seasonal Demand Peak:</strong> Sub-zero winter heating consumption naturally offsets the percentage savings gained from the tax removal.
                     </div>
@@ -1044,10 +1559,10 @@
                         <i class="fa-solid fa-hand-holding-dollar" style="color: #16A34A; font-size: 15pt;"></i>
                         <h3 style="font-size: 11.5pt; color: var(--rand-deep-blue); font-weight: 700;">£100 Household Support Credit</h3>
                     </div>
-                    <p style="font-size: 9.8pt; color: var(--rand-text-dark); line-height: 1.5;">
+                    <p style="font-size: 9.6pt; color: var(--rand-text-dark); line-height: 1.5;">
                         The UK government announced that around <strong>20 million households</strong> across Great Britain will receive <strong>£100 towards their energy bill</strong> starting from January 2027.
                     </p>
-                    <div style="background: #ffffff; border: 1.5px solid var(--rand-card-border); padding: 2.8mm 3.5mm; font-size: 9.2pt; line-height: 1.45;">
+                    <div style="background: #ffffff; border: 1.5px solid var(--rand-card-border); padding: 2.8mm 3.5mm; font-size: 9pt; line-height: 1.45;">
                         • Delivered automatically through supplier billing accounts.<br>
                         • Designed as temporary support to help mitigate elevated winter wholesale rates.
                     </div>
@@ -1055,70 +1570,141 @@
 
             </div>
 
-            <div class="summary-banner" style="font-size: 9.8pt; padding: 2.2mm 3.8mm; margin-top: 1mm;">
-                <strong>Ofgem Policy Note:</strong> Published unit rates (32.69p electricity, 10.96p gas) exclude VAT. The removal of the 5% VAT on the final electricity bill provides relief, but higher winter usage and higher wholesale prices mean overall expenditure remains substantial.
+            <div class="summary-banner" style="font-size: 9.5pt; padding: 2.2mm 3.8mm; margin-top: 1mm;">
+                <strong>Ofgem Policy Clarification:</strong> Only electricity excludes VAT under the current tax holiday. The 32.69p electricity cap is VAT-free (0%), whereas the 10.96p gas cap includes the standard 5% VAT rate.
             </div>
         </div>
         <div class="slide-footer">
             <span>Policy details published directly by the Department for Energy Security and Net Zero & Ofgem</span>
-            <span>Slide 7</span>
+            <span>Slide 16 of 22</span>
         </div>
     </div>
 
-    <!-- SLIDE 8: Octopus Energy 12-Month Fix Analysis -->
+    <!-- SLIDE 17: SECTION TITLE: FIX OR DON'T FIX? -->
+    <div class="slide-container dark-slide">
+        <div class="section-divider-content">
+            <div class="section-kicker"><i class="fa-solid fa-scale-balanced" style="margin-right: 6px;"></i> Section 5</div>
+            <h2 class="section-headline">Fix or Don't Fix?</h2>
+            <p class="section-subtext">
+                Evaluating seasonal price cap trends, weighing market risks, and reviewing active fixed tariff benchmarks.
+            </p>
+        </div>
+        <div class="slide-footer" style="border-top-color: rgba(255,255,255,0.18); color: #94A3B8;">
+            <span>Rand Associates Energy Team</span>
+            <span>Slide 17 of 22</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 18: Strategic Outlook: Fixed vs Variable (Restored Unpredictable Market Details & Balanced Guidance Note) -->
     <div class="slide-container">
         <div class="slide-header">
-            <div class="slide-title">Active Market Fixed Tariff: Octopus Energy 12-Month Fix</div>
+            <div class="slide-title">Strategic Outlook: Fixed vs Variable</div>
+            <img src="rand-logo.png" alt="Rand Associates" class="logo-small" onerror="this.style.display='none'">
+        </div>
+        <div class="content-area">
+            <div class="two-column" style="gap: 5.5mm;">
+                
+                <!-- 5-Year Seasonal Price Cap Analysis & Recommendation -->
+                <div class="card-box highlight-amber" style="padding: 3.8mm 4.5mm;">
+                    <div style="display: flex; align-items: center; gap: 7px; margin-bottom: 1.5mm;">
+                        <i class="fa-solid fa-calendar-check" style="color: var(--rand-accent-warm); font-size: 13pt;"></i>
+                        <h3 style="font-size: 11.5pt; color: var(--rand-deep-blue); font-weight: 700;">When is the Best Time to Fix?</h3>
+                    </div>
+                    <p style="font-size: 9pt; color: var(--rand-text-dark); line-height: 1.4; margin-bottom: 2mm;">
+                        Reviewing the past 5 years of Ofgem price caps shows that energy rates consistently hit their annual low during the warmer spring and summer periods (specifically the <strong>April to June</strong> and <strong>July to September</strong> cap windows) as European heating demand falls:
+                    </p>
+                    <div style="background: #ffffff; border: 1.5px solid var(--rand-card-border); padding: 2.2mm 3mm; font-size: 8.6pt; line-height: 1.4; margin-bottom: 1.5mm;">
+                        • <strong>Post-Crisis Lows:</strong> July–September 2024 saw unit rates drop to 22.36p (electric) and 5.48p (gas).<br>
+                        • <strong>Spring 2026 Dip:</strong> April 2026 rates dipped to 24.67p (electric) and 5.74p (gas).<br>
+                        • <strong>Seasonal Recommendation:</strong> Historically, locking into a 12-month fixed deal during the <strong>April to June price cap window</strong> has secured the lowest baseline rates, whereas fixing during peak winter runs the risk of locking in inflated seasonal wholesale rates.
+                    </div>
+                </div>
+
+                <!-- Weighing the Risk to Fix vs Leave on Variable (With line break after 2027.) -->
+                <div class="card-box highlight-blue" style="padding: 3.8mm 4.5mm;">
+                    <div style="display: flex; align-items: center; gap: 7px; margin-bottom: 1.5mm;">
+                        <i class="fa-solid fa-scale-balanced" style="color: var(--rand-sky-blue); font-size: 13pt;"></i>
+                        <h3 style="font-size: 11.5pt; color: var(--rand-deep-blue); font-weight: 700;">A Balanced Perspective: Risk vs Certainty</h3>
+                    </div>
+                    <p style="font-size: 9pt; color: var(--rand-text-dark); line-height: 1.4; margin-bottom: 2mm;">
+                        Neither forecasters nor suppliers can predict wholesale markets with certainty. Both paths carry distinct trade-offs:
+                    </p>
+                    <div style="background: #ffffff; border: 1.5px solid var(--rand-card-border); padding: 2.2mm 3mm; font-size: 8.6pt; line-height: 1.4; margin-bottom: 1.5mm;">
+                        • <strong>Risk of Staying on Variable:</strong> If wholesale gas and oil prices remain high, you remain exposed to elevated price caps throughout 2027.<br><br>
+                        • <strong>Risk of Fixing:</strong> If global wholesale rates drop in April 2027, you could be tied into higher rates or need to pay an early exit fee (e.g. £50 per fuel) to leave.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Combined Balanced Guidance & Unpredictable Markets Note -->
+            <div style="background: #F8FAFC; border: 1.5px solid var(--rand-card-border); border-left: 5px solid var(--rand-deep-blue); padding: 2.2mm 3.8mm; width: 100%; margin-top: 1mm; font-size: 8.5pt; color: var(--rand-deep-blue); line-height: 1.45;">
+                <strong>Market Outlook & Guidance Note:</strong> Energy pricing heading into Spring 2027 remains heavily dependent on unpredictable external variables—including global crude oil movements ($84+/bbl), ongoing Middle East geopolitical tensions, and European winter storage depletion. While historical 5-year trends indicate that spring and summer cap periods typically offer the lowest baseline for 12-month fixes, past performance cannot guarantee future wholesale outcomes. Households should assess their personal consumption and budget certainty preferences.
+            </div>
+        </div>
+        <div class="slide-footer">
+            <span>Market commentary prepared for informational analysis | Non-advisory educational research</span>
+            <span>Slide 18 of 22</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 19: Market Fix: Octopus Energy 12M & Impartial Comparison Link -->
+    <div class="slide-container">
+        <div class="slide-header">
+            <div class="slide-title">Market Fix: Octopus Energy 12M</div>
             <img src="rand-logo.png" alt="Rand Associates" class="logo-small" onerror="this.style.display='none'">
         </div>
         <div class="content-area">
             <div class="two-column" style="gap: 5.5mm;">
                 
                 <!-- Fixed Rate Specification Card -->
-                <div class="card-box highlight-green" style="padding: 4.5mm 5mm;">
+                <div class="card-box highlight-green" style="padding: 4mm 4.5mm;">
                     <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2mm;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5mm;">
                             <span style="font-size: 8.8pt; font-weight: 700; color: #16A34A; background: #DCFCE7; padding: 2px 7px;">Live Tariff Benchmark</span>
                             <span style="font-size: 8.8pt; font-weight: 600; color: var(--rand-text-muted);">Quoted: 26/11/2026 (Devon Area)</span>
                         </div>
-                        <h3 style="font-size: 13pt; color: var(--rand-deep-blue); font-weight: 700; margin-bottom: 2mm;">Octopus 12M Fixed Tariff Specification</h3>
-                        <p style="font-size: 9.5pt; color: var(--rand-text-muted); margin-bottom: 3mm; line-height: 1.4;">
+                        <h3 style="font-size: 12pt; color: var(--rand-deep-blue); font-weight: 700; margin-bottom: 1.5mm;">Octopus 12M Fixed Tariff Specification</h3>
+                        <p style="font-size: 9pt; color: var(--rand-text-muted); margin-bottom: 2.5mm; line-height: 1.35;">
                             Direct Debit quote for Devon UK. Note: price per unit varies depending on the regional DNO area you live in.
                         </p>
                     </div>
 
-                    <div style="background: #ffffff; border: 1.5px solid var(--rand-card-border); padding: 3.2mm 3.8mm; font-size: 10.2pt; line-height: 1.6; margin-bottom: 2mm;">
+                    <div style="background: #ffffff; border: 1.5px solid var(--rand-card-border); padding: 2.8mm 3.5mm; font-size: 9.8pt; line-height: 1.55; margin-bottom: 2mm;">
                         <strong style="color: var(--rand-deep-blue);"><i class="fa-solid fa-bolt" style="color: var(--rand-sky-blue); margin-right: 5px;"></i> Electricity:</strong><br>
-                        • Daily Standing Charge: <strong>54.49p / day</strong><br>
-                        • Unit Rate: <strong>29.28p / kWh</strong><br>
+                        • Daily Standing Charge: <strong>54.49p / day</strong> | Unit Rate: <strong>29.28p / kWh</strong><br>
                         • Early Exit Fee: <strong>£50</strong> (for changing tariff or supplier)<br>
                         <hr style="margin: 2mm 0; border: 0; border-top: 1.5px solid #E2E8F0;">
                         <strong style="color: var(--rand-deep-blue);"><i class="fa-solid fa-fire" style="color: #EA580C; margin-right: 5px;"></i> Gas:</strong><br>
-                        • Daily Standing Charge: <strong>28.35p / day</strong><br>
-                        • Unit Rate: <strong>9.50p / kWh</strong><br>
+                        • Daily Standing Charge: <strong>28.35p / day</strong> | Unit Rate: <strong>9.50p / kWh</strong><br>
                         • Early Exit Fee: <strong>£50</strong> (for changing tariff or supplier)
                     </div>
                 </div>
 
-                <!-- Comparison vs Price Cap Card -->
-                <div class="card-box highlight-navy" style="padding: 4.5mm 5mm;">
+                <!-- Comparison vs Price Cap & Impartial Tool Card -->
+                <div class="card-box highlight-navy" style="padding: 4mm 4.5mm;">
                     <div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2mm;">
-                            <span style="font-size: 8.8pt; font-weight: 700; color: var(--rand-deep-blue); background: #EFF6FF; padding: 2px 7px;">Tariff Comparison</span>
-                            <span style="font-size: 8.8pt; font-weight: 600; color: var(--rand-text-muted);">Direct Variable Comparison</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5mm;">
+                            <span style="font-size: 8.8pt; font-weight: 700; color: var(--rand-deep-blue); background: #EFF6FF; padding: 2px 7px;">Cap Comparison</span>
+                            <span style="font-size: 8.8pt; font-weight: 600; color: var(--rand-text-muted);">vs January 2027 Cap</span>
                         </div>
-                        <h3 style="font-size: 13pt; color: var(--rand-deep-blue); font-weight: 700; margin-bottom: 2mm;">Fix vs. January 2027 Price Cap</h3>
-                        <p style="font-size: 9.5pt; color: var(--rand-text-muted); margin-bottom: 3mm; line-height: 1.4;">How the active fixed tariff measures against the regulated cap:</p>
+                        <h3 style="font-size: 12pt; color: var(--rand-deep-blue); font-weight: 700; margin-bottom: 1.5mm;">Fix vs. January 2027 Price Cap</h3>
                     </div>
 
-                    <div style="background: #ffffff; border: 1.5px solid var(--rand-card-border); padding: 3.2mm 3.8mm; font-size: 10.2pt; line-height: 1.6; margin-bottom: 3mm;">
-                        • <strong>Electricity Unit Rate:</strong> Fixed rate (29.28p) is <strong>3.41p/kWh lower</strong> than the January Cap (32.69p).<br>
-                        • <strong>Gas Unit Rate:</strong> Fixed rate (9.50p) is <strong>1.46p/kWh lower</strong> than the January Cap (10.96p).<br>
-                        • <strong>Standing Charges:</strong> Slightly lower on both electricity (-0.28p/day) and gas (-1.30p/day).
+                    <div style="background: #ffffff; border: 1.5px solid var(--rand-card-border); padding: 2.5mm 3.2mm; font-size: 9.5pt; line-height: 1.45; margin-bottom: 2mm;">
+                        • <strong>Electricity:</strong> Fixed rate (29.28p) is <strong>3.41p/kWh lower</strong> than the January Cap (32.69p).<br>
+                        • <strong>Gas:</strong> Fixed rate (9.50p) is <strong>1.46p/kWh lower</strong> than the January Cap (10.96p).<br>
+                        • <strong>Standing Charges:</strong> Slightly lower on both electricity and gas.
                     </div>
 
-                    <div style="background: #F8FAFC; border-left: 5px solid var(--rand-green); padding: 2.8mm 3.5mm; font-size: 9.8pt; color: var(--rand-deep-blue); line-height: 1.45;">
-                        <strong>Market Window:</strong> Because the new Price Cap takes effect on 1 January 2027, fixing now provides lower unit rates heading directly into peak winter consumption; further details on the next slide.
+                    <!-- Live Impartial Comparison Link Box -->
+                    <div style="background: #F0FDF4; border: 1.5px solid #BBF7D0; padding: 2.5mm 3.2mm; font-size: 9.2pt; color: #166534; line-height: 1.45;">
+                        <strong style="display: flex; align-items: center; gap: 5px; margin-bottom: 1mm;">
+                            <i class="fa-solid fa-arrow-pointer"></i> Check Current Live Fixed Deals:
+                        </strong>
+                        Tariff availability changes continuously. If you are reviewing this at a later date, compare active fixed deals in your postcode via independent, Ofgem-accredited services:<br>
+                        • <a href="https://www.moneysavingexpert.com/cheapenergyclub/" target="_blank" style="color: #15803D; font-weight: 700; text-decoration: underline;">MoneySavingExpert Cheap Energy Club</a><br>
+                        • <a href="https://www.uswitch.com/gas-electricity/" target="_blank" style="color: #15803D; font-weight: 700; text-decoration: underline;">Uswitch (uswitch.com/gas-electricity)</a>
                     </div>
                 </div>
 
@@ -1126,183 +1712,124 @@
         </div>
         <div class="slide-footer">
             <span>Direct supplier quote from Octopus Energy API (26/11/2026, Devon UK) | Figures exclude VAT</span>
-            <span>Slide 8</span>
+            <span>Slide 19 of 22</span>
         </div>
     </div>
 
-    <!-- SLIDE 9: Dedicated Strategic Outlook -->
-    <div class="slide-container">
-        <div class="slide-header">
-            <div class="slide-title">Strategic Outlook: Evaluating the Risks of Fixing vs. Variable</div>
-            <img src="rand-logo.png" alt="Rand Associates" class="logo-small" onerror="this.style.display='none'">
-        </div>
-        <div class="content-area">
-            <div class="two-column" style="gap: 5.5mm;">
-                
-                <!-- The Geopolitical & Seasonal Variables -->
-                <div class="card-box highlight-amber" style="padding: 4.5mm 5mm;">
-                    <div style="display: flex; align-items: center; gap: 7px; margin-bottom: 2mm;">
-                        <i class="fa-solid fa-earth-europe" style="color: var(--rand-accent-warm); font-size: 15pt;"></i>
-                        <h3 style="font-size: 12.5pt; color: var(--rand-deep-blue); font-weight: 700;">Unpredictable Market Drivers</h3>
-                    </div>
-                    <p style="font-size: 10pt; color: var(--rand-text-dark); line-height: 1.5; margin-bottom: 2.5mm;">
-                        We cannot predict the future. Energy pricing heading into Spring 2027 depends on several external and unpredictable factors:
-                    </p>
-                    <div style="background: #ffffff; border: 1.5px solid var(--rand-card-border); padding: 3mm 3.8mm; font-size: 9.8pt; line-height: 1.5;">
-                        • <strong>Crude Oil Movements:</strong> We do not know whether the price of crude oil will continue to rise or begin to drop.<br>
-                        • <strong>Geopolitical Situation:</strong> Will the war in the Middle East continue or ease? These all play a direct factor in the wholesale price of energy.<br>
-                        • <strong>April 2027 Outlook:</strong> Hopefully wholesale prices will drop in April as warmer weather arrives, but it remains an unknown.
-                    </div>
-                </div>
-
-                <!-- Balanced Strategy: Fixing Risk vs Variable Risk -->
-                <div class="card-box highlight-blue" style="padding: 4.5mm 5mm;">
-                    <div style="display: flex; align-items: center; gap: 7px; margin-bottom: 2mm;">
-                        <i class="fa-solid fa-scale-balanced" style="color: var(--rand-sky-blue); font-size: 15pt;"></i>
-                        <h3 style="font-size: 12.5pt; color: var(--rand-deep-blue); font-weight: 700;">A Balanced Perspective: Risk to Fix vs. Risk to Stay</h3>
-                    </div>
-                    <p style="font-size: 10pt; color: var(--rand-text-dark); line-height: 1.5; margin-bottom: 2.5mm;">
-                        Both choices carry distinct risks that should be weighed carefully:
-                    </p>
-                    <div style="background: #ffffff; border: 1.5px solid var(--rand-card-border); padding: 3mm 3.8mm; font-size: 9.8pt; line-height: 1.5;">
-                        • <strong>The Risk of Leaving It on Variable:</strong> If wholesale gas and oil prices remain high or escalate further, you remain exposed to elevated price cap rates.<br>
-                        • <strong>The Risk of Fixing:</strong> If the price drops in April, you could end up paying a higher rate than the new cap or have to pay the £50 early exit fee per fuel to leave the fix.
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Balanced Conclusion Banner -->
-            <div class="summary-banner" style="font-size: 10pt; padding: 2.5mm 4mm; margin-top: 1mm;">
-                <strong>Strategic Summary:</strong> It is a risk to leave your tariff on the standard variable cap and a risk to fix. Each household needs to decide whether they value guaranteed price certainty through the peak winter months, while factoring in the potential £50 per fuel exit fee if rates drop in April.
-            </div>
-        </div>
-        <div class="slide-footer">
-            <span>Market commentary prepared for informational analysis | Does not constitute financial advice</span>
-            <span>Slide 9</span>
-        </div>
-    </div>
-
-    <!-- SLIDE 10: Energy Support & Consumer Advice -->
+    <!-- SLIDE 20: SECTION TITLE: SUPPORT -->
     <div class="slide-container dark-slide">
-        <div class="slide-header" style="border-bottom-color: rgba(255,255,255,0.18);">
-            <div class="slide-title" style="color: #ffffff;">Independent Energy Support & Guidance</div>
-            <span style="font-size: 9.5pt; color: var(--rand-aqua); font-weight: 700;">Consumer Advice Directory</span>
-        </div>
-        <div class="content-area" style="justify-content: space-between; padding: 1mm 0;">
-            
-            <div style="width: 100%; text-align: center; margin-bottom: 1.5mm;">
-                <p style="font-size: 12pt; color: #E2E8F0; font-weight: 500; max-width: 250mm; margin: 0 auto; line-height: 1.45;">
-                    If you are struggling with your energy bills there is help available. Please reach out to any of the national charities below:
-                </p>
-            </div>
-
-            <!-- 3 Organisation Cards with Badges -->
-            <div class="three-card-grid" style="width: 100%; gap: 5mm;">
-                
-                <!-- NEA -->
-                <div style="background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.18); border-top: 4px solid var(--rand-sky-blue); padding: 4mm 4.5mm; display: flex; flex-direction: column; justify-content: space-between; min-height: 40mm;">
-                    <div>
-                        <div style="display: flex; align-items: center; gap: 9px; margin-bottom: 2mm;">
-                            <div class="org-logo-badge" style="background: var(--rand-sky-blue); color: #ffffff;">NEA</div>
-                            <div>
-                                <h3 style="font-size: 11.5pt; color: #ffffff; font-weight: 700;">National Energy Action</h3>
-                                <div style="font-size: 8.5pt; color: #94A3B8;">National Fuel Poverty Charity</div>
-                            </div>
-                        </div>
-                        <p style="font-size: 9.5pt; color: #CBD5E1; line-height: 1.45;">Offers independent energy advice, benefits checks, and grant support for households across England and Wales.</p>
-                    </div>
-                    <div style="margin-top: 2.5mm; font-size: 9.5pt;">
-                        <a href="https://www.nea.org.uk" target="_blank" style="color: var(--rand-aqua); text-decoration: none; font-weight: 700;">nea.org.uk</a>
-                        <span style="color: #94A3B8; margin-left: 8px;">| 0800 304 7159</span>
-                    </div>
-                </div>
-
-                <!-- CSE -->
-                <div style="background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.18); border-top: 4px solid var(--rand-aqua); padding: 4mm 4.5mm; display: flex; flex-direction: column; justify-content: space-between; min-height: 40mm;">
-                    <div>
-                        <div style="display: flex; align-items: center; gap: 9px; margin-bottom: 2mm;">
-                            <div class="org-logo-badge" style="background: var(--rand-aqua); color: var(--rand-deep-blue);">CSE</div>
-                            <div>
-                                <h3 style="font-size: 11.5pt; color: #ffffff; font-weight: 700;">Centre for Sustainable Energy</h3>
-                                <div style="font-size: 8.5pt; color: #94A3B8;">Efficiency & Practical Advice</div>
-                            </div>
-                        </div>
-                        <p style="font-size: 9.5pt; color: #CBD5E1; line-height: 1.45;">Practical home energy efficiency advice, heating control guidance, and support accessing local eco-schemes.</p>
-                    </div>
-                    <div style="margin-top: 2.5mm; font-size: 9.5pt;">
-                        <a href="https://cse.org.uk" target="_blank" style="color: var(--rand-aqua); text-decoration: none; font-weight: 700;">cse.org.uk</a>
-                        <span style="color: #94A3B8; margin-left: 8px;">| 0800 082 2234</span>
-                    </div>
-                </div>
-
-                <!-- LEAP -->
-                <div style="background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.18); border-top: 4px solid var(--rand-green); padding: 4mm 4.5mm; display: flex; flex-direction: column; justify-content: space-between; min-height: 40mm;">
-                    <div>
-                        <div style="display: flex; align-items: center; gap: 9px; margin-bottom: 2mm;">
-                            <div class="org-logo-badge" style="background: var(--rand-green); color: var(--rand-deep-blue);">LEAP</div>
-                            <div>
-                                <h3 style="font-size: 11.5pt; color: #ffffff; font-weight: 700;">Local Energy Advice Partnership</h3>
-                                <div style="font-size: 8.5pt; color: #94A3B8;">Council Referral Service</div>
-                            </div>
-                        </div>
-                        <p style="font-size: 9.5pt; color: #CBD5E1; line-height: 1.45;">Free advice service providing home energy checks, small energy-saving measures, and tariff guidance.</p>
-                    </div>
-                    <div style="margin-top: 2.5mm; font-size: 9.5pt;">
-                        <a href="https://applyforleap.org.uk" target="_blank" style="color: var(--rand-aqua); text-decoration: none; font-weight: 700;">applyforleap.org.uk</a>
-                        <span style="color: #94A3B8; margin-left: 8px;">| 0800 060 7567</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Warm Spaces & Reassurance Note -->
-            <div style="width: 100%; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 4.5mm; margin-top: 2mm;">
-                <div style="background: rgba(255,255,255,0.08); border-left: 5px solid var(--rand-sky-blue); padding: 3.5mm 4mm;">
-                    <div style="display: flex; align-items: center; gap: 7px; margin-bottom: 1.5mm;">
-                        <i class="fa-solid fa-mug-hot" style="color: var(--rand-aqua); font-size: 12pt;"></i>
-                        <strong style="font-size: 10.5pt; color: #ffffff;">Local Council Warm Spaces</strong>
-                    </div>
-                    <p style="font-size: 9.5pt; color: #E2E8F0; line-height: 1.45;">
-                        Councils have warm spaces for those who cannot afford to heat their homes. These can be found directly on your local council website or via <strong>warmwelcome.uk</strong>.
-                    </p>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.08); border-left: 5px solid var(--rand-green); padding: 3.5mm 4mm; display: flex; flex-direction: column; justify-content: center;">
-                    <strong style="font-size: 10.5pt; color: #ffffff; margin-bottom: 1.5mm;">Do Not Suffer in Silence</strong>
-                    <p style="font-size: 9.5pt; color: #E2E8F0; line-height: 1.45;">
-                        If you are struggling do not suffer in silence; heat or eat should not be an option. Energy suppliers can offer affordable repayment plans and hardship fund support.
-                    </p>
-                </div>
-            </div>
-
+        <div class="section-divider-content">
+            <div class="section-kicker"><i class="fa-solid fa-hand-holding-heart" style="margin-right: 6px;"></i> Section 6</div>
+            <h2 class="section-headline">Support</h2>
+            <p class="section-subtext">
+                National fuel poverty charities, council warm space directories, supplier repayment regulations, and consumer advocacy.
+            </p>
         </div>
         <div class="slide-footer" style="border-top-color: rgba(255,255,255,0.18); color: #94A3B8;">
-            <span>Consumer support contact directory | Services verified accurate for Q1 2027</span>
-            <span>Slide 10</span>
+            <span>Rand Associates Energy Team</span>
+            <span>Slide 20 of 22</span>
         </div>
     </div>
 
-    <!-- SLIDE 11: Rand Associates Energy Team (With Title Page Logo Added) -->
-    <div class="slide-container dark-slide">
-        <div class="slide-header" style="border-bottom-color: rgba(255,255,255,0.18);">
-            <div class="slide-title" style="color: #ffffff;">Rand Associates: Energy Advice Team</div>
-            <span style="font-size: 9.5pt; color: var(--rand-green); font-weight: 700;">Energy Training & Advisory</span>
+    <!-- SLIDE 21: Support Directory (WHITE BACKGROUND & LARGER BADGES TO FIT 'LEAP') -->
+    <div class="slide-container">
+        <div class="slide-header">
+            <div class="slide-title">Independent Support Directory</div>
+            <img src="rand-logo.png" alt="Rand Associates" class="logo-small" onerror="this.style.display='none'">
         </div>
         
-        <div class="content-area" style="justify-content: space-around; padding: 1mm 0; height: 100%;">
+        <div class="content-area" style="justify-content: space-evenly; padding: 2mm 0; height: 100%;">
             
-            <!-- Headline & Services Introduction with Prominent Rand Logo -->
+            <div style="width: 100%; text-align: center;">
+                <p style="font-size: 11.5pt; color: var(--rand-text-muted); font-weight: 500; max-width: 250mm; margin: 0 auto; line-height: 1.4;">
+                    If you are struggling with your energy bills there is help available. Reach out to accredited national charities and community programmes:
+                </p>
+            </div>
+
+            <!-- Upper Row: 3 Prominent Circular Support Pods Centered on White Background -->
+            <div style="display: flex; justify-content: center; align-items: center; gap: 14mm; width: 100%;">
+                
+                <!-- Circular Pod 1: NEA -->
+                <div class="circle-pod-white" style="border-color: #BFDBFE;">
+                    <div class="circle-badge-large" style="background: var(--rand-sky-blue); color: #ffffff;">NEA</div>
+                    <h4 style="font-size: 10.5pt; color: var(--rand-deep-blue); font-weight: 700; margin-bottom: 1.5mm;">National Energy Action</h4>
+                    <p style="font-size: 8.2pt; color: var(--rand-text-muted); line-height: 1.35; margin-bottom: 2mm;">
+                        Hardship advocacy, benefit checks & emergency grants.
+                    </p>
+                    <a href="https://www.nea.org.uk" target="_blank" style="color: var(--rand-sky-blue); font-size: 9pt; font-weight: 700; text-decoration: none;">nea.org.uk</a>
+                    <span style="font-size: 8.5pt; color: var(--rand-text-muted); font-weight: 600; margin-top: 1px;">0800 304 7159</span>
+                </div>
+
+                <!-- Circular Pod 2: CSE -->
+                <div class="circle-pod-white" style="border-color: #99F6E4;">
+                    <div class="circle-badge-large" style="background: var(--rand-aqua); color: var(--rand-deep-blue);">CSE</div>
+                    <h4 style="font-size: 10.5pt; color: var(--rand-deep-blue); font-weight: 700; margin-bottom: 1.5mm;">Centre for Sustainable Energy</h4>
+                    <p style="font-size: 8.2pt; color: var(--rand-text-muted); line-height: 1.35; margin-bottom: 2mm;">
+                        Home efficiency guidance, insulation & controls.
+                    </p>
+                    <a href="https://www.cse.org.uk" target="_blank" style="color: var(--rand-sky-blue); font-size: 9pt; font-weight: 700; text-decoration: none;">cse.org.uk</a>
+                    <span style="font-size: 8.5pt; color: var(--rand-text-muted); font-weight: 600; margin-top: 1px;">0800 082 2234</span>
+                </div>
+
+                <!-- Circular Pod 3: LEAP (With Enlarged Badge Ensuring Full Legibility) -->
+                <div class="circle-pod-white" style="border-color: #BBF7D0;">
+                    <div class="circle-badge-large" style="background: var(--rand-green); color: var(--rand-deep-blue);">LEAP</div>
+                    <h4 style="font-size: 10.5pt; color: var(--rand-deep-blue); font-weight: 700; margin-bottom: 1.5mm;">Local Energy Advice</h4>
+                    <p style="font-size: 8.2pt; color: var(--rand-text-muted); line-height: 1.35; margin-bottom: 2mm;">
+                        Free support service providing home energy measures.
+                    </p>
+                    <a href="https://applyforleap.org.uk" target="_blank" style="color: var(--rand-sky-blue); font-size: 9pt; font-weight: 700; text-decoration: none;">applyforleap.org.uk</a>
+                    <span style="font-size: 8.5pt; color: var(--rand-text-muted); font-weight: 600; margin-top: 1px;">0800 060 7567</span>
+                </div>
+
+            </div>
+
+            <!-- Lower Row: 2 Balanced Banners Styled on White Background -->
+            <div class="two-column" style="gap: 6mm; width: 100%; max-width: 255mm;">
+                
+                <div style="background: #F8FAFC; border: 1.5px solid var(--rand-card-border); border-left: 5px solid var(--rand-sky-blue); padding: 3.5mm 4.5mm; display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-mug-hot" style="color: var(--rand-sky-blue); font-size: 18pt; flex-shrink: 0;"></i>
+                    <div>
+                        <h4 style="font-size: 10.8pt; color: var(--rand-deep-blue); font-weight: 700; margin-bottom: 1px;">Council Warm Spaces & Hubs</h4>
+                        <p style="font-size: 9pt; color: var(--rand-text-dark); line-height: 1.4;">
+                            Find free, heated public spaces across the UK via your council website or <a href="https://www.warmwelcome.uk" target="_blank" style="color: var(--rand-sky-blue); font-weight: 700; text-decoration: underline;">warmwelcome.uk</a>.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="background: #F8FAFC; border: 1.5px solid var(--rand-card-border); border-left: 5px solid var(--rand-green); padding: 3.5mm 4.5mm; display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-hand-holding-heart" style="color: #16A34A; font-size: 18pt; flex-shrink: 0;"></i>
+                    <div>
+                        <h4 style="font-size: 10.8pt; color: var(--rand-deep-blue); font-weight: 700; margin-bottom: 1px;">Do Not Suffer in Silence</h4>
+                        <p style="font-size: 9pt; color: var(--rand-text-dark); line-height: 1.4;">
+                            Heat or eat should not be an option. Energy suppliers must offer structured, affordable repayment plans and hardship fund referrals.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="slide-footer">
+            <span>Consumer support contact directory | Services verified active for Q1 2027</span>
+            <span>Slide 21 of 22</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 22: Rand Associates: Energy Team (Final Slide - Big Logo & Strictly Company Line) -->
+    <div class="slide-container dark-slide">
+        <div class="slide-header" style="border-bottom-color: rgba(255,255,255,0.18);">
+            <div class="slide-title" style="color: #ffffff;">Rand Associates: Energy Team</div>
+            <span style="font-size: 9.5pt; color: var(--rand-green); font-weight: 700;">Training & Consultancy</span>
+        </div>
+        
+        <div class="content-area" style="justify-content: space-around; padding: 2mm 0; height: 100%;">
+            
+            <!-- Headline & Big Prominent Rand Logo (Strictly Company Line Only) -->
             <div style="width: 100%; text-align: center; display: flex; flex-direction: column; align-items: center;">
-                <img src="dark-logo-rand.png" alt="Rand Associates Logo" style="max-height: 18mm; max-width: 70mm; object-fit: contain; margin-bottom: 2.5mm; mix-blend-mode: screen;" onerror="this.src='rand-main-logo.png'; this.onerror=null;">
-                <p style="font-size: 11.5pt; color: #CBD5E1; font-weight: 500; margin-bottom: 1.5mm;">
-                    This presentation was created by the Energy Team at Rand Associates.
-                </p>
-                <p style="font-size: 13.5pt; color: var(--rand-aqua); font-weight: 700; max-width: 240mm; margin: 0 auto; line-height: 1.4;">
+                <img src="dark-logo-rand.png" alt="Rand Associates Logo" style="max-height: 32mm; max-width: 120mm; object-fit: contain; margin-bottom: 4mm; mix-blend-mode: screen;" onerror="this.src='rand-main-logo.png'; this.onerror=null;">
+                <p style="font-size: 14pt; color: var(--rand-aqua); font-weight: 600; max-width: 240mm; margin: 0 auto; line-height: 1.45;">
                     Rand Associates is a multi-discipline practice specialising in the management of social housing throughout the UK.
-                </p>
-                <p style="font-size: 10.5pt; color: #E2E8F0; max-width: 240mm; margin: 2mm auto 0 auto; line-height: 1.45;">
-                    Our Energy Advice Team provides training for social housing providers on energy, either as part of retrofit projects or to help housing officers support their residents.
                 </p>
             </div>
 
@@ -1316,7 +1843,7 @@
                     <!-- Office 1: London / Head Office -->
                     <div style="background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.18); border-top: 4px solid var(--rand-sky-blue); padding: 4mm 4.5mm; text-align: left; display: flex; flex-direction: column; justify-content: space-between; height: 38mm;">
                         <div>
-                            <h3 style="font-size: 11pt; color: #ffffff; font-weight: 700; margin-bottom: 1.5mm;">Head Office (London)</h3>
+                            <h3 style="font-size: 11pt; color: #ffffff; font-weight: 700; margin-bottom: 1.5mm;">Head Office - London</h3>
                             <p style="font-size: 9.5pt; color: #CBD5E1; line-height: 1.45;">
                                 Bancroft Place, 10 Bancroft Road,<br>
                                 Reigate, Surrey,<br>
@@ -1326,10 +1853,10 @@
                         <span style="font-size: 9pt; font-weight: 600; color: var(--rand-aqua);">South East & London Hub</span>
                     </div>
 
-                    <!-- Office 2: Northern Office (Wirral) -->
+                    <!-- Office 2: Wirral -->
                     <div style="background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.18); border-top: 4px solid var(--rand-green); padding: 4mm 4.5mm; text-align: left; display: flex; flex-direction: column; justify-content: space-between; height: 38mm;">
                         <div>
-                            <h3 style="font-size: 11pt; color: #ffffff; font-weight: 700; margin-bottom: 1.5mm;">Northern Office (Wirral)</h3>
+                            <h3 style="font-size: 11pt; color: #ffffff; font-weight: 700; margin-bottom: 1.5mm;">Wirral</h3>
                             <p style="font-size: 9.5pt; color: #CBD5E1; line-height: 1.45;">
                                 Maritime House, Maritime Business Park,<br>
                                 Dock Road, Birkenhead,<br>
@@ -1339,10 +1866,10 @@
                         <span style="font-size: 9pt; font-weight: 600; color: var(--rand-green);">Northern Regional Hub</span>
                     </div>
 
-                    <!-- Office 3: South West Office (Exeter) -->
+                    <!-- Office 3: Exeter -->
                     <div style="background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.18); border-top: 4px solid var(--rand-aqua); padding: 4mm 4.5mm; text-align: left; display: flex; flex-direction: column; justify-content: space-between; height: 38mm;">
                         <div>
-                            <h3 style="font-size: 11pt; color: #ffffff; font-weight: 700; margin-bottom: 1.5mm;">South West Office (Exeter)</h3>
+                            <h3 style="font-size: 11pt; color: #ffffff; font-weight: 700; margin-bottom: 1.5mm;">Exeter</h3>
                             <p style="font-size: 9.5pt; color: #CBD5E1; line-height: 1.45;">
                                 Unit 8 Silverdown Office Park,<br>
                                 Fair Oak Close, Exeter, Devon,<br>
@@ -1365,7 +1892,7 @@
 
         <div class="slide-footer" style="border-top-color: rgba(255,255,255,0.18); color: #94A3B8;">
             <span>Rand Associates Consultancy Services Ltd | Accurate as of November 2026</span>
-            <span>Slide 11</span>
+            <span>Slide 22 of 22</span>
         </div>
     </div>
 
