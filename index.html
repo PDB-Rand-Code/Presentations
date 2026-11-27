@@ -1,5 +1,4 @@
-
-```html
+html
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -437,10 +436,23 @@
             line-height: 1.25;
         }
 
-        /* Circular Support Pods for Slide 21 (White Background Adaptation) */
+        /* Slide 21: Circular Support Pods - Desktop Equal Dimensions */
+        .support-pods-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12mm;
+            width: 100%;
+        }
+
         .circle-pod-white {
             width: 64mm;
             height: 64mm;
+            min-width: 64mm;
+            min-height: 64mm;
+            max-width: 64mm;
+            max-height: 64mm;
+            aspect-ratio: 1 / 1;
             border-radius: 50%;
             background: #ffffff;
             border: 2.5px solid #CBD5E1;
@@ -449,14 +461,15 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 4mm 5mm;
+            padding: 3.5mm 4.5mm;
             box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+            box-sizing: border-box;
+            flex-shrink: 0;
         }
 
-        /* Large Badge Ensuring Legibility for LEAP, NEA, CSE */
         .circle-badge-large {
-            width: 54px;
-            height: 54px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -464,9 +477,24 @@
             font-weight: 800;
             font-size: 11pt;
             margin-bottom: 2mm;
-            letter-spacing: 0.2px;
+            letter-spacing: 0.3px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.12);
             flex-shrink: 0;
+        }
+
+        .circle-pod-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+
+        .circle-pod-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 1mm;
         }
 
         /* Mobile Viewport Adaptations */
@@ -507,12 +535,47 @@
                 grid-template-columns: 1fr !important;
                 gap: 14px !important;
             }
+            
+            /* Slide 21 Vertical Stacking on Mobile (Both Portrait & Landscape) */
+            .support-pods-container {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 12px !important;
+                width: 100% !important;
+            }
             .circle-pod-white {
                 width: 100% !important;
                 height: auto !important;
-                border-radius: 12px !important;
-                padding: 16px !important;
+                min-width: 0 !important;
+                min-height: 0 !important;
+                max-width: 100% !important;
+                max-height: none !important;
+                aspect-ratio: auto !important;
+                border-radius: 14px !important;
+                padding: 14px 16px !important;
+                flex-direction: row !important;
+                text-align: left !important;
+                justify-content: flex-start !important;
+                align-items: center !important;
+                gap: 14px !important;
+                box-sizing: border-box !important;
             }
+            .circle-badge-large {
+                margin-bottom: 0 !important;
+            }
+            .circle-pod-content {
+                align-items: flex-start !important;
+                text-align: left !important;
+                flex: 1 !important;
+            }
+            .circle-pod-links {
+                align-items: flex-start !important;
+                flex-direction: row !important;
+                gap: 12px !important;
+                margin-top: 4px !important;
+            }
+
             .card-box {
                 height: auto !important;
                 min-height: auto !important;
@@ -599,7 +662,7 @@
             <!-- Divider -->
             <div style="width: 100%; height: 1.5px; background: #E2E8F0;"></div>
 
-            <!-- Lower Section: Energy Advice Element (3 Focused Boxes) -->
+            <!-- Lower Section: Retrofit Department (3 Focused Boxes) -->
             <div style="width: 100%; max-width: 260mm;">
                 <div style="font-size: 11pt; font-weight: 700; color: var(--rand-deep-blue); margin-bottom: 2.5mm; display: flex; align-items: center; gap: 7px;">
                     <i class="fa-solid fa-leaf" style="color: var(--rand-green);"></i> Rand Associates Retrofit Department
@@ -992,7 +1055,7 @@
                         <div class="bar-label-top" style="color: var(--rand-deep-blue); font-size: 11.5pt;">26.20p</div>
                         <div class="bar-sublabel" style="font-size: 8.5pt; background: #EFF6FF; color: var(--rand-deep-blue); font-weight: 700;">£707 / yr</div>
                         <div class="bar-track"><div class="bar-fill" style="height: 84%; background: var(--rand-deep-blue);"></div></div>
-                        <div class="bar-period-lbl" style="font-weight: 800; font-size: 10pt;">2026</div>
+                        <div class="bar-period-lbl" style="font-weight: 800; font-size: 10pt; color: var(--rand-deep-blue);">2026</div>
                     </div>
                 </div>
             </div>
@@ -1121,7 +1184,6 @@
                         <div class="chart-header-title">
                             <i class="fa-solid fa-fire-flame-simple" style="color: #EA580C;"></i> Gas Unit Rate Trend & Monthly Total (11,500 kWh/yr Benchmark, Excl. SC)
                         </div>
-                        <span style="font-size: 9pt; color: var(--rand-text-muted); font-weight: 600;">Swipe to view progression &rarr;</span>
                     </div>
                     <div class="aligned-5col-chart">
                         <!-- Col 1: Jan 2026 -->
@@ -1535,7 +1597,7 @@
                     </p>
                     <div style="background: #ffffff; border: 1.5px solid var(--rand-card-border); padding: 2.2mm 3mm; font-size: 8.8pt; line-height: 1.4;">
                         • <strong>Electricity:</strong> Quoted 32.69p/kWh rate excludes VAT (0% VAT on bill).<br>
-                        • <strong>Gas:</strong> Continues to include 5% VAT (10.96p/kWh).
+                        • <strong>Gas:</strong> 5% VAT will be charged on top of your combined usage and standing charge for the billing period.
                     </div>
                 </div>
 
@@ -1572,15 +1634,13 @@
             </div>
 
             <!-- Priority Services Register (PSR) Feature Section -->
-            <div style="background: #F0FDF4; border: 1.5px solid #BBF7D0; border-left: 5px solid #16A34A; padding: 3mm 4mm; width: 100%; margin-top: 1mm;">
-                <div style="display: flex; align-items: center; gap: 7px; margin-bottom: 1.5mm;">
+            <div style="background: #F0FDF4; border: 1.5px solid #BBF7D0; border-left: 5px solid #16A34A; padding: 2.8mm 3.8mm; width: 100%; margin-top: 1mm;">
+                <div style="display: flex; align-items: center; gap: 7px; margin-bottom: 1.2mm;">
                     <i class="fa-solid fa-heart-pulse" style="color: #16A34A; font-size: 12pt;"></i>
                     <strong style="font-size: 10.8pt; color: #166534;">The Priority Services Register (PSR): Essential Protection for Vulnerable Residents</strong>
                 </div>
-                <p style="font-size: 9pt; color: #14532D; line-height: 1.45;">
-                    The <strong>Priority Services Register (PSR)</strong> is a free, confidential service provided by all UK energy suppliers and network operators. Eligible residents include pensionable-age customers, households with young children under 5, individuals with disabilities or long-term health conditions, and anyone relying on powered medical equipment. Registering provides:
-                </p>
-                </div>
+                <p style="font-size: 8.8pt; color: #14532D; line-height: 1.4; margin-bottom: 1.5mm;">
+                    The <strong>Priority Services Register (PSR)</strong> is a free, confidential service provided by all UK energy suppliers and network operators. Eligible residents include pensionable-age customers, households with young children under 5, individuals with disabilities or long-term health conditions, and anyone relying on powered medical equipment.
             </div>
 
         </div>
@@ -1671,7 +1731,7 @@
                 <div class="card-box highlight-green" style="padding: 4mm 4.5mm;">
                     <div>
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5mm;">
-                            <span style="font-size: 8.8pt; font-weight: 700; color: #16A34A; background: #DCFCE7; padding: 2px 7px;">Live Tariff Benchmark</span>
+                            <span style="font-size: 8.8pt; font-weight: 700; color: #16A34A; background: #DCFCE7; padding: 2px 7px;">Tariff Benchmark</span>
                             <span style="font-size: 8.8pt; font-weight: 600; color: var(--rand-text-muted);">Quoted: 26/11/2026 (Devon Area)</span>
                         </div>
                         <h3 style="font-size: 12pt; color: var(--rand-deep-blue); font-weight: 700; margin-bottom: 1.5mm;">Octopus 12M Fixed Tariff Specification</h3>
@@ -1741,7 +1801,7 @@
         </div>
     </div>
 
-    <!-- SLIDE 21: Support Directory (WHITE BACKGROUND, LARGER BADGES & EXACT LEAP PHRASING) -->
+    <!-- SLIDE 21: Support Directory (WHITE BACKGROUND, ROBUST EQUAL CIRCLES ON DESKTOP, VERTICALLY STACKED ON MOBILE) -->
     <div class="slide-container">
         <div class="slide-header">
             <div class="slide-title">Independent Support Directory</div>
@@ -1756,40 +1816,52 @@
                 </p>
             </div>
 
-            <!-- Upper Row: 3 Prominent Circular Support Pods Centered on White Background -->
-            <div style="display: flex; justify-content: center; align-items: center; gap: 14mm; width: 100%;">
+            <!-- Upper Row: Support Pods (Strictly equal-diameter circular pods on desktop, clean vertical stack on mobile) -->
+            <div class="support-pods-container">
                 
                 <!-- Circular Pod 1: NEA -->
                 <div class="circle-pod-white" style="border-color: #BFDBFE;">
                     <div class="circle-badge-large" style="background: var(--rand-sky-blue); color: #ffffff;">NEA</div>
-                    <h4 style="font-size: 10.5pt; color: var(--rand-deep-blue); font-weight: 700; margin-bottom: 1.5mm;">National Energy Action</h4>
-                    <p style="font-size: 8.2pt; color: var(--rand-text-muted); line-height: 1.35; margin-bottom: 2mm;">
-                        Hardship advocacy, benefit checks & emergency grants.
-                    </p>
-                    <a href="https://www.nea.org.uk" target="_blank" style="color: var(--rand-sky-blue); font-size: 9pt; font-weight: 700; text-decoration: none;">nea.org.uk</a>
-                    <span style="font-size: 8.5pt; color: var(--rand-text-muted); font-weight: 600; margin-top: 1px;">0800 304 7159</span>
+                    <div class="circle-pod-content">
+                        <h4 style="font-size: 10.5pt; color: var(--rand-deep-blue); font-weight: 700; margin-bottom: 1mm;">National Energy Action</h4>
+                        <p style="font-size: 8.2pt; color: var(--rand-text-muted); line-height: 1.35; margin-bottom: 1.5mm;">
+                            Hardship advocacy, benefit checks & emergency grants.
+                        </p>
+                        <div class="circle-pod-links">
+                            <a href="https://www.nea.org.uk" target="_blank" style="color: var(--rand-sky-blue); font-size: 9pt; font-weight: 700; text-decoration: none;">nea.org.uk</a>
+                            <span style="font-size: 8.5pt; color: var(--rand-text-muted); font-weight: 600;">0800 304 7159</span>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Circular Pod 2: CSE -->
                 <div class="circle-pod-white" style="border-color: #99F6E4;">
                     <div class="circle-badge-large" style="background: var(--rand-aqua); color: var(--rand-deep-blue);">CSE</div>
-                    <h4 style="font-size: 10.5pt; color: var(--rand-deep-blue); font-weight: 700; margin-bottom: 1.5mm;">Centre for Sustainable Energy</h4>
-                    <p style="font-size: 8.2pt; color: var(--rand-text-muted); line-height: 1.35; margin-bottom: 2mm;">
-                        Home efficiency guidance, insulation & controls.
-                    </p>
-                    <a href="https://www.cse.org.uk" target="_blank" style="color: var(--rand-sky-blue); font-size: 9pt; font-weight: 700; text-decoration: none;">cse.org.uk</a>
-                    <span style="font-size: 8.5pt; color: var(--rand-text-muted); font-weight: 600; margin-top: 1px;">0800 082 2234</span>
+                    <div class="circle-pod-content">
+                        <h4 style="font-size: 10.5pt; color: var(--rand-deep-blue); font-weight: 700; margin-bottom: 1mm;">Centre for Sustainable Energy</h4>
+                        <p style="font-size: 8.2pt; color: var(--rand-text-muted); line-height: 1.35; margin-bottom: 1.5mm;">
+                            Home efficiency guidance, insulation & controls.
+                        </p>
+                        <div class="circle-pod-links">
+                            <a href="https://www.cse.org.uk" target="_blank" style="color: var(--rand-sky-blue); font-size: 9pt; font-weight: 700; text-decoration: none;">cse.org.uk</a>
+                            <span style="font-size: 8.5pt; color: var(--rand-text-muted); font-weight: 600;">0800 082 2234</span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Circular Pod 3: LEAP (Enlarged Badge & Updated Phrasing) -->
+                <!-- Circular Pod 3: LEAP -->
                 <div class="circle-pod-white" style="border-color: #BBF7D0;">
                     <div class="circle-badge-large" style="background: var(--rand-green); color: var(--rand-deep-blue);">LEAP</div>
-                    <h4 style="font-size: 10.5pt; color: var(--rand-deep-blue); font-weight: 700; margin-bottom: 1.5mm;">Local Energy Advice</h4>
-                    <p style="font-size: 8.2pt; color: var(--rand-text-muted); line-height: 1.35; margin-bottom: 2mm;">
-                        Free support service providing home energy measures
-                    </p>
-                    <a href="https://applyforleap.org.uk" target="_blank" style="color: var(--rand-sky-blue); font-size: 9pt; font-weight: 700; text-decoration: none;">applyforleap.org.uk</a>
-                    <span style="font-size: 8.5pt; color: var(--rand-text-muted); font-weight: 600; margin-top: 1px;">0800 060 7567</span>
+                    <div class="circle-pod-content">
+                        <h4 style="font-size: 10.5pt; color: var(--rand-deep-blue); font-weight: 700; margin-bottom: 1mm;">Local Energy Advice</h4>
+                        <p style="font-size: 8.2pt; color: var(--rand-text-muted); line-height: 1.35; margin-bottom: 1.5mm;">
+                            Free support service providing home energy measures
+                        </p>
+                        <div class="circle-pod-links">
+                            <a href="https://applyforleap.org.uk" target="_blank" style="color: var(--rand-sky-blue); font-size: 9pt; font-weight: 700; text-decoration: none;">applyforleap.org.uk</a>
+                            <span style="font-size: 8.5pt; color: var(--rand-text-muted); font-weight: 600;">0800 060 7567</span>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -1826,11 +1898,9 @@
         </div>
     </div>
 
-    <!-- SLIDE 22: Rand Associates: Energy Team (Final Slide - Big Logo & Strictly Company Line) -->
+    <!-- SLIDE 22: Rand Associates: Energy Team (Final Slide) -->
     <div class="slide-container dark-slide">
         <div class="slide-header" style="border-bottom-color: rgba(255,255,255,0.18);">
-            <div class="slide-title" style="color: #ffffff;">Rand Associates: Energy Team</div>
-            <span style="font-size: 9.5pt; color: var(--rand-green); font-weight: 700;">Training & Consultancy</span>
         </div>
         
         <div class="content-area" style="justify-content: space-around; padding: 2mm 0; height: 100%;">
@@ -1850,7 +1920,7 @@
             <div style="width: 100%;">
                 <div class="three-card-grid" style="width: 100%; gap: 5mm;">
                     
-                    <!-- Office 1: London / Head Office -->
+                    <!-- Office 1: London -->
                     <div style="background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.18); border-top: 4px solid var(--rand-sky-blue); padding: 4mm 4.5mm; text-align: left; display: flex; flex-direction: column; justify-content: space-between; height: 38mm;">
                         <div>
                             <h3 style="font-size: 11pt; color: #ffffff; font-weight: 700; margin-bottom: 1.5mm;">London</h3>
@@ -1863,7 +1933,7 @@
                         <span style="font-size: 9pt; font-weight: 600; color: var(--rand-aqua);">South East & London Hub</span>
                     </div>
 
-                    <!-- Office 2: Northern Office (Wirral) -->
+                    <!-- Office 2: Wirral -->
                     <div style="background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.18); border-top: 4px solid var(--rand-green); padding: 4mm 4.5mm; text-align: left; display: flex; flex-direction: column; justify-content: space-between; height: 38mm;">
                         <div>
                             <h3 style="font-size: 11pt; color: #ffffff; font-weight: 700; margin-bottom: 1.5mm;">Wirral</h3>
@@ -1876,7 +1946,7 @@
                         <span style="font-size: 9pt; font-weight: 600; color: var(--rand-green);">Northern Regional Hub</span>
                     </div>
 
-                    <!-- Office 3: South West Office (Exeter) -->
+                    <!-- Office 3: Exeter -->
                     <div style="background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.18); border-top: 4px solid var(--rand-aqua); padding: 4mm 4.5mm; text-align: left; display: flex; flex-direction: column; justify-content: space-between; height: 38mm;">
                         <div>
                             <h3 style="font-size: 11pt; color: #ffffff; font-weight: 700; margin-bottom: 1.5mm;">Exeter</h3>
